@@ -106,7 +106,7 @@ $KtaLaporanAnalisis = new KtaLaporanAnalisis($connection);
                         </td>
                         <td>
                             <div class="hidden-sm hidden-xs action-buttons">
-                                <a class="blue" href="#">
+                                <a class="blue" href="kta_laporan_cetak.php?id=<?php echo $data->id_peristiwa; ?>" target="_blank">
                                     <i class="ace-icon glyphicon glyphicon-print bigger-130"></i>
                                 </a>
 
