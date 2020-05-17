@@ -244,7 +244,7 @@ if ($_SESSION['hak_akses']!='ketua') {
                         include "kta_profile.php";
                     } else if (@$_GET['pages'] == 'logout') {
                         session_destroy();
-                        echo "<script>window.location='../../login.php?akses=logout';</script>";
+                        echo "<script>window.location='../../index.php';</script>";
                     }
                     ?>
                     <!--| End: Content Area |-->
