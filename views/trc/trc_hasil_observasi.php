@@ -25,15 +25,7 @@ if (@$_GET['act'] == '') {
     <!--| End: URL Navigasi (Breadcrumb) |-->
 
     <!--| Start: Search Navigasi |-->
-    <div class="nav-search" id="nav-search">
-        <form class="form-search">
-            <span class="input-icon">
-                <input type="text" placeholder="Search ..." class="nav-search-input"
-                       id="nav-search-input" autocomplete="off"/>
-                <i class="ace-icon fa fa-search nav-search-icon"></i>
-            </span>
-        </form>
-    </div>
+    <div class="nav-search" id="nav-search"></div>
     <!--| End: Search Navigasi |-->
 
 </div>
@@ -86,7 +78,7 @@ if (@$_GET['act'] == '') {
             </td>
             <td class="hidden-480">
                 <div class="action-buttons">
-                    <a href="?pages=xyz" class="green bigger-140 show-details-btn" title="Show Details">
+                    <a href="#" class="green bigger-140 show-details-btn" title="Show Details">
                         <i class="ace-icon fa fa-angle-double-down"></i>
                         <span class="sr-only">Details</span>
                     </a>
@@ -107,7 +99,7 @@ if (@$_GET['act'] == '') {
                             <form action="" method="post" enctype="multipart/form-data">
                             <div class="table-detail" style="background-color: white">
                                 <div class="row" style="background-color: rgba(255,212,63,0.38); padding-left: 10px">
-                                    <strong># Hasil Observasi</strong> | (update terakhir: ...)
+                                    <strong># Hasil Observasi</strong>
                                 </div>
 
                                 <div class="row" style="background-color: white">&nbsp;</div>
@@ -192,7 +184,7 @@ if (@$_GET['act'] == '') {
                                             <div class="profile-info-row">
                                                 <div class="profile-info-name"></div>
                                                 <div class="profile-info-name">
-                                                    <strong>Jumlah Korban Bencana: Laki-laki</strong>
+                                                    <strong>Jumlah Korban Terdampak: Laki-laki</strong>
                                                 </div>
                                             </div>
                                             <div class="profile-info-row">
@@ -265,7 +257,7 @@ if (@$_GET['act'] == '') {
                                             <div class="profile-info-row">
                                                 <div class="profile-info-name"></div>
                                                 <div class="profile-info-name">
-                                                    <strong>Jumlah Korban Bencana: Perempuan</strong>
+                                                    <strong>Jumlah Korban Terdampak: Perempuan</strong>
                                                 </div>
                                             </div>
                                             <div class="profile-info-row">
@@ -325,6 +317,8 @@ if (@$_GET['act'] == '') {
                                                 <div class="profile-info-value">
                                                     <span>
                                                         <input type="number" class="col-xs-11 col-sm-11" name="pengungsi_perempuan" id="pengungsi_perempuan" value="<?php echo $data->pengungsi_perempuan; ?>" disabled />
+                                                        <input type="hidden" name="laporan_tahap1" id="laporan_tahap1" value="<?php echo $data->laporan_tahap1; ?>" />
+                                                        <input type="hidden" name="laporan_tahap2" id="laporan_tahap2" value="<?php echo $data->laporan_tahap2; ?>" />
                                                     </span>
                                                 </div>
                                             </div>
@@ -351,7 +345,7 @@ if (@$_GET['act'] == '') {
                                         <!--| Start: Proses Update Data tb_observasi_lapangan |-->
                                         <?php
                                         if (isset($_POST['simpan'])) {
-                                            $id_peristiwa = $connection->conn->real_escape_string($_POST['id_peristiwa']);
+                                            $id_observasi = $connection->conn->real_escape_string($_POST['id_observasi']);
                                             $korban_terdampak = $connection->conn->real_escape_string($_POST['korban_terdampak']);
                                             $korban_mengungsi = $connection->conn->real_escape_string($_POST['korban_mengungsi']);
                                             $korban_luka = $connection->conn->real_escape_string($_POST['korban_luka']);
@@ -370,8 +364,10 @@ if (@$_GET['act'] == '') {
                                             $pp_remaja = $connection->conn->real_escape_string($_POST['pp_remaja']);
                                             $pp_dewasa = $connection->conn->real_escape_string($_POST['pp_dewasa']);
                                             $pp_lansia = $connection->conn->real_escape_string($_POST['pp_lansia']);
+                                            $laporan_tahap1 = $connection->conn->real_escape_string($_POST['laporan_tahap1']);
+                                            $laporan_tahap2= $connection->conn->real_escape_string($_POST['laporan_tahap2']);
 
-                                            $TrcHasilObservasi->update_observasi($id_peristiwa, $korban_terdampak, $korban_mengungsi,
+                                            $TrcHasilObservasi->update_observasi($id_observasi, $korban_terdampak, $korban_mengungsi,
                                                 $korban_luka, $korban_meninggal, $korban_hilang, $pasca_bencana, $pengungsi_laki_laki,
                                                 $pl_balita, $pl_anak_anak, $pl_remaja, $pl_dewasa, $pl_lansia, $pengungsi_perempuan,
                                                 $pp_balita, $pp_anak_anak, $pp_remaja, $pp_dewasa, $pp_lansia);

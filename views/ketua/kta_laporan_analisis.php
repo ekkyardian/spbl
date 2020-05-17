@@ -6,9 +6,10 @@
  * Time: 16:55
  */
 
-include "../../models/ketua/KtaLaporanAnalisis.php";
+include "../../models/ketua/KtaLaporanCetak.php";
 
-$KtaLaporanAnalisis = new KtaLaporanAnalisis($connection);
+$KtaLaporanCetak = new KtaLaporanCetak($connection);
+
 ?>
 
 <div class="breadcrumbs ace-save-state" id="breadcrumbs">
@@ -24,15 +25,7 @@ $KtaLaporanAnalisis = new KtaLaporanAnalisis($connection);
     <!--| End: URL Navigasi (Breadcrumb) |-->
 
     <!--| Start: Search Navigasi |-->
-    <div class="nav-search" id="nav-search">
-        <form class="form-search">
-            <span class="input-icon">
-                <input type="text" placeholder="Search ..." class="nav-search-input"
-                       id="nav-search-input" autocomplete="off"/>
-                <i class="ace-icon fa fa-search nav-search-icon"></i>
-            </span>
-        </form>
-    </div>
+    <div class="nav-search" id="nav-search"></div>
     <!--| End: Search Navigasi |-->
 
 </div>
@@ -61,23 +54,14 @@ $KtaLaporanAnalisis = new KtaLaporanAnalisis($connection);
             <table id="dynamic-table" class="table table-striped table-bordered table-hover">
                 <thead>
                 <tr>
-                    <th class="center">
-                        <label class="pos-rel">
-                            <input type="checkbox" class="ace"/>
-                            <span class="lbl"></span>
-                        </label>
-                    </th>
+
                     <th>No</th>
                     <th>Nama Inisial</th>
                     <th>Jenis bencana</th>
                     <th class="hidden-480">Cakupan Lokasi</th>
-
-                    <th>
-                        <i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i>
-                        Waktu Peristiwa
-                    </th>
-
+                    <th>Waktu Peristiwa</th>
                     <th></th>
+                    <th style="visibility: hidden" class="no-border no-margin no-padding no-radius"></th>
                 </tr>
                 </thead>
 
@@ -85,16 +69,11 @@ $KtaLaporanAnalisis = new KtaLaporanAnalisis($connection);
                 <!--| Start: Get list Data: tb_peristiwa |-->
                 <?php
                 $no = 1;
-                $tampil_peristiwa = $KtaLaporanAnalisis->tampil_peristiwa();
+                $tampil_peristiwa = $KtaLaporanCetak->tampil_peristiwa_observasi();
                 while ($data = $tampil_peristiwa->fetch_object()) {
                     ?>
                     <tr>
-                        <td class="center">
-                            <label class="pos-rel">
-                                <input type="checkbox" class="ace"/>
-                                <span class="lbl"></span>
-                            </label>
-                        </td>
+
 
                         <td><?php echo $no++; ?></td>
                         <td><?php echo $data->nama_inisial; ?></td>
@@ -106,13 +85,18 @@ $KtaLaporanAnalisis = new KtaLaporanAnalisis($connection);
                         </td>
                         <td>
                             <div class="hidden-sm hidden-xs action-buttons">
-                                <a class="blue" href="kta_laporan_cetak.php?id=<?php echo $data->id_peristiwa; ?>" target="_blank">
-                                    <i class="ace-icon glyphicon glyphicon-print bigger-130"></i>
-                                </a>
+                                <form action="../../models/ketua/analisis_laporan.php" method="post" id="analisis_laporan">
+                                    <input type="hidden" name="id_peristiwa" id="id_peristiwa" value="<?php echo $data->id_peristiwa; ?>" />
+                                    <input type="hidden" name="laporan_tahap1" id="laporan_tahap1" value="<?php echo $data->laporan_tahap1; ?>" />
+                                    <input type="hidden" name="laporan_tahap2" id="laporan_tahap2" value="<?php echo $data->laporan_tahap2; ?>" />
+                                    <a class="blue" target="_blank" href="javascript:{}" onclick="document.getElementById('analisis_laporan').submit();">
+                                        <i class="ace-icon glyphicon glyphicon-print bigger-130"></i>
+                                    </a>
 
-                                <a href="#" class="hidden-sm hidden-xs action-buttons red">
-                                    <i class="fa fa-file-pdf-o bigger-130"></i>
-                                </a>
+                                    <a href="#" class="hidden-sm hidden-xs action-buttons red">
+                                        <i class="fa fa-file-pdf-o bigger-130"></i>
+                                    </a>
+                                </form>
                             </div>
 
                             <div class="hidden-md hidden-lg">
@@ -150,6 +134,7 @@ $KtaLaporanAnalisis = new KtaLaporanAnalisis($connection);
                                 </div>
                             </div>
                         </td>
+                        <td style="visibility: hidden" class="no-border no-margin no-padding no-radius"></td>
                     </tr>
                 <?php } ?>
                 <!--| End: Get list data: tb_peristiwa |-->

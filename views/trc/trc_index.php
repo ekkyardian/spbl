@@ -3,10 +3,15 @@ ob_start();
 require_once('../../config/+koneksi.php');
 require_once('../../models/database.php');
 include "../../models/trc/TrcHasilObservasi.php";
-
-$connection = new Database($host, $user, $pass, $database);
+include "../../models/admin/AdmProfile.php";
 
 session_start();
+$id_user = $_SESSION['id_user'];
+
+$connection = new Database($host, $user, $pass, $database);
+$AdmProfile = new AdmProfile($connection);
+
+$tampil_user = $AdmProfile->tampil_user($id_user)->fetch_object();
 
 if ($_SESSION['hak_akses']!='trc') {
     header("location: ../../login.php?akses=ditolak");
@@ -86,11 +91,11 @@ if ($_SESSION['hak_akses']!='trc') {
             <ul class="nav ace-nav">
                 <li class="light-blue dropdown-modal">
                     <a data-toggle="dropdown" href="#" class="dropdown-toggle">
-                        <img class="nav-user-photo" src="../../assets/images/avatars/user.jpg" alt="Jason's Photo"/>
+                        <img class="nav-user-photo" src="../../assets/images/avatars/<?php echo $tampil_user->foto_akun; ?>" alt="Foto Akun"/>
                         <span class="user-info">
-									<small>Welcome,</small>
-									Jason
-								</span>
+                            <small>Welcome,</small>
+                            <?php echo ucfirst($tampil_user->username); ?>
+                        </span>
 
                         <i class="ace-icon fa fa-caret-down"></i>
                     </a>
@@ -180,15 +185,6 @@ if ($_SESSION['hak_akses']!='trc') {
             </li>
 
             <li class="">
-                <a href="?pages=peristiwa_bencana">
-                    <i class="menu-icon fa fa-bell"></i>
-                    <span class="menu-text">Peristiwa Bencana</span>
-                </a>
-
-                <b class="arrow"></b>
-            </li>
-
-            <li class="">
                 <a href="?pages=hasil_observasi">
                     <i class="menu-icon fa fa-check-square-o"></i>
                     <span class="menu-text">Hasil Observasi</span>
@@ -198,43 +194,12 @@ if ($_SESSION['hak_akses']!='trc') {
             </li>
 
             <li class="">
-                <a href="?pages=laporan_analisis">
-                    <i class="menu-icon fa fa-book"></i>
-                    <span class="menu-text">Laporan Analisis</span>
+                <a href="?pages=profile">
+                    <i class="menu-icon fa fa-user"></i>
+                    <span class="menu-text">Profile</span>
                 </a>
 
                 <b class="arrow"></b>
-            </li>
-
-            <li class="">
-                <a href="#" class="dropdown-toggle">
-                    <i class="menu-icon fa fa-users"></i>
-                    <span class="menu-text">Kelola Akun</span>
-
-                    <b class="arrow fa fa-angle-down"></b>
-                </a>
-
-                <b class="arrow"></b>
-
-                <ul class="submenu">
-                    <li class="">
-                        <a href="?pages=kelola_akun">
-                            <i class="menu-icon fa fa-users"></i>
-                            Semua Akun
-                        </a>
-
-                        <b class="arrow"></b>
-                    </li>
-
-                    <li class="">
-                        <a href="?pages=profile">
-                            <i class="menu-icon glyphicon glyphicon-user"></i>
-                            Akun Pribadi
-                        </a>
-
-                        <b class="arrow"></b>
-                    </li>
-                </ul>
             </li>
         </ul>
         <!--| End: Sidebar-Main Menu |-->
@@ -254,14 +219,8 @@ if ($_SESSION['hak_akses']!='trc') {
                     <?php
                     if (@$_GET['pages'] == 'beranda' || @$_GET['pages'] == '') {
                         include "trc_beranda.php";
-                    } else if (@$_GET['pages'] == 'peristiwa_bencana') {
-                        include "trc_peristiwa_bencana.php";
                     } else if (@$_GET['pages'] == 'hasil_observasi') {
                         include "trc_hasil_observasi.php";
-                    } else if (@$_GET['pages'] == 'laporan_analisis') {
-                        include "trc_laporan_analisis.php";
-                    } else if (@$_GET['pages'] == 'kelola_akun') {
-                        include "trc_kelola_akun.php";
                     } else if (@$_GET['pages'] == 'profile') {
                         include "trc_profile.php";
                     } else if (@$_GET['pages'] == 'logout') {

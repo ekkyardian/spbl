@@ -1,0 +1,135 @@
+/*Cangkang*/
+.cangkang {
+    border-collapse: collapse;
+}
+
+.cangkang th {
+    padding: 0px 0px;
+    border-top: 1px solid #35A9DB;
+    border-left: 1px solid #35A9DB;
+    border-right: 1px solid #35A9DB;
+}
+
+.cangkang tr {
+    padding: 0px 0px;
+    border-left: 1px solid #35A9DB;
+    border-right: 1px solid #35A9DB;
+}
+
+/*Judul Laporan*/
+.judul-laporan{
+    border-collapse: collapse;
+}
+
+.judul-laporan td {
+    color: #0c1923;
+    border: 0px;
+    padding: 2px 2px;
+    text-align: center;
+    background-color: white;
+}
+
+/*Kop Laporan*/
+.kop-laporan {
+    border-collapse: collapse;
+}
+
+.kop-laporan td {
+    color: #0c1923;
+    border: 0px;
+    padding: 2px 2px;
+    text-align: center;
+    background-color: white;
+}
+
+/* Tabel Deskripsi */
+.deskripsi-table {
+    border-collapse: collapse;
+}
+
+.deskripsi-table th {
+    color: #ffffff;
+    font-size: 14px;
+    border: 0px solid #0c1923;
+    padding: 5px 5px;
+    text-align: center;
+    background-color: #e67817;
+}
+
+.deskripsi-table td {
+    color: #0c1923;
+    border-bottom: 1px solid rgba(144,146,148,0.22);
+    padding: 5px 3px;
+    text-align: left;
+    background-color: white;
+}
+
+.deskripsi-table tr {
+
+    border-left: 1px solid rgba(144,146,148,0.22);
+    border-right: 1px solid rgba(144,146,148,0.22);
+}
+
+/* Tabel Deskripsi */
+.deskripsi-combine {
+    border-collapse: collapse;
+}
+
+.deskripsi-combine th {
+    color: #ffffff;
+    font-size: 14px;
+    border: 0px solid #0c1923;
+    padding: 5px 5px;
+    text-align: center;
+    background-color: #e67817;
+}
+
+.deskripsi-combine td {
+    color: #0c1923;
+    border-bottom: 1px solid rgba(144,146,148,0.22);
+    padding: 0px 0px;
+    text-align: left;
+    background-color: white;
+}
+
+.deskripsi-combine tr {
+
+    border-left: 1px solid rgba(144,146,148,0.22);
+    border-right: 1px solid rgba(144,146,148,0.22);
+}
+
+/* Tabel Kebutuhan Logistik Satuan */
+.logistik-satuan {
+    border-collapse: collapse;
+}
+
+.logistik-satuan th {
+    color: #0c1923;
+    font-size: 14px;
+    border: 0px solid #ffb574;
+    padding: 5px 5px;
+    text-align: center;
+    background-color: #ffb574;
+}
+
+.logistik-satuan td {
+    color: #0c1923;
+    border-bottom: 1px solid rgba(144,146,148,0.22);
+    padding: 5px 3px;
+    text-align: left;
+    background-color: white;
+}
+
+.logistik-satuan tr {
+
+    border-left: 1px solid rgba(144,146,148,0.22);
+    border-right: 1px solid rgba(144,146,148,0.22);
+}
+
+/*Informasi Cetak*/
+.informasi-cetak td {
+    color: #0c1923;
+    padding: 5px 3px;
+    text-align: center;
+    background-color: rgba(255, 239, 34, 0.33);
+}
