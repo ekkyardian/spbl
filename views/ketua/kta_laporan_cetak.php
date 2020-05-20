@@ -35,26 +35,26 @@ $id_peristiwa = $_SESSION['id_peristiwa']; // Key id_persitiwa
     <!-- File php -->
 
     <!-- Personal CSS -->
-    <link rel="stylesheet" href="../../assets/css/personal-style.css" />
+    <link rel="stylesheet" href="../../assets/css/personal-style.css" type="text/css" />
 
     <!-- bootstrap & fontawesome -->
 <!--    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css"/>-->
 <!--    <link rel="stylesheet" href="../../assets/font-awesome/4.5.0/css/font-awesome.min.css"/>-->
 
     <!-- text fonts -->
-    <link rel="stylesheet" href="../../assets/css/fonts.googleapis.com.css"/>
+    <link rel="stylesheet" href="../../assets/css/fonts.googleapis.com.css" type="text/css" />
 
     <!-- ace styles -->
-    <link rel="stylesheet" href="../../assets/css/ace.min.css" class="ace-main-stylesheet" id="main-ace-style"/>
+    <link rel="stylesheet" href="../../assets/css/ace.min.css" class="ace-main-stylesheet" id="main-ace-style" type="text/css"/>
 
     <!--[if lte IE 9]>
-    <link rel="stylesheet" href="../../assets/css/ace-part2.min.css" class="ace-main-stylesheet"/>
+    <link rel="stylesheet" href="../../assets/css/ace-part2.min.css" class="ace-main-stylesheet" type="text/css"/>
     <![endif]-->
-    <link rel="stylesheet" href="../../assets/css/ace-skins.min.css"/>
-    <link rel="stylesheet" href="../../assets/css/ace-rtl.min.css"/>
+    <link rel="stylesheet" href="../../assets/css/ace-skins.min.css" type="text/css"/>
+    <link rel="stylesheet" href="../../assets/css/ace-rtl.min.css" type="text/css"/>
 
     <!--[if lte IE 9]>
-    <link rel="stylesheet" href="../../assets/css/ace-ie.min.css"/>
+    <link rel="stylesheet" href="../../assets/css/ace-ie.min.css" type="text/css"/>
     <![endif]-->
 
     <!-- ace settings handler -->

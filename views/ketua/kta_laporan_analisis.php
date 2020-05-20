@@ -85,18 +85,28 @@ $KtaLaporanCetak = new KtaLaporanCetak($connection);
                         </td>
                         <td>
                             <div class="hidden-sm hidden-xs action-buttons">
-                                <form action="../../models/ketua/analisis_laporan.php" method="post" id="analisis_laporan">
-                                    <input type="hidden" name="id_peristiwa" id="id_peristiwa" value="<?php echo $data->id_peristiwa; ?>" />
-                                    <input type="hidden" name="laporan_tahap1" id="laporan_tahap1" value="<?php echo $data->laporan_tahap1; ?>" />
-                                    <input type="hidden" name="laporan_tahap2" id="laporan_tahap2" value="<?php echo $data->laporan_tahap2; ?>" />
-                                    <a class="blue" target="_blank" href="javascript:{}" onclick="document.getElementById('analisis_laporan').submit();">
-                                        <i class="ace-icon glyphicon glyphicon-print bigger-130"></i>
-                                    </a>
-
-                                    <a href="#" class="hidden-sm hidden-xs action-buttons red">
-                                        <i class="fa fa-file-pdf-o bigger-130"></i>
-                                    </a>
-                                </form>
+                                <div class="col-sm-6 no-padding">
+                                    <form action="../../models/ketua/analisis_laporan.php" method="post" id="analisis_laporan">
+                                        <input type="hidden" name="id_peristiwa" id="id_peristiwa" value="<?php echo $data->id_peristiwa; ?>" />
+                                        <input type="hidden" name="laporan_tahap1" id="laporan_tahap1" value="<?php echo $data->laporan_tahap1; ?>" />
+                                        <input type="hidden" name="laporan_tahap2" id="laporan_tahap2" value="<?php echo $data->laporan_tahap2; ?>" />
+                                        <input type="hidden" name="tujuan" id="tujuan" value="cetak" />
+                                        <a class="blue" href="javascript:{}" onclick="document.getElementById('analisis_laporan').submit();">
+                                            <i class="ace-icon glyphicon glyphicon-print bigger-130"></i>
+                                        </a>
+                                    </form>
+                                </div>
+                                <div class="col-sm-6 no-padding">
+                                    <form action="../../models/ketua/analisis_laporan.php" method="post" id="analisis_laporan2">
+                                        <input type="hidden" name="id_peristiwa" id="id_peristiwa" value="<?php echo $data->id_peristiwa; ?>" />
+                                        <input type="hidden" name="laporan_tahap1" id="laporan_tahap1" value="<?php echo $data->laporan_tahap1; ?>" />
+                                        <input type="hidden" name="laporan_tahap2" id="laporan_tahap2" value="<?php echo $data->laporan_tahap2; ?>" />
+                                        <input type="hidden" name="tujuan" id="tujuan" value="pdf" />
+                                        <a class="red" href="javascript:{}" onclick="document.getElementById('analisis_laporan2').submit();">
+                                            <i class="fa fa-file-pdf-o bigger-130"></i>
+                                        </a>
+                                    </form>
+                                </div>
                             </div>
 
                             <div class="hidden-md hidden-lg">

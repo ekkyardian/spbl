@@ -21,6 +21,17 @@ $analisis       = new KtaLaporanCetak($connection);
 $id_peristiwa       = $_POST['id_peristiwa'];
 $id_laporan_tahap1  = $_POST['laporan_tahap1'];
 $id_laporan_tahap2  = $_POST['laporan_tahap2'];
+$tujuan             = $_POST['tujuan'];
+
+if ($tujuan == "cetak") {
+    $lokasi = "kta_laporan_cetak.php";
+}
+elseif ($tujuan == "pdf") {
+    $lokasi = "kta_laporan_pdf.php";
+}
+else {
+    $lokasi = "";
+}
 
 // Pengambilan dan pengecekan data pada tabel: tb_observasi_lapangan
 $observasi_lapangan         = $analisis->tampil_observasi_lapangan($id_peristiwa);
@@ -633,7 +644,7 @@ if ($cek_observasi_lapangan > 0) {
         }
     }
 
-    header("location:../../views/ketua/kta_laporan_cetak.php");
+    header("location:../../views/ketua/".$lokasi);
 }
 else {
 
@@ -703,7 +714,7 @@ else {
 
     $_SESSION['paket_prioritas']    = "(null)";
 
-    header("location:../../views/ketua/kta_laporan_cetak.php");
+    header("location:../../views/ketua/".$lokasi);
 }
 // End: Flowchart/Alur Kerja Sistem dalam Menyusun Laporan -------------------------------------------------------------
 ?>
