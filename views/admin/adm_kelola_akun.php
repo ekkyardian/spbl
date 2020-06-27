@@ -96,7 +96,7 @@ if (@$_GET['act'] == '') {
                 <?php
                 $no = 1;
                 $tampil_peristiwa = $AdmKelolaAkun->tampil_user();
-                while ($data = $tampil_peristiwa->fetch_object()) {
+                while ($data = $tampil_peristiwa->fetchObject()) {
                     ?>
                     <tr>
                         <td class="center"><?php echo $no++; ?></td>
@@ -156,6 +156,7 @@ if (@$_GET['act'] == '') {
                                 <a id="update-data" role="button" class="green tooltip-success" data-rel="tooltip"
                                    title="Edit" data-toggle="modal" data-target="#update"
                                    data-id_user="<?php echo $data->id_user; ?>"
+                                   data-id_line="<?php echo $data->id_line; ?>"
                                    data-nama_lengkap="<?php echo $data->nama_lengkap; ?>"
                                    data-jenis_kelamin="<?php echo $data->jenis_kelamin; ?>"
                                    data-jabatan="<?php echo $data->jabatan; ?>"
@@ -201,6 +202,7 @@ if (@$_GET['act'] == '') {
                                                title="Edit"
                                                data-toggle="modal" data-target="#update"
                                                data-id_user="<?php echo $data->id_user; ?>"
+                                               data-id_line="<?php echo $data->id_line; ?>"
                                                data-nama_lengkap="<?php echo $data->nama_lengkap; ?>"
                                                data-jenis_kelamin="<?php echo $data->jenis_kelamin; ?>"
                                                data-jabatan="<?php echo $data->jabatan; ?>"
@@ -306,6 +308,22 @@ if (@$_GET['act'] == '') {
                                 </td>
                             </tr>
                             <tr>
+                                <td class="col-xs-3 col-sm-3">LINE ID</td>
+                                <td class="col-xs-1 col-sm-1">:</td>
+                                <td>
+                                    <select class="form-control" id="id_line" name="id_line" required>
+                                        <option value="">Pilih...</option>
+                                        <option value="">(NULL)</option>
+                                        <?php
+                                        $tampil_akun_line = $AdmKelolaAkun->tampil_akun_line();
+                                        while ($data_line = $tampil_akun_line->fetchObject()) {
+                                        ?>
+                                            <option value="<?php echo $data_line->id_line; ?>"><?php echo $data_line->id_line." | ".$data_line->display_name ?></option>
+                                        <?php } ?>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
                                 <td class="col-xs-3 col-sm-3">Foto Akun</td>
                                 <td class="col-xs-1 col-sm-1">:</td>
                                 <td>
@@ -330,12 +348,13 @@ if (@$_GET['act'] == '') {
                 <!--| Start: Tambah Data |-->
                 <?php
                 if (isset($_POST['simpan'])) {
-                    $nama_lengkap  = $connection->conn->real_escape_string($_POST['nama_lengkap']);
-                    $jenis_kelamin = $connection->conn->real_escape_string($_POST['jenis_kelamin']);
-                    $jabatan       = $connection->conn->real_escape_string($_POST['jabatan']);
-                    $username      = $connection->conn->real_escape_string($_POST['username']);
-                    $password      = $connection->conn->real_escape_string($_POST['password']);
-                    $hak_akses     = $connection->conn->real_escape_string($_POST['hak_akses']);
+                    $id_line       = $_POST['id_line'];
+                    $nama_lengkap  = $_POST['nama_lengkap'];
+                    $jenis_kelamin = $_POST['jenis_kelamin'];
+                    $jabatan       = $_POST['jabatan'];
+                    $username      = $_POST['username'];
+                    $password      = $_POST['password'];
+                    $hak_akses     = $_POST['hak_akses'];
 
                     $extensi = explode(".", $_FILES['foto_akun']['name']);
                     $foto_akun = "ava-" . round(microtime(true)) . "." . end($extensi);
@@ -343,7 +362,7 @@ if (@$_GET['act'] == '') {
 
                     $upload = move_uploaded_file($sumber, "../../assets/images/avatars/" . $foto_akun);
                     if ($upload) {
-                        $AdmKelolaAkun->simpan_user($nama_lengkap,$jenis_kelamin, $jabatan, $username, $password,
+                        $AdmKelolaAkun->simpan_user($id_line, $nama_lengkap,$jenis_kelamin, $jabatan, $username, $password,
                             $hak_akses, $foto_akun);
                         header("location: adm_index.php?pages=kelola_akun");
                     }
@@ -427,6 +446,20 @@ if (@$_GET['act'] == '') {
                                 </td>
                             </tr>
                             <tr>
+                                <td class="col-xs-3 col-sm-3">LINE ID</td>
+                                <td class="col-xs-1 col-sm-1">:</td>
+                                <td>
+                                    <select class="form-control" id="id_line" name="id_line">
+                                        <?php
+                                        $tampil_akun_line = $AdmKelolaAkun->tampil_akun_line();
+                                        while ($data_line = $tampil_akun_line->fetchObject()) {
+                                            ?>
+                                            <option value="<?php echo $data_line->id_line; ?>"><?php echo $data_line->id_line." | ".$data_line->display_name ?></option>
+                                        <?php } ?>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
                                 <td class="col-xs-3 col-sm-3">Foto Akun</td>
                                 <td class="col-xs-1 col-sm-1">:</td>
                                 <td>
@@ -459,6 +492,7 @@ if (@$_GET['act'] == '') {
         <script type="text/javascript">
             $(document).on("click", "#update-data", function () {
                 var j_id_user       = $(this).data('id_user');
+                var j_id_line       = $(this).data('id_line');
                 var j_nama_lengkap  = $(this).data('nama_lengkap');
                 var jenis_kelamin   = $(this).data('jenis_kelamin');
                 var j_jabatan       = $(this).data('jabatan');
@@ -468,6 +502,7 @@ if (@$_GET['act'] == '') {
                 var j_foto_akun     = $(this).data('foto_akun');
 
                 $("#modal_update #id_user").val(j_id_user);
+                $("#modal_update #id_line").val(j_id_line);
                 $("#modal_update #nama_lengkap").val(j_nama_lengkap);
                 $("#modal_update #jenis_kelamin").val(jenis_kelamin);
                 $("#modal_update #jabatan").val(j_jabatan);
@@ -505,7 +540,7 @@ if (@$_GET['act'] == '') {
 <?php
 }
 elseif (@$_GET['act'] == 'del') {
-    $foto_awal = $AdmKelolaAkun->tampil_user($_GET['id'])->fetch_object()->foto_akun;
+    $foto_awal = $AdmKelolaAkun->tampil_user($_GET['id'])->fetchObject()->foto_akun;
     unlink("../../assets/images/avatars/".$foto_awal);
 
     $AdmKelolaAkun->hapus_user($_GET['id']);

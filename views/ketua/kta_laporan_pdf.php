@@ -23,6 +23,7 @@ $id_peristiwa = $_SESSION['id_peristiwa']; // Key id_persitiwa
 
 require_once '../../assets/mpdf/vendor/autoload.php';
 $mpdf = new \Mpdf\Mpdf();
+$mpdf->SetTitle("Laporan Analisis Bencana");
 ob_start();
 ?>
 
@@ -124,7 +125,7 @@ ob_start();
                             </tr>
                             <?php
                             $data_peristiwa = $KtaLaporanCetak->tampil_peristiwa($_SESSION['id_peristiwa'])
-                                ->fetch_object();
+                                ->fetchObject();
                             ?>
                             <tr>
                                 <td width="90">Nama Inisial</td>
@@ -814,9 +815,12 @@ ob_start();
 </body>
 </html>
 <?php
+$namaInisial = $KtaLaporanCetak->tampil_peristiwa($id_peristiwa)->fetchObject();
+$fileName = $namaInisial->nama_inisial;
+
 $html = ob_get_contents();
 ob_end_clean();
 $mpdf->WriteHTML(utf8_encode($html));
 ob_clean();
-$mpdf->Output();
+$mpdf->Output("Laporan Analisis - ".$fileName.".pdf", 'D');
 ?>

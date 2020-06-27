@@ -131,7 +131,7 @@ $id_peristiwa = $_SESSION['id_peristiwa']; // Key id_persitiwa
                                 </tr>
                                 <?php
                                 $data_peristiwa = $KtaLaporanCetak->tampil_peristiwa($_SESSION['id_peristiwa'])
-                                    ->fetch_object();
+                                    ->fetchObject();
                                 ?>
                                 <tr>
                                     <td width="90">Nama Inisial</td>

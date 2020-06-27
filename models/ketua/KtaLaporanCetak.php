@@ -110,8 +110,8 @@ class KtaLaporanCetak
         $tahun = date('Y');
         $sql_cekID = "SELECT MAX(id_analisis) AS maxID FROM tb_analisis_prioritas WHERE id_analisis LIKE '%$tahun'";
         $query_cekID = $db->query($sql_cekID) or die ($db->error);
-        $data = mysqli_fetch_array($query_cekID);
-        $id_analisis = $data['maxID'];
+        $data = $query_cekID->fetch(PDO::FETCH_NUM);
+        $id_analisis = $data[0];
 
         $no_urut = (int) substr($id_analisis, 0, 3);
         $no_urut++;
@@ -136,8 +136,8 @@ class KtaLaporanCetak
         $tahun = date('Y');
         $sql_cekID = "SELECT MAX(id_kebutuhan) AS maxID FROM tb_kebutuhan_logistik WHERE id_kebutuhan LIKE '%$tahun'";
         $query_cekID = $db->query($sql_cekID) or die ($db->error);
-        $data = mysqli_fetch_array($query_cekID);
-        $id_kebutuhan = $data['maxID'];
+        $data = $query_cekID->fetch(PDO::FETCH_NUM);
+        $id_kebutuhan = $data[0];
 
         $no_urut = (int) substr($id_kebutuhan, 0, 3);
         $no_urut++;

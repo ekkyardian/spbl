@@ -15,7 +15,7 @@ class Login {
 
     public function ambil_data($username, $password) {
         $db = $this->mysqli->conn;
-        $sql = "SELECT * FROM tb_user WHERE username='$username' AND password='$password'";
+        $sql = "SELECT * FROM tb_user WHERE username = '$username' AND password = '$password'";
         $query = $db->query($sql) or die ($db->error);
         return $query;
     }

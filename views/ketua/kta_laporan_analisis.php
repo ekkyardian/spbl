@@ -70,7 +70,7 @@ $KtaLaporanCetak = new KtaLaporanCetak($connection);
                 <?php
                 $no = 1;
                 $tampil_peristiwa = $KtaLaporanCetak->tampil_peristiwa_observasi();
-                while ($data = $tampil_peristiwa->fetch_object()) {
+                while ($data = $tampil_peristiwa->fetchObject()) {
                     ?>
                     <tr>
 

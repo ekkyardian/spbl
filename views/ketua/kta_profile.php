@@ -214,6 +214,7 @@
                                     <td class="col-xs-3 col-sm-3">Hak Akses</td>
                                     <td class="col-xs-1 col-sm-1">:</td>
                                     <td>
+                                        <input type="hidden" id="id_line" name="id_line" />
                                         <input type="hidden" id="hak_akses" name="hak_akses" />
                                         <select class="form-control" id="hak_akses_fake" name="hak_akses_fake" disabled>
                                             <option value="">Pilih...</option>
@@ -256,6 +257,7 @@
             <script type="text/javascript">
                 $(document).on("click", "#update-data", function () {
                     var j_id_user       = $(this).data('id_user');
+                    var j_id_line       = $(this).data('id_line');
                     var j_nama_lengkap  = $(this).data('nama_lengkap');
                     var jenis_kelamin   = $(this).data('jenis_kelamin');
                     var j_jabatan       = $(this).data('jabatan');
@@ -265,6 +267,7 @@
                     var j_foto_akun     = $(this).data('foto_akun');
 
                     $("#modal_update #id_user").val(j_id_user);
+                    $("#modal_update #id_line").val(j_id_line);
                     $("#modal_update #nama_lengkap").val(j_nama_lengkap);
                     $("#modal_update #jenis_kelamin").val(jenis_kelamin);
                     $("#modal_update #jabatan").val(j_jabatan);

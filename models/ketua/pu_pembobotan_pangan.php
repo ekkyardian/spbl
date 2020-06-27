@@ -13,20 +13,20 @@ include "KtaPembobotan.php";
 $connection = new Database($host, $user, $pass, $database);
 $KtaPembobotan = new KtaPembobotan($connection);
 
-$id_bobot_11                = $connection->conn->real_escape_string($_POST['id_bobot_11']);
-$korban_terdampak           = $connection->conn->real_escape_string($_POST['korban_terdampak_1']);
+$id_bobot_11                = $_POST['id_bobot_11'];
+$korban_terdampak           = $_POST['korban_terdampak_1'];
 
-$id_bobot_12                = $connection->conn->real_escape_string($_POST['id_bobot_12']);
-$korban_mengungsi           = $connection->conn->real_escape_string($_POST['korban_mengungsi_1']);
+$id_bobot_12                = $_POST['id_bobot_12'];
+$korban_mengungsi           = $_POST['korban_mengungsi_1'];
 
-$id_bobot_13                = $connection->conn->real_escape_string($_POST['id_bobot_13']);
-$korban_luka                = $connection->conn->real_escape_string($_POST['korban_luka_1']);
+$id_bobot_13                = $_POST['id_bobot_13'];
+$korban_luka                = $_POST['korban_luka_1'];
 
-$id_bobot_14                = $connection->conn->real_escape_string($_POST['id_bobot_14']);
-$korban_meninggal_hilang    = $connection->conn->real_escape_string($_POST['korban_meninggal_hilang_1']);
+$id_bobot_14                = $_POST['id_bobot_14'];
+$korban_meninggal_hilang    = $_POST['korban_meninggal_hilang_1'];
 
-$id_bobot_15                = $connection->conn->real_escape_string($_POST['id_bobot_15']);
-$pasca_bencana              = $connection->conn->real_escape_string($_POST['pasca_bencana_1']);
+$id_bobot_15                = $_POST['id_bobot_15'];
+$pasca_bencana              = $_POST['pasca_bencana_1'];
 
 $total_bobot = $korban_terdampak + $korban_mengungsi + $korban_luka + $korban_meninggal_hilang + $pasca_bencana;
 if ($total_bobot > 100) {

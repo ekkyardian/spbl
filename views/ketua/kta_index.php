@@ -11,10 +11,10 @@ $id_user = $_SESSION['id_user'];
 $connection = new Database($host, $user, $pass, $database);
 $AdmProfile = new AdmProfile($connection);
 
-$tampil_user = $AdmProfile->tampil_user($id_user)->fetch_object();
+$tampil_user = $AdmProfile->tampil_user($id_user)->fetchObject();
 
 if ($_SESSION['hak_akses']!='ketua') {
-    header("location: ../../login.php?akses=ditolak");
+    header("location: ../../index.php?akses=ditolak");
 }
 ?>
 

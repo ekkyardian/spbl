@@ -65,7 +65,7 @@ if (@$_GET['act'] == '') {
         <?php
         $no = 1;
         $tampil_observasi = $TrcHasilObservasi->tampil_observasi();
-        while ($data = $tampil_observasi->fetch_object()) {
+        while ($data = $tampil_observasi->fetchObject()) {
         ?>
         <tr>
             <td class="center"><?php echo $no++; ?></td>
@@ -345,27 +345,27 @@ if (@$_GET['act'] == '') {
                                         <!--| Start: Proses Update Data tb_observasi_lapangan |-->
                                         <?php
                                         if (isset($_POST['simpan'])) {
-                                            $id_observasi = $connection->conn->real_escape_string($_POST['id_observasi']);
-                                            $korban_terdampak = $connection->conn->real_escape_string($_POST['korban_terdampak']);
-                                            $korban_mengungsi = $connection->conn->real_escape_string($_POST['korban_mengungsi']);
-                                            $korban_luka = $connection->conn->real_escape_string($_POST['korban_luka']);
-                                            $korban_meninggal = $connection->conn->real_escape_string($_POST['korban_meninggal']);
-                                            $korban_hilang = $connection->conn->real_escape_string($_POST['korban_hilang']);
-                                            $pasca_bencana = $connection->conn->real_escape_string($_POST['pasca_bencana']);
-                                            $pengungsi_laki_laki = $connection->conn->real_escape_string($_POST['pengungsi_laki_laki']);
-                                            $pl_balita = $connection->conn->real_escape_string($_POST['pl_balita']);
-                                            $pl_anak_anak = $connection->conn->real_escape_string($_POST['pl_anak_anak']);
-                                            $pl_remaja = $connection->conn->real_escape_string($_POST['pl_remaja']);
-                                            $pl_dewasa = $connection->conn->real_escape_string($_POST['pl_dewasa']);
-                                            $pl_lansia = $connection->conn->real_escape_string($_POST['pl_lansia']);
-                                            $pengungsi_perempuan = $connection->conn->real_escape_string($_POST['pengungsi_perempuan']);
-                                            $pp_balita = $connection->conn->real_escape_string($_POST['pp_balita']);
-                                            $pp_anak_anak = $connection->conn->real_escape_string($_POST['pp_anak_anak']);
-                                            $pp_remaja = $connection->conn->real_escape_string($_POST['pp_remaja']);
-                                            $pp_dewasa = $connection->conn->real_escape_string($_POST['pp_dewasa']);
-                                            $pp_lansia = $connection->conn->real_escape_string($_POST['pp_lansia']);
-                                            $laporan_tahap1 = $connection->conn->real_escape_string($_POST['laporan_tahap1']);
-                                            $laporan_tahap2= $connection->conn->real_escape_string($_POST['laporan_tahap2']);
+                                            $id_observasi           = $_POST['id_observasi'];
+                                            $korban_terdampak       = $_POST['korban_terdampak'];
+                                            $korban_mengungsi       = $_POST['korban_mengungsi'];
+                                            $korban_luka            = $_POST['korban_luka'];
+                                            $korban_meninggal       = $_POST['korban_meninggal'];
+                                            $korban_hilang          = $_POST['korban_hilang'];
+                                            $pasca_bencana          = $_POST['pasca_bencana'];
+                                            $pengungsi_laki_laki    = $_POST['pengungsi_laki_laki'];
+                                            $pl_balita              = $_POST['pl_balita'];
+                                            $pl_anak_anak           = $_POST['pl_anak_anak'];
+                                            $pl_remaja              = $_POST['pl_remaja'];
+                                            $pl_dewasa              = $_POST['pl_dewasa'];
+                                            $pl_lansia              = $_POST['pl_lansia'];
+                                            $pengungsi_perempuan    = $_POST['pengungsi_perempuan'];
+                                            $pp_balita              = $_POST['pp_balita'];
+                                            $pp_anak_anak           = $_POST['pp_anak_anak'];
+                                            $pp_remaja              = $_POST['pp_remaja'];
+                                            $pp_dewasa              = $_POST['pp_dewasa'];
+                                            $pp_lansia              = $_POST['pp_lansia'];
+                                            $laporan_tahap1         = $_POST['laporan_tahap1'];
+                                            $laporan_tahap2         = $_POST['laporan_tahap2'];
 
                                             $TrcHasilObservasi->update_observasi($id_observasi, $korban_terdampak, $korban_mengungsi,
                                                 $korban_luka, $korban_meninggal, $korban_hilang, $pasca_bencana, $pengungsi_laki_laki,

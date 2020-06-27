@@ -31,8 +31,23 @@ class AdmPeristiwaBencana
     }
     // End: Read Data -> tb_peristiwa
 
+    // Start: Read Data -> tb_user
+    public function tampil_user($id_user=null)
+    {
+        $db = $this->mysqli->conn;
+        $sql = "SELECT * FROM tb_user WHERE hak_akses='trc'";
+
+        if ($id_user != null) {
+            $sql ." AND id_user='$id_user''";
+        }
+
+        $query = $db->query($sql) or die ($db->error);
+        return $query;
+    }
+    // End: Read Data -> tb_user
+
     // Start: Create Data -> tb_peristiwa
-    public function simpan($jenis_bencana, $nama_inisial, $cakupan_lokasi, $tanggal_peristiwa, $jam_peristiwa)
+    public function simpan($jenis_bencana, $nama_inisial, $cakupan_lokasi, $tanggal_peristiwa, $jam_peristiwa, $id_user, $status)
     {
         $db = $this->mysqli->conn;
 
@@ -40,8 +55,8 @@ class AdmPeristiwaBencana
         $tahun = date('Y');
         $sql = "SELECT MAX(id_peristiwa) AS maxID FROM tb_peristiwa WHERE id_peristiwa LIKE '%$tahun'";
         $query = $db->query($sql);
-        $data = mysqli_fetch_array($query);
-        $id_peristiwa = $data['maxID'];
+        $data = $query->fetch(PDO::FETCH_NUM);
+        $id_peristiwa = $data[0];
 
         $no_urut = (int) substr($id_peristiwa,0,3);
         $no_urut++;
@@ -50,7 +65,7 @@ class AdmPeristiwaBencana
         $new_id = sprintf("%03s", $no_urut). $char;
         // End: Penomoran ID Otomatis - Reset Berdasarkan Tahun
 
-        $db->query("INSERT INTO tb_peristiwa VALUES ('$new_id', '$jenis_bencana', '$nama_inisial', '$cakupan_lokasi', '$tanggal_peristiwa', '$jam_peristiwa')") or die ($db->error);
+        $db->query("INSERT INTO tb_peristiwa VALUES ('$new_id', '$id_user', '$jenis_bencana', '$nama_inisial', '$cakupan_lokasi', '$tanggal_peristiwa', '$jam_peristiwa', '$status')") or die ($db->error);
     }
     // End: Create Data -> tb_peristiwa
 

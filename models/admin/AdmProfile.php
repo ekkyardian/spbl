@@ -23,5 +23,9 @@ class AdmProfile
         $query  = $db->query($sql) or die ($db->error);
 
         return $query;
+
+//        $stmt = $db->prepare("SELECT * FROM tb_user WHERE id_user='$id_user'");
+//        $stmt->execute();
+//        $stmt->fetch(PDO::FETCH_ASSOC);
     }
 }

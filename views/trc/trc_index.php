@@ -11,10 +11,8 @@ $id_user = $_SESSION['id_user'];
 $connection = new Database($host, $user, $pass, $database);
 $AdmProfile = new AdmProfile($connection);
 
-$tampil_user = $AdmProfile->tampil_user($id_user)->fetch_object();
-
 if ($_SESSION['hak_akses']!='trc') {
-    header("location: ../../login.php?akses=ditolak");
+    header("location: ../../index.php?akses=ditolak");
 }
 ?>
 
@@ -61,6 +59,11 @@ if ($_SESSION['hak_akses']!='trc') {
 </head>
 
 <body class="no-skin">
+<?php
+$tampil_user = $AdmProfile->tampil_user($id_user);
+while ($data = $tampil_user->fetchObject()) {
+?>
+
 <div id="navbar" class="navbar navbar-default ace-save-state">
 
     <!--| Start: Navbar |-->
@@ -91,10 +94,10 @@ if ($_SESSION['hak_akses']!='trc') {
             <ul class="nav ace-nav">
                 <li class="light-blue dropdown-modal">
                     <a data-toggle="dropdown" href="#" class="dropdown-toggle">
-                        <img class="nav-user-photo" src="../../assets/images/avatars/<?php echo $tampil_user->foto_akun; ?>" alt="Foto Akun"/>
+                        <img class="nav-user-photo" src="../../assets/images/avatars/<?php echo $data->foto_akun; ?>" alt="Foto Akun"/>
                         <span class="user-info">
                             <small>Welcome,</small>
-                            <?php echo ucfirst($tampil_user->username); ?>
+                            <?php echo ucfirst($data->username); ?>
                         </span>
 
                         <i class="ace-icon fa fa-caret-down"></i>
@@ -252,7 +255,6 @@ if ($_SESSION['hak_akses']!='trc') {
 <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
     <i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
 </a>
-</div>
 
 <!-- basic scripts -->
 
@@ -517,5 +519,6 @@ if ($_SESSION['hak_akses']!='trc') {
 
     })
 </script>
+<?php } ?>
 </body>
 </html>

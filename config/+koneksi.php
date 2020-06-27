@@ -7,7 +7,7 @@
  */
 
 $host       = "localhost";
-$user       = "root"; // id13748548_ekky
-$pass       = ""; // _5e!$OHa%Y\RCWQ]
-$database   = "db_spbl"; // id13748548_db_spbl
+$user       = "postgres"; // MySQL: root | PostgreSQL: postgres
+$pass       = "03031995"; // MySQL: (null) | PostgreSQL: 03031995
+$database   = "db_spbl";
 ?>

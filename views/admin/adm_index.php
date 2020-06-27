@@ -10,10 +10,8 @@ $id_user = $_SESSION['id_user'];
 $connection = new Database($host, $user, $pass, $database);
 $AdmProfile = new AdmProfile($connection);
 
-$tampil_user = $AdmProfile->tampil_user($id_user)->fetch_object();
-
 if ($_SESSION['hak_akses']!='admin') {
-    header("location: ../../login.php?akses=ditolak");
+    header("location: ../../index.php?akses=ditolak");
 }
 ?>
 
@@ -60,6 +58,10 @@ if ($_SESSION['hak_akses']!='admin') {
 </head>
 
 <body class="no-skin">
+<?php
+$tampil_user = $AdmProfile->tampil_user($id_user);
+while ($data = $tampil_user->fetchObject()) {
+?>
 <div id="navbar" class="navbar navbar-default ace-save-state">
 
     <!--| Start: Navbar |-->
@@ -90,11 +92,11 @@ if ($_SESSION['hak_akses']!='admin') {
             <ul class="nav ace-nav">
                 <li class="light-blue dropdown-modal">
                     <a data-toggle="dropdown" href="#" class="dropdown-toggle">
-                        <img class="nav-user-photo" src="../../assets/images/avatars/<?php echo $tampil_user->foto_akun; ?>"
+                        <img class="nav-user-photo" src="../../assets/images/avatars/<?php echo $data->foto_akun; ?>"
                              alt="Foto Akun"/>
                         <span class="user-info">
                             <small>Welcome,</small>
-                            <?php echo ucfirst($tampil_user->username); ?>
+                            <?php echo ucfirst($data->username); ?>
                         </span>
 
                         <i class="ace-icon fa fa-caret-down"></i>
@@ -221,6 +223,15 @@ if ($_SESSION['hak_akses']!='admin') {
 
                         <b class="arrow"></b>
                     </li>
+
+                    <li class="">
+                        <a href="?pages=akun_line">
+                            <i class="menu-icon fa fa-comment"></i>
+                            Akun LINE
+                        </a>
+
+                        <b class="arrow"></b>
+                    </li>
                 </ul>
             </li>
         </ul>
@@ -247,6 +258,8 @@ if ($_SESSION['hak_akses']!='admin') {
                         include "adm_kelola_akun.php";
                     } else if (@$_GET['pages'] == 'profile') {
                         include "adm_profile.php";
+                    } else if (@$_GET['pages'] == 'akun_line') {
+                        include "adm_akun_line.php";
                     } else if (@$_GET['pages'] == 'logout') {
                         session_destroy();
                         echo "<script>window.location='../../index.php';</script>";
@@ -276,7 +289,6 @@ if ($_SESSION['hak_akses']!='admin') {
 <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
     <i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
 </a>
-</div>
 
 <!-- basic scripts -->
 
@@ -542,5 +554,6 @@ if ($_SESSION['hak_akses']!='admin') {
     })
 </script>
 
+<?php } ?>
 </body>
 </html>

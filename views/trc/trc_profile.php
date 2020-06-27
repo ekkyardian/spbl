@@ -43,7 +43,7 @@
         <div class="col-xs-12 col-sm-3 center">
             <span class="profile-picture">
                 <img class="editable img-responsive" alt="Alex's Avatar" id="avatar2"
-                     src="../../assets/images/avatars/<?php echo $tampil_user->foto_akun; ?>"
+                     src="../../assets/images/avatars/<?php echo $data->foto_akun; ?>"
                      width="150px" height="150px" />
             </span>
 
@@ -51,21 +51,22 @@
 
             <div class="width-80 label label-success label-xlg arrowed-in arrowed-in-right">
                 <div class="inline position-relative">
-                    <span class="white"><?php echo $tampil_user->nama_lengkap; ?></span>
+                    <span class="white"><?php echo $data->nama_lengkap; ?></span>
                 </div>
             </div>
 
             <div class="space space-4"></div>
 
             <a id="update-data" role="button" class="btn btn-sm btn-block btn-primary" data-toggle="modal" data-target="#update"
-               data-id_user="<?php echo $tampil_user->id_user; ?>"
-               data-nama_lengkap="<?php echo $tampil_user->nama_lengkap; ?>"
-               data-jenis_kelamin="<?php echo $tampil_user->jenis_kelamin; ?>"
-               data-jabatan="<?php echo $tampil_user->jabatan; ?>"
-               data-username="<?php echo $tampil_user->username; ?>"
-               data-password="<?php echo $tampil_user->password; ?>"
-               data-hak_akses="<?php echo $tampil_user->hak_akses; ?>"
-               data-foto_akun="<?php echo $tampil_user->foto_akun; ?>">
+               data-id_user="<?php echo $data->id_user; ?>"
+               data-id_line="<?php echo $data->id_line; ?>"
+               data-nama_lengkap="<?php echo $data->nama_lengkap; ?>"
+               data-jenis_kelamin="<?php echo $data->jenis_kelamin; ?>"
+               data-jabatan="<?php echo $data->jabatan; ?>"
+               data-username="<?php echo $data->username; ?>"
+               data-password="<?php echo $data->password; ?>"
+               data-hak_akses="<?php echo $data->hak_akses; ?>"
+               data-foto_akun="<?php echo $data->foto_akun; ?>">
                 <i class="ace-icon fa fa-pencil-square-o bigger-110"></i>
                 <span class="bigger-110">Perbarui</span>
             </a>
@@ -78,7 +79,7 @@
                     <div class="profile-info-name"> Username </div>
 
                     <div class="profile-info-value">
-                        <span><?php echo $tampil_user->username; ?></span>
+                        <span><?php echo $data->username; ?></span>
                     </div>
                 </div>
 
@@ -86,7 +87,7 @@
                     <div class="profile-info-name"> Nama Lengkap </div>
 
                     <div class="profile-info-value">
-                        <span><?php echo $tampil_user->nama_lengkap; ?></span>
+                        <span><?php echo $data->nama_lengkap; ?></span>
                     </div>
                 </div>
 
@@ -96,7 +97,7 @@
                     <div class="profile-info-value">
                         <span>
                             <?php
-                            $jk = $tampil_user->jenis_kelamin;
+                            $jk = $data->jenis_kelamin;
                             if ($jk == "L") {
                                 echo "Laki-laki";
                             }
@@ -115,7 +116,7 @@
                     <div class="profile-info-name"> Jabatan </div>
 
                     <div class="profile-info-value">
-                        <span><?php echo $tampil_user->jabatan; ?></span>
+                        <span><?php echo $data->jabatan; ?></span>
                     </div>
                 </div>
 
@@ -123,7 +124,7 @@
                     <div class="profile-info-name"> Hak Akses </div>
 
                     <div class="profile-info-value">
-                        <span><?php echo $tampil_user->hak_akses; ?></span>
+                        <span><?php echo $data->hak_akses; ?></span>
                     </div>
                 </div>
 
@@ -214,6 +215,7 @@
                                     <td class="col-xs-3 col-sm-3">Hak Akses</td>
                                     <td class="col-xs-1 col-sm-1">:</td>
                                     <td>
+                                        <input type="text" id="id_line" name="id_line" value="" />
                                         <input type="hidden" id="hak_akses" name="hak_akses" />
                                         <select class="form-control" id="hak_akses_fake" name="hak_akses_fake" disabled>
                                             <option value="">Pilih...</option>
@@ -256,6 +258,7 @@
             <script type="text/javascript">
                 $(document).on("click", "#update-data", function () {
                     var j_id_user       = $(this).data('id_user');
+                    var j_id_line       = $(this).data('id_line');
                     var j_nama_lengkap  = $(this).data('nama_lengkap');
                     var jenis_kelamin   = $(this).data('jenis_kelamin');
                     var j_jabatan       = $(this).data('jabatan');
@@ -265,6 +268,7 @@
                     var j_foto_akun     = $(this).data('foto_akun');
 
                     $("#modal_update #id_user").val(j_id_user);
+                    $("#modal_update #id_line").val(j_id_line);
                     $("#modal_update #nama_lengkap").val(j_nama_lengkap);
                     $("#modal_update #jenis_kelamin").val(jenis_kelamin);
                     $("#modal_update #jabatan").val(j_jabatan);
