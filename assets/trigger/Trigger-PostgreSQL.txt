@@ -182,10 +182,3 @@ CREATE TRIGGER trigger_stsLapLogUpdate
 	ON tb_kebutuhan_logistik
 	FOR EACH ROW
 	EXECUTE PROCEDURE function_stsLapLogUpdate();
-
-
-
-
-Assalamu'alaikum
-
-Mang Asep punten, peuting ayeuna Ekky izin teu ronda heula. Keur ngejar nyelesaiken tugas mang 
