@@ -82,7 +82,7 @@ if (@$_GET['act'] == '') {
             <!--| Start: Get list Data: tb_peristiwa |-->
             <?php
             $no = 1;
-            $tampil = $AdmPeristiwaBencana->tampil();
+            $tampil = $AdmPeristiwaBencana->tampil_polos();
             while ($data = $tampil->fetchObject()) {
             ?>
             <tr>

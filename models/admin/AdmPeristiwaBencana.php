@@ -20,7 +20,7 @@ class AdmPeristiwaBencana
     {
         $db = $this->mysqli->conn;
         $sql = "SELECT * FROM tb_peristiwa";
-        if($id !== null) {
+        if($id != null) {
             $sql .=" WHERE id_peristiwa='$id'";
         }
 
@@ -30,6 +30,15 @@ class AdmPeristiwaBencana
         return $query;
     }
     // End: Read Data -> tb_peristiwa
+
+    public function tampil_polos()
+    {
+        $db = $this->mysqli->conn;
+        $sql = "SELECT * FROM tb_peristiwa ORDER BY tanggal_peristiwa ASC";
+        $query = $db->query($sql) or die ($db->error);
+
+        return $query;
+    }
 
     // Start: Read Data -> tb_user
     public function tampil_user($id_user=null)
