@@ -362,7 +362,7 @@ if (@$_GET['act'] == '') {
 
                     $upload = move_uploaded_file($sumber, "../../assets/images/avatars/" . $foto_akun);
                     if ($upload) {
-                        $AdmKelolaAkun->simpan_user($id_line, $nama_lengkap,$jenis_kelamin, $jabatan, $username, $password,
+                        $AdmKelolaAkun->simpan_user($id_line = null, $nama_lengkap,$jenis_kelamin, $jabatan, $username, $password,
                             $hak_akses, $foto_akun);
                         header("location: adm_index.php?pages=kelola_akun");
                     }

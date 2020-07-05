@@ -108,9 +108,11 @@ CREATE TABLE tb_peristiwa (
 	id_peristiwa VARCHAR (12) PRIMARY KEY,
 	id_user VARCHAR (7) NOT NULL,
 	jenis_bencana VARCHAR (50) NOT NULL,
+	nama_inisial VARCHAR (50) NOT NULL,
 	cakupan_lokasi TEXT,
-	tanggal_peristwia DATE,
-	jam_peristiwa VARCHAR (5) 
+	tanggal_peristiwa DATE,
+	jam_peristiwa VARCHAR (5),
+	status VARCHAR (6) 
 );
 
 -- CREATE TABLE tb_sub_kriteria --
