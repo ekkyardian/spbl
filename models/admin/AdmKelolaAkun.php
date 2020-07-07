@@ -39,7 +39,7 @@ class AdmKelolaAkun
     }
 
     // Simpan data akun
-    public function simpan_user ($id_line, $nama_lengkap, $jenis_kelamin, $jabatan, $username, $password, $hak_akses,
+    public function simpan_user ($id_line=NULL, $nama_lengkap, $jenis_kelamin, $jabatan, $username, $password, $hak_akses,
                                  $foto_akun)
     {
         $db         = $this->mysqli->conn;
@@ -52,8 +52,15 @@ class AdmKelolaAkun
         $char       = "USR-";
         $new_id     = $char . sprintf("%03s", $no_urut);
 
-        $sql        = "INSERT INTO tb_user VALUES ('$new_id', '$id_line', '$nama_lengkap', '$jenis_kelamin', '$jabatan', 
+        if ($id_line != NULL) {
+            $sql        = "INSERT INTO tb_user VALUES ('$new_id', '$id_line', '$nama_lengkap', '$jenis_kelamin', '$jabatan', 
                       '$username', '$password', '$hak_akses', '$foto_akun')";
+        }
+        elseif ($id_line == NULL) {
+            $sql        = "INSERT INTO tb_user VALUES ('$new_id', NULL, '$nama_lengkap', '$jenis_kelamin', '$jabatan', 
+                      '$username', '$password', '$hak_akses', '$foto_akun')";
+        }
+
         $db->query($sql) or die ($db->error);
     }
 
