@@ -162,20 +162,35 @@ $LiffLaporanObservasi = new LiffLaporanObservasi($connection)
                             <div class="widget-main">
                                 <table>
                                     <tr>
-                                        <td rowspan="2">
-                                            <div id="profilePictureDiv">
-                                            </div>
-                                        </td>
-                                        <td>Display Name</td>
-                                        <td> &nbsp;:&nbsp; </td>
+                                        <th>userId</th>
+                                        <td id="userIdProfileField"></td>
+                                    </tr>
+                                    <tr>
+                                        <th>displayName</th>
                                         <td id="displayNameField"></td>
                                     </tr>
                                     <tr>
-                                        <td>LINE ID</td>
-                                        <td> &nbsp;:&nbsp; </td>
-                                        <td id="displayNameField"></td>
+                                        <th>statusMessage</th>
+                                        <td id="statusMessageField"></td>
                                     </tr>
                                 </table>
+
+<!--                                <table>-->
+<!--                                    <tr>-->
+<!--                                        <td rowspan="2">-->
+<!--                                            <div id="profilePictureDiv">-->
+<!--                                            </div>-->
+<!--                                        </td>-->
+<!--                                        <td>Display Name</td>-->
+<!--                                        <td> &nbsp;:&nbsp; </td>-->
+<!--                                        <td id="displayNameField"></td>-->
+<!--                                    </tr>-->
+<!--                                    <tr>-->
+<!--                                        <td>LINE ID</td>-->
+<!--                                        <td> &nbsp;:&nbsp; </td>-->
+<!--                                        <td id="displayNameField"></td>-->
+<!--                                    </tr>-->
+<!--                                </table>-->
                             </div>
                         </div>
                     </div>
