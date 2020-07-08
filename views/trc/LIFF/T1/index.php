@@ -134,8 +134,7 @@ $LiffLaporanObservasi = new LiffLaporanObservasi($connection)
 
                 <!-- PROFILE INFO -->
                 <div id="profileInfo" class="textLeft">
-                    <h2>Profile</h2>
-                    <a href="#" onclick="toggleProfileData()">Close Profile</a>
+                    Anda login sebagai:
                     <div id="profilePictureDiv">
                     </div>
                     <table>

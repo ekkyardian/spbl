@@ -179,7 +179,7 @@ function registerButtonHandlers() {
             profilePictureDiv.appendChild(img);
 
             document.getElementById('statusMessageField').textContent = profile.statusMessage;
-            toggleProfileData();
+            //toggleProfileData();
         }).catch(function(error) {
             window.alert('Error getting profile: ' + error);
         });
@@ -239,9 +239,9 @@ function toggleAccessToken() {
 /**
  * Toggle profile info field
  */
-function toggleProfileData() {
-    toggleElement('profileInfo');
-}
+// function toggleProfileData() {
+//     toggleElement('profileInfo');
+// }
 
 /**
  * Toggle scanCode result field
