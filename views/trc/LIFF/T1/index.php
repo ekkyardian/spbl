@@ -160,9 +160,14 @@ $LiffLaporanObservasi = new LiffLaporanObservasi($connection)
                         </div>
                         <div class="widget-body">
                             <div class="widget-main">
-                                <div id="profilePictureDiv">
-                                </div>
                                 <table>
+                                    <tr>
+                                        <th>Foto</th>
+                                        <td>
+                                            <div id="profilePictureDiv">
+                                            </div>
+                                        </td>
+                                    </tr>
                                     <tr>
                                         <th>userId</th>
                                         <td id="userIdProfileField"></td>
