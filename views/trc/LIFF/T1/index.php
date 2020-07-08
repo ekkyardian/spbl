@@ -85,11 +85,11 @@ $LiffLaporanObservasi = new LiffLaporanObservasi($connection)
                 <!-- ACTION BUTTONS -->
 <!--                <div class="buttonGroup">-->
 <!--                    <div class="buttonRow">-->
-<!--                        <button id="openWindowButton">Open External Window</button> <!-- Tidak diperlukan -->-->
+<!--                        <button id="openWindowButton">Open External Window</button> <!-- Tidak diperlukan -->
 <!--                    </div>-->
 <!--                    <div class="buttonRow">-->
-<!--                        <button id="scanQrCodeButton">Open QR Code Reader</button> <!-- Tidak diperlukan -->-->
-<!--                        <button id="sendMessageButton">Send Message</button> <!-- Tidak diperlukan -->-->
+<!--                        <button id="scanQrCodeButton">Open QR Code Reader</button> <!-- Tidak diperlukan -->
+<!--                        <button id="sendMessageButton">Send Message</button> <!-- Tidak diperlukan -->
 <!--                    </div>-->
 <!--                    <div class="buttonRow">-->
 <!--                        <button id="getAccessToken">Get Access Token</button>-->
@@ -100,31 +100,31 @@ $LiffLaporanObservasi = new LiffLaporanObservasi($connection)
 <!--                    </div>-->
 <!--                </div>-->
 
-                <div id="shareTargetPickerMessage"></div>
+<!--                <div id="shareTargetPickerMessage"></div>-->
 
                 <!-- ACCESS TOKEN DATA -->
-                <div id="accessTokenData" class="hidden textLeft">
-                    <h2>Access Token</h2>
-                    <a href="#" onclick="toggleAccessToken()">Close Access Token</a>
-                    <table>
-                        <tr>
-                            <th>accessToken</th>
-                            <td id="accessTokenField"></td>
-                        </tr>
-                    </table>
-                </div>
+<!--                <div id="accessTokenData" class="hidden textLeft">-->
+<!--                    <h2>Access Token</h2>-->
+<!--                    <a href="#" onclick="toggleAccessToken()">Close Access Token</a>-->
+<!--                    <table>-->
+<!--                        <tr>-->
+<!--                            <th>accessToken</th>-->
+<!--                            <td id="accessTokenField"></td>-->
+<!--                        </tr>-->
+<!--                    </table>-->
+<!--                </div>-->
 
                 <!-- SCAN QR RESULT | Tidak diperlukan -->
-                <div id="scanQr" class="hidden textLeft">
-                    <h2>QR Code reader</h2>
-                    <a href="#" onclick="toggleQrCodeReader()">Close QR Code Reader Result</a>
-                    <table>
-                        <tr>
-                            <th>scanCode Result</th>
-                            <td id="scanQrField"></td>
-                        </tr>
-                    </table>
-                </div>
+<!--                <div id="scanQr" class="hidden textLeft">-->
+<!--                    <h2>QR Code reader</h2>-->
+<!--                    <a href="#" onclick="toggleQrCodeReader()">Close QR Code Reader Result</a>-->
+<!--                    <table>-->
+<!--                        <tr>-->
+<!--                            <th>scanCode Result</th>-->
+<!--                            <td id="scanQrField"></td>-->
+<!--                        </tr>-->
+<!--                    </table>-->
+<!--                </div>-->
 
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-lg-12">
@@ -157,7 +157,7 @@ $LiffLaporanObservasi = new LiffLaporanObservasi($connection)
                                                     <td id="userIdProfileField"></td>
                                                 </tr>
                                                 <tr>
-                                                    <th>Name:</th>
+                                                    <th>Display Name:</th>
                                                 </tr>
                                                 <tr>
                                                     <td id="displayNameField"></td>
@@ -210,6 +210,7 @@ $LiffLaporanObservasi = new LiffLaporanObservasi($connection)
                                     Korban Terdampak
                                 </label>
                                 <div class="input-group">
+                                    <input type="text" id="lineId" />
                                     <input type="number" class="form-control input-mask-product col-xs-11 col-sm-11 col-lg-11"
                                            id="korban_terdampak" name="korban_terdampak" value="<?php echo $tampil_observasi->korban_terdampak; ?>" />
                                     <span class="input-group-addon">
@@ -267,7 +268,6 @@ $LiffLaporanObservasi = new LiffLaporanObservasi($connection)
                                 <div class="input-group">
                                     <select class="form-control col-xs-12 col-sm-12 col-lg-12" name="pasca_bencana" id="pasca_bencana">
                                         <option value="<?php echo $tampil_observasi->pasca_bencana; ?>"><?php echo $tampil_observasi->pasca_bencana; ?></option>
-                                        <option value=""></option>
                                         <option value="Normal">Normal</option>
                                         <option value="Waspada">Waspada</option>
                                         <option value="Siaga">Siaga</option>
