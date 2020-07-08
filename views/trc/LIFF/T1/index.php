@@ -81,7 +81,6 @@ $LiffLaporanObservasi = new LiffLaporanObservasi($connection)
 
             <!-- Content -->
             <div id="liffAppContent">
-
                 <!-- ACTION BUTTONS -->
 <!--                <div class="buttonGroup">-->
 <!--                    <div class="buttonRow">-->
@@ -126,11 +125,11 @@ $LiffLaporanObservasi = new LiffLaporanObservasi($connection)
 <!--                    </table>-->
 <!--                </div>-->
 
+                <input type="text" id="lineId" value="" />
+
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-lg-12">
                         <div class="page-content">
-
-                            <div class="space-10"></div>
 
                             <!-- PROFILE INFO -->
                             <div id="profileInfo" class="textLeft">
@@ -210,7 +209,6 @@ $LiffLaporanObservasi = new LiffLaporanObservasi($connection)
                                     Korban Terdampak
                                 </label>
                                 <div class="input-group">
-                                    <input type="text" id="lineId" />
                                     <input type="number" class="form-control input-mask-product col-xs-11 col-sm-11 col-lg-11"
                                            id="korban_terdampak" name="korban_terdampak" value="<?php echo $tampil_observasi->korban_terdampak; ?>" />
                                     <span class="input-group-addon">
