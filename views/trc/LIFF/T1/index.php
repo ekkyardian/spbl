@@ -161,7 +161,7 @@ $LiffLaporanObservasi = new LiffLaporanObservasi($connection)
                             <div id="profileInfo" class="textLeft">
                                 <div class="widget-box">
                                     <div class="widget-header">
-                                        <h4 class="smaller">Profile</h4>
+                                        <h4 class="smaller">LINE Profile</h4>
                                     </div>
                                     <div class="widget-body">
                                         <div class="widget-main">
@@ -171,6 +171,9 @@ $LiffLaporanObservasi = new LiffLaporanObservasi($connection)
                                                         <div id="profilePictureDiv">
                                                         </div>
                                                     </td>
+                                                </tr>
+                                                <tr>
+                                                    <td rowspan="5">&nbsp;&nbsp;</td>
                                                 </tr>
                                                 <tr>
                                                     <th>LINE Id:</th>
