@@ -104,12 +104,12 @@ function displayIsInClientInfo() {
  */
 function registerButtonHandlers() {
     // openWindow call
-    document.getElementById('openWindowButton').addEventListener('click', function() {
-        liff.openWindow({
-            url: 'https://line.me',
-            external: true
-        });
-    });
+    // document.getElementById('openWindowButton').addEventListener('click', function() {
+    //     liff.openWindow({
+    //         url: 'https://line.me',
+    //         external: true
+    //     });
+    // });
 
     // closeWindow call
     document.getElementById('closeWindowButton').addEventListener('click', function() {
@@ -121,47 +121,47 @@ function registerButtonHandlers() {
     });
 
     // sendMessages call
-    document.getElementById('sendMessageButton').addEventListener('click', function() {
-        if (!liff.isInClient()) {
-            sendAlertIfNotInClient();
-        } else {
-            liff.sendMessages([{
-                'type': 'text',
-                'text': "You've successfully sent a message! Hooray!"
-            }]).then(function() {
-                window.alert('Message sent');
-            }).catch(function(error) {
-                window.alert('Error sending message: ' + error);
-            });
-        }
-    });
+    // document.getElementById('sendMessageButton').addEventListener('click', function() {
+    //     if (!liff.isInClient()) {
+    //         sendAlertIfNotInClient();
+    //     } else {
+    //         liff.sendMessages([{
+    //             'type': 'text',
+    //             'text': "You've successfully sent a message! Hooray!"
+    //         }]).then(function() {
+    //             window.alert('Message sent');
+    //         }).catch(function(error) {
+    //             window.alert('Error sending message: ' + error);
+    //         });
+    //     }
+    // });
 
     // scanCode call
-    document.getElementById('scanQrCodeButton').addEventListener('click', function() {
-        if (!liff.isInClient()) {
-            sendAlertIfNotInClient();
-        } else {
-            liff.scanCode().then(result => {
-                // e.g. result = { value: "Hello LIFF app!" }
-                const stringifiedResult = JSON.stringify(result);
-                document.getElementById('scanQrField').textContent = stringifiedResult;
-                toggleQrCodeReader();
-            }).catch(err => {
-                document.getElementById('scanQrField').textContent = "scanCode failed!";
-            });
-        }
-    });
+    // document.getElementById('scanQrCodeButton').addEventListener('click', function() {
+    //     if (!liff.isInClient()) {
+    //         sendAlertIfNotInClient();
+    //     } else {
+    //         liff.scanCode().then(result => {
+    //             // e.g. result = { value: "Hello LIFF app!" }
+    //             const stringifiedResult = JSON.stringify(result);
+    //             document.getElementById('scanQrField').textContent = stringifiedResult;
+    //             toggleQrCodeReader();
+    //         }).catch(err => {
+    //             document.getElementById('scanQrField').textContent = "scanCode failed!";
+    //         });
+    //     }
+    // });
 
     // get access token
-    document.getElementById('getAccessToken').addEventListener('click', function() {
-        if (!liff.isLoggedIn() && !liff.isInClient()) {
-            alert('To get an access token, you need to be logged in. Please tap the "login" button below and try again.');
-        } else {
-            const accessToken = liff.getAccessToken();
-            document.getElementById('accessTokenField').textContent = accessToken;
-            toggleAccessToken();
-        }
-    });
+    // document.getElementById('getAccessToken').addEventListener('click', function() {
+    //     if (!liff.isLoggedIn() && !liff.isInClient()) {
+    //         alert('To get an access token, you need to be logged in. Please tap the "login" button below and try again.');
+    //     } else {
+    //         const accessToken = liff.getAccessToken();
+    //         document.getElementById('accessTokenField').textContent = accessToken;
+    //         toggleAccessToken();
+    //     }
+    // });
 
     // get profile call
     //document.getElementById('getProfileButton').addEventListener('click', function() {
@@ -187,25 +187,25 @@ function registerButtonHandlers() {
         });
     //});
 
-    document.getElementById('shareTargetPicker').addEventListener('click', function() {
-        if (!liff.isInClient()) {
-            sendAlertIfNotInClient();
-        } else {
-            if (liff.isApiAvailable('shareTargetPicker')) {
-                liff.shareTargetPicker([
-                    {
-                        'type': 'text',
-                        'text': 'Hello, World!'
-                    }
-                ])
-                    .then(
-                        document.getElementById('shareTargetPickerMessage').textContent = "Share target picker was launched."
-                    ).catch(function(res) {
-                    document.getElementById('shareTargetPickerMessage').textContent = "Failed to launch share target picker."
-                })
-            }
-        }
-    })
+    // document.getElementById('shareTargetPicker').addEventListener('click', function() {
+    //     if (!liff.isInClient()) {
+    //         sendAlertIfNotInClient();
+    //     } else {
+    //         if (liff.isApiAvailable('shareTargetPicker')) {
+    //             liff.shareTargetPicker([
+    //                 {
+    //                     'type': 'text',
+    //                     'text': 'Hello, World!'
+    //                 }
+    //             ])
+    //                 .then(
+    //                     document.getElementById('shareTargetPickerMessage').textContent = "Share target picker was launched."
+    //                 ).catch(function(res) {
+    //                 document.getElementById('shareTargetPickerMessage').textContent = "Failed to launch share target picker."
+    //             })
+    //         }
+    //     }
+    // });
 
     // login call, only when external browser is used
     document.getElementById('liffLoginButton').addEventListener('click', function() {

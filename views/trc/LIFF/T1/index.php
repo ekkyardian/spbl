@@ -83,23 +83,22 @@ $LiffLaporanObservasi = new LiffLaporanObservasi($connection)
             <div id="liffAppContent">
 
                 <!-- ACTION BUTTONS -->
-                <div class="buttonGroup">
-                    <div class="buttonRow">
-                        <button id="openWindowButton">Open External Window</button> <!-- Tidak diperlukan -->
-                        <button id="closeWindowButton">Close LIFF App</button>
-                    </div>
-                    <div class="buttonRow">
-                        <button id="scanQrCodeButton">Open QR Code Reader</button> <!-- Tidak diperlukan -->
-                        <button id="sendMessageButton">Send Message</button> <!-- Tidak diperlukan -->
-                    </div>
-                    <div class="buttonRow">
-                        <button id="getAccessToken">Get Access Token</button>
-                        <button id="getProfileButton">Get Profile</button>
-                    </div>
-                    <div class="buttonRow">
-                        <button id="shareTargetPicker">Open Share Target Picker</button>
-                    </div>
-                </div>
+<!--                <div class="buttonGroup">-->
+<!--                    <div class="buttonRow">-->
+<!--                        <button id="openWindowButton">Open External Window</button> <!-- Tidak diperlukan -->-->
+<!--                    </div>-->
+<!--                    <div class="buttonRow">-->
+<!--                        <button id="scanQrCodeButton">Open QR Code Reader</button> <!-- Tidak diperlukan -->-->
+<!--                        <button id="sendMessageButton">Send Message</button> <!-- Tidak diperlukan -->-->
+<!--                    </div>-->
+<!--                    <div class="buttonRow">-->
+<!--                        <button id="getAccessToken">Get Access Token</button>-->
+<!--                        <button id="getProfileButton">Get Profile</button>-->
+<!--                    </div>-->
+<!--                    <div class="buttonRow">-->
+<!--                        <button id="shareTargetPicker">Open Share Target Picker</button>-->
+<!--                    </div>-->
+<!--                </div>-->
 
                 <div id="shareTargetPickerMessage"></div>
 
@@ -130,6 +129,9 @@ $LiffLaporanObservasi = new LiffLaporanObservasi($connection)
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-lg-12">
                         <div class="page-content">
+
+                            <div class="space-10"></div>
+
                             <!-- PROFILE INFO -->
                             <div id="profileInfo" class="textLeft">
                                 <div class="widget-box">
@@ -171,6 +173,10 @@ $LiffLaporanObservasi = new LiffLaporanObservasi($connection)
                                 <button id="liffLoginButton">Log in</button>
                                 <button id="liffLogoutButton">Log out</button>
                             </div>
+
+<!--                            <div class="page-header">&nbsp;</div>-->
+
+                            <div class="space-10"></div>
 
                             <?php
                             if(isset($_GET['action'])) {
@@ -271,10 +277,18 @@ $LiffLaporanObservasi = new LiffLaporanObservasi($connection)
 
                                 <div class="space-10"></div>
 
-                                <button class="btn btn-primary" id="simpan" name="simpan">
-                                    <i class="ace-icon glyphicon glyphicon-ok bigger-120"></i>
-                                    Kirim
-                                </button>
+                                <div class="buttonGroup">
+                                    <div class="buttonRow">
+                                        <button class="btn btn-primary" id="simpan" name="simpan">
+                                            <i class="ace-icon glyphicon glyphicon-ok bigger-120"></i>
+                                            Kirim
+                                        </button>
+                                        <button class="btn btn-danger" id="closeWindowButton">
+                                            <i class="ace-icon glyphicon glyphicon-remove bigger-120"></i>
+                                            Batal
+                                        </button>
+                                    </div>
+                                </div>
 
                                 <!-- Proses Simpan Data -->
                                 <?php
@@ -293,6 +307,8 @@ $LiffLaporanObservasi = new LiffLaporanObservasi($connection)
                                 }
                                 ?>
                             </form>
+
+                            <div class="space-10"></div>
 
                             <div id="statusMessage">
                                 <div id="isInClientMessage"></div>
