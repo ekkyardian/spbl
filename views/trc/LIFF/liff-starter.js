@@ -164,7 +164,7 @@ function registerButtonHandlers() {
     });
 
     // get profile call
-    document.getElementById('getProfileButton').addEventListener('click', function() {
+    //document.getElementById('getProfileButton').addEventListener('click', function() {
         liff.getProfile().then(function(profile) {
             document.getElementById('userIdProfileField').textContent = profile.userId;
             document.getElementById('displayNameField').textContent = profile.displayName;
@@ -183,7 +183,7 @@ function registerButtonHandlers() {
         }).catch(function(error) {
             window.alert('Error getting profile: ' + error);
         });
-    });
+    //});
 
     document.getElementById('shareTargetPicker').addEventListener('click', function() {
         if (!liff.isInClient()) {
