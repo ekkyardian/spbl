@@ -176,8 +176,8 @@ function registerButtonHandlers() {
             const img = document.createElement('img');
             img.src = profile.pictureUrl;
             img.alt = 'Profile Picture';
-            img.style.height  = '50px';
-            img.style.width   = '50px';
+            img.style.height  = '65px';
+            img.style.width   = '65px';
             profilePictureDiv.appendChild(img);
 
             //document.getElementById('statusMessageField').textContent = profile.statusMessage;
