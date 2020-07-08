@@ -125,7 +125,12 @@ $LiffLaporanObservasi = new LiffLaporanObservasi($connection)
 <!--                    </table>-->
 <!--                </div>-->
 
-                <input type="text" id="lineId" value="" />
+                <input type="text" id="lineId" name="lineId" value="" />
+
+                <?php
+                $getLineId = $_POST['lineId'];
+                echo "Id nya adalah: ".$getLineId;
+                ?>
 
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-lg-12">
