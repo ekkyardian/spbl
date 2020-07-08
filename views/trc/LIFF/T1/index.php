@@ -73,7 +73,7 @@ $LiffLaporanObservasi = new LiffLaporanObservasi($connection)
                 <div class="col-xs-12 col-sm-12 col-lg-12">
                     <div class="well">
                         <h4 class="blue smaller lighter">Laporan Tahap Ke-1</h4>
-                        Masukkan/update data laporan hasil observasi tahap ke-1 sesuai colom berikut. Pastikan data yang diinput
+                        Masukkan/update data laporan hasil observasi tahap ke-1 sesuai kolom berikut. Pastikan data yang diinput
                         valid dan sesuai dengan data yang tejadi di lokasi bencana.
 
 <!--                        <br />-->
@@ -88,25 +88,25 @@ $LiffLaporanObservasi = new LiffLaporanObservasi($connection)
             <div id="liffAppContent">
 
                 <!-- ACTION BUTTONS -->
-                <div class="buttonGroup">
-                    <div class="buttonRow">
-                        <button id="openWindowButton">Open External Window</button> <!-- Tidak diperlukan -->
-                        <button id="closeWindowButton">Close LIFF App</button>
-                    </div>
-                    <div class="buttonRow">
-                        <button id="scanQrCodeButton">Open QR Code Reader</button> <!-- Tidak diperlukan -->
-                        <button id="sendMessageButton">Send Message</button> <!-- Tidak diperlukan -->
-                    </div>
-                    <div class="buttonRow">
-                        <button id="getAccessToken">Get Access Token</button>
-                        <button id="getProfileButton">Get Profile</button>
-                    </div>
-                    <div class="buttonRow">
-                        <button id="shareTargetPicker">Open Share Target Picker</button>
-                    </div>
-                </div>
+<!--                <div class="buttonGroup">-->
+<!--                    <div class="buttonRow">-->
+<!--                        <button id="openWindowButton">Open External Window</button> <!-- Tidak diperlukan -->-->
+<!--                        <button id="closeWindowButton">Close LIFF App</button>-->
+<!--                    </div>-->
+<!--                    <div class="buttonRow">-->
+<!--                        <button id="scanQrCodeButton">Open QR Code Reader</button> <!-- Tidak diperlukan -->-->
+<!--                        <button id="sendMessageButton">Send Message</button> <!-- Tidak diperlukan -->-->
+<!--                    </div>-->
+<!--                    <div class="buttonRow">-->
+<!--                        <button id="getAccessToken">Get Access Token</button>-->
+<!--                        <button id="getProfileButton">Get Profile</button>-->
+<!--                    </div>-->
+<!--                    <div class="buttonRow">-->
+<!--                        <button id="shareTargetPicker">Open Share Target Picker</button>-->
+<!--                    </div>-->
+<!--                </div>-->
 
-                <div id="shareTargetPickerMessage"></div>
+<!--                <div id="shareTargetPickerMessage"></div>-->
 
                 <!-- ACCESS TOKEN DATA -->
                 <div id="accessTokenData" class="hidden textLeft">
@@ -131,26 +131,6 @@ $LiffLaporanObservasi = new LiffLaporanObservasi($connection)
                         </tr>
                     </table>
                 </div>
-
-<!--                <div>-->
-<!--                    Anda login sebagai:-->
-<!--                    <div id="profilePictureDiv">-->
-<!--                    </div>-->
-<!--                    <table>-->
-<!--                        <tr>-->
-<!--                            <th>userId</th>-->
-<!--                            <td id="userIdProfileField"></td>-->
-<!--                        </tr>-->
-<!--                        <tr>-->
-<!--                            <th>displayName</th>-->
-<!--                            <td id="displayNameField"></td>-->
-<!--                        </tr>-->
-<!--                        <tr>-->
-<!--                            <th>statusMessage</th>-->
-<!--                            <td id="statusMessageField"></td>-->
-<!--                        </tr>-->
-<!--                    </table>-->
-<!--                </div>-->
 
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-lg-12">
