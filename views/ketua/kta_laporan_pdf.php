@@ -23,7 +23,6 @@ $id_peristiwa = $_SESSION['id_peristiwa']; // Key id_persitiwa
 
 require_once '../../assets/mpdf/vendor/autoload.php';
 $mpdf = new \Mpdf\Mpdf();
-$mpdf->SetTitle("Laporan Analisis Bencana");
 ob_start();
 ?>
 

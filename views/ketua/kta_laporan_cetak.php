@@ -16,7 +16,7 @@ $connection = new Database($host, $user, $pass, $database);
 $KtaLaporanCetak = new KtaLaporanCetak($connection);
 
 if ($_SESSION['hak_akses']!='ketua') {
-    header("location: ../../login.php?akses=ditolak");
+    header("location: ../../index.php?akses=ditolak");
 }
 
 $id_peristiwa = $_SESSION['id_peristiwa']; // Key id_persitiwa

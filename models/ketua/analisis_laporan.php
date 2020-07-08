@@ -352,7 +352,7 @@ $_SESSION['id_peristiwa'] = $id_peristiwa;
 // (((--- LAPORAN TAHAP 1 ---)))
 // Cek ketersediaan data dan validitas Laporan Tahap #1 (laporan_tahap1 --> tb_observasi_lapangan):
 // Jika variabel perhitungan laporan Tahap #1 TIDAK TERSEDIA (laporan_tahap1 --> tb_observasi_lapangan)
-if ($cek_laporan_tahap1 = 0) {
+if ($id_laporan_tahap1 == 0) {
 
     // Tampilkan pesan bahwa variabel perhitungan untuk Laporan Tahap #1 TIDAK TERSEDIA/NULL
     $_SESSION['paket_prioritas']    = "(null)";
@@ -371,7 +371,7 @@ if ($cek_laporan_tahap1 = 0) {
 
 // Jika variabel perhitungan laporan Tahap #1 TERSEDIA & BELUM PERNAH dilakukan perhitungan sebelumnya
 // (laporan_tahap1 --> tb_observasi_lapangan)
-elseif ($cek_laporan_tahap1 = 1) {
+elseif ($id_laporan_tahap1 == 1) {
 
     // Lakukan perhitungan untuk Laporan Tahap #1 dan Lakukan INSERT (tb_analisis_prioritas)
     $analisis->simpan_analisis_prioritas($id_peristiwa, $nilai_paket_pangan,
@@ -393,7 +393,7 @@ elseif ($cek_laporan_tahap1 = 1) {
 
 // Jika variabel perhitungan laporan Tahap #1 TERSEDIA & SUDAH PERNAH dilakukan perhitungan sebelumnya, akan tetapi
 // data yang digunakan pada perhitungan sebelumnya mengalami perubahan data (laporan_tahap1 --> tb_observasi_lapangan)
-elseif ($cek_laporan_tahap1 = 2) {
+elseif ($id_laporan_tahap1 == 2) {
 
     // Lakukan perhitungan untuk Laporan Tahap #1 dan Lakukan UPDATE (tb_analisis_prioritas)
     $analisis->update_analisis_prioritas($id_peristiwa, $nilai_paket_pangan, $nilai_paket_sandang,
@@ -414,7 +414,7 @@ elseif ($cek_laporan_tahap1 = 2) {
 }
 
 // Jika hasil perhitungan Laporan Tahap #1 tersedia dan data tersebut valid (laporan_tahap1 --> tb_observasi_lapangan)
-elseif ($cek_laporan_tahap1 = 3) {
+elseif ($id_laporan_tahap1 == 3) {
 
     // Ambil data perhitungan dari database (tb_analisis_prioritas)
     $_SESSION['paket_prioritas']    = $paket_prioritas;
@@ -453,7 +453,7 @@ else {
 // (((--- LAPORAN TAHAP 2 ---)))
 // Cek ketersediaan data dan validitas Laporan Tahap #1 (laporan_tahap1 --> tb_observasi_lapangan):
 // Jika variabel perhitungan laporan Tahap #1 TIDAK TERSEDIA (laporan_tahap1 --> tb_observasi_lapangan)
-if ($cek_laporan_tahap2 = 0) {
+if ($id_laporan_tahap2 == 0) {
 
     // Tampilkan pesan bahwa variabel perhitungan untuk Laporan Tahap #1 TIDAK TERSEDIA
     $_SESSION['pl']                 = "(null)";
@@ -509,7 +509,7 @@ if ($cek_laporan_tahap2 = 0) {
 
 // Jika variabel perhitungan laporan Tahap #2 TERSEDIA & BELUM PERNAH dilakukan perhitungan sebelumnya
 // (laporan_tahap1 --> tb_observasi_lapangan)
-elseif ($cek_laporan_tahap2 = 1) {
+elseif ($id_laporan_tahap2 == 1) {
 
     // Lakukan perhitungan untuk Laporan Tahap #2 dan Lakukan INSERT (tb_analisis_prioritas)
     $analisis->simpan_kebutuhan_logistik($id_peristiwa, $beras, $telur, $mie_instan, $air_mineral,
@@ -571,7 +571,7 @@ elseif ($cek_laporan_tahap2 = 1) {
 
 // Jika variabel perhitungan laporan Tahap #2 TERSEDIA & SUDAH PERNAH dilakukan perhitungan sebelumnya, akan tetapi
 // data yang digunakan pada perhitungan sebelumnya mengalami perubahan data (laporan_tahap1 --> tb_observasi_lapangan)
-elseif ($cek_laporan_tahap2 = 2) {
+elseif ($id_laporan_tahap2 == 2) {
 
     // Lakukan perhitungan untuk Laporan Tahap #2 dan Lakukan UPDATE (tb_analisis_prioritas)
     $analisis->update_kebutuhan_logistik($id_peristiwa, $beras, $telur, $mie_instan, $air_mineral,
@@ -631,7 +631,7 @@ elseif ($cek_laporan_tahap2 = 2) {
 }
 
 // Jika hasil perhitungan Laporan Tahap #2 tersedia dan data tersebut valid (laporan_tahap1 --> tb_observasi_lapangan)
-elseif ($cek_laporan_tahap2 = 3) {
+elseif ($id_laporan_tahap2 == 3) {
 
     // Ambil data perhitungan dari database (tb_analisis_prioritas)
     $_SESSION['pl']                 = $jml_pl;
