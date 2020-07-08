@@ -131,31 +131,60 @@ $LiffLaporanObservasi = new LiffLaporanObservasi($connection)
                         </tr>
                     </table>
                 </div>
-
-                <!-- PROFILE INFO -->
-                <div id="profileInfo" class="textLeft">
-                    Anda login sebagai:
-                    <div id="profilePictureDiv">
-                    </div>
-                    <table>
-                        <tr>
-                            <th>userId</th>
-                            <td id="userIdProfileField"></td>
-                        </tr>
-                        <tr>
-                            <th>displayName</th>
-                            <td id="displayNameField"></td>
-                        </tr>
-                        <tr>
-                            <th>statusMessage</th>
-                            <td id="statusMessageField"></td>
-                        </tr>
-                    </table>
-                </div>
+<!--                    Anda login sebagai:-->
+<!--                    <div id="profilePictureDiv">-->
+<!--                    </div>-->
+<!--                    <table>-->
+<!--                        <tr>-->
+<!--                            <th>userId</th>-->
+<!--                            <td id="userIdProfileField"></td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <th>displayName</th>-->
+<!--                            <td id="displayNameField"></td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <th>statusMessage</th>-->
+<!--                            <td id="statusMessageField"></td>-->
+<!--                        </tr>-->
+<!--                    </table>-->
+<!--                </div>-->
 
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-lg-12">
+
                         <div class="page-content">
+
+                            <form action="" method="post" enctype="multipart/form-data">
+                                <!-- PROFILE INFO -->
+                                <div id="profileInfo" class="textLeft">
+                                    <div class="widget-box">
+                                        <div class="widget-header">
+                                            <h4 class="smaller">Profile</h4>
+                                        </div>
+                                        <div class="widget-body">
+                                            <div class="widget-main">
+                                                <table>
+                                                    <tr>
+                                                        <td rowspan="2">
+                                                            <div id="profilePictureDiv">
+                                                            </div>
+                                                        </td>
+                                                        <td>Display Name</td>
+                                                        <td> &nbsp;:&nbsp; </td>
+                                                        <td id="displayNameField"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>LINE ID</td>
+                                                        <td> &nbsp;:&nbsp; </td>
+                                                        <td id="displayNameField"></td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
 
                             <?php
                             if(isset($_GET['action'])) {
