@@ -167,42 +167,22 @@ $LiffLaporanObservasi = new LiffLaporanObservasi($connection)
                                         <div class="widget-main">
                                             <table>
                                                 <tr>
-                                                    <th>Foto</th>
-                                                    <td>
+                                                    <td rowspan="2">
                                                         <div id="profilePictureDiv">
                                                         </div>
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <th>userId</th>
+                                                    <th>LINE Id</th>
+                                                    <td>&nbsp; : &nbsp;</td>
                                                     <td id="userIdProfileField"></td>
                                                 </tr>
                                                 <tr>
-                                                    <th>displayName</th>
+                                                    <th>Name</th>
+                                                    <td>&nbsp; : &nbsp;</td>
                                                     <td id="displayNameField"></td>
                                                 </tr>
-                                                <tr>
-                                                    <th>statusMessage</th>
-                                                    <td id="statusMessageField"></td>
-                                                </tr>
                                             </table>
-
-                                            <!--                                <table>-->
-                                            <!--                                    <tr>-->
-                                            <!--                                        <td rowspan="2">-->
-                                            <!--                                            <div id="profilePictureDiv">-->
-                                            <!--                                            </div>-->
-                                            <!--                                        </td>-->
-                                            <!--                                        <td>Display Name</td>-->
-                                            <!--                                        <td> &nbsp;:&nbsp; </td>-->
-                                            <!--                                        <td id="displayNameField"></td>-->
-                                            <!--                                    </tr>-->
-                                            <!--                                    <tr>-->
-                                            <!--                                        <td>LINE ID</td>-->
-                                            <!--                                        <td> &nbsp;:&nbsp; </td>-->
-                                            <!--                                        <td id="displayNameField"></td>-->
-                                            <!--                                    </tr>-->
-                                            <!--                                </table>-->
                                         </div>
                                     </div>
                                 </div>
