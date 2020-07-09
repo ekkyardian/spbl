@@ -1,7 +1,7 @@
 <?php
 
-if( isset($_POST['ajax']) && isset($_POST['nama2']) ){
-    echo $_POST['nama2'];
+if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
+    echo $_POST['lineID'];
     exit;
 }
 
@@ -89,27 +89,22 @@ $LiffLaporanObservasi = new LiffLaporanObservasi($connection);
             <div id="liffAppContent">
 
                 <form method='post' action>
-
-                    <input type='text' name='name' placeholder='Enter your name' id='name'>
-                    <input type='submit' value='submit' name='submit'><br>
                     <div id='response'></div>
                 </form>
 
                 <script src="../../../../assets/js/jquery-2.1.4.min.js"></script>
                 <script>
-                    $(document).ready(function () {
-                        //$('#submit').click(function () {
-                        var nama2 = profile.userId;
-
-                        $.ajax({
-                            type: 'post',
-                            data: {ajax: 1, nama2: nama2},
-                            success: function (response) {
-                                $('#response').text(response);
-                            }
-                        });
-                        //});
-                    });
+                    // $(document).ready(function () {
+                    //     var nama2 = profile.userId;
+                    //
+                    //     $.ajax({
+                    //         type: 'post',
+                    //         data: {ajax: 1, nama2: nama2},
+                    //         success: function (response) {
+                    //             $('#response').text(response);
+                    //         }
+                    //     });
+                    // });
                 </script>
 
                 <div class="row">
