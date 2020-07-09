@@ -5,7 +5,11 @@ require_once ('../../../../models/database.php');
 require_once('../../../../models/trc/liff/LiffLaporanObservasi.php');
 
 $connection = new Database($host, $user, $pass, $database);
-$LiffLaporanObservasi = new LiffLaporanObservasi($connection)
+$LiffLaporanObservasi = new LiffLaporanObservasi($connection);
+
+if (isset($_POST['lineID'])) {
+    $lineID = $_POST['lineID'];
+}
 ?>
 <!-- End: Pemanggilan dan pendeklarasian class -->
 
@@ -127,26 +131,22 @@ $LiffLaporanObservasi = new LiffLaporanObservasi($connection)
 
 <!--                <input type="text" id="lineId" name="lineId" value="" />-->
 
-                <script>
+                <script src="../../../../assets/js/jquery-2.1.4.min.js"></script>
+                <script type="text/javascript">
                     $(document).ready(function() {
                         var lineID = "Success";
                         $.ajax({
+                            //url: "index.php",
                             type: "POST",
-                            url: "index.php",
-                            data: { lineID : lineID },
-                            //data: 'lineID=' + lineID,
+                            data: {lineID: lineID },
                             success: function(data) {
                                 $(lineID).text(data)
                             }
                         });
                     });
                 </script>
-
-                <?PHP
-                if (isset($_POST['lineID'])) {
-                    $lineID = $_POST['lineID'];
-                    echo "Id LINE: " . $lineID;
-                }
+                <?php
+                echo "Line ID: ".$lineID;
                 ?>
 
                 <div class="row">
