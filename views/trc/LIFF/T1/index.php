@@ -7,9 +7,9 @@ require_once('../../../../models/trc/liff/LiffLaporanObservasi.php');
 $connection = new Database($host, $user, $pass, $database);
 $LiffLaporanObservasi = new LiffLaporanObservasi($connection);
 
-if (isset($_POST['lineID'])) {
-    $lineID = $_POST['lineID'];
-}
+//if (isset($_POST['lineID'])) {
+//    $lineID = $_POST['lineID'];
+//}
 ?>
 <!-- End: Pemanggilan dan pendeklarasian class -->
 
@@ -146,6 +146,9 @@ if (isset($_POST['lineID'])) {
                     });
                 </script>
                 <?php
+                if (isset($_POST['lineID'])) {
+                    $lineID = $_POST['lineID'];
+                }
                 echo "Line ID: ".$lineID;
                 ?>
 
