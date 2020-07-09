@@ -168,15 +168,18 @@ function registerButtonHandlers() {
         liff.getProfile().then(function(profile) {
 
             $(document).ready(function() {
-               $(".clickable").click(function() {
+
                    var lineID = "Success";
 
                    $.ajax({
                        type: "POST",
                        url: "T1/index.php",
-                       data: { lineID : lineID }
+                       data: { lineID : lineID },
+                       success: function(data) {
+                           $(lineID).html(data)
+                       }
                    });
-               });
+
             });
 
             document.getElementById('userIdProfileField').textContent = profile.userId;
