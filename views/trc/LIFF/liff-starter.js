@@ -172,7 +172,7 @@ function registerButtonHandlers() {
                $.ajax({
                    type: "POST",
                    url: "T1/index.php",
-                   data: { lineID : lineID },
+                   data: 'lineID=' + lineID,
                    success: function(data) {
                        $(lineID).text(data)
                    }
