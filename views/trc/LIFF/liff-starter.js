@@ -168,17 +168,14 @@ function registerButtonHandlers() {
         liff.getProfile().then(function(profile) {
 
             $(document).ready(function() {
-
                var lineID = "Success";
-               $(liff.getProfile()).then(function () {
-                   $.ajax({
-                       type: "POST",
-                       url: "T1/index.php",
-                       data: { lineID : lineID },
-                       success: function(data) {
-                           $(lineID).html(data)
-                       }
-                   });
+               $.ajax({
+                   type: "POST",
+                   url: "T1/index.php",
+                   data: { lineID : lineID },
+                   success: function(data) {
+                       $(lineID).text(data)
+                   }
                });
             });
 
