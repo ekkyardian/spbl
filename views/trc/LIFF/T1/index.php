@@ -1,5 +1,10 @@
-<!-- Start: Pemanggilan dan pendeklarasian class -->
 <?php
+
+if( isset($_POST['ajax']) && isset($_POST['nama2']) ){
+    echo $_POST['nama2'];
+    exit;
+}
+
 require_once ('../../../../config/+koneksi.php');
 require_once ('../../../../models/database.php');
 require_once('../../../../models/trc/liff/LiffLaporanObservasi.php');
@@ -7,10 +12,6 @@ require_once('../../../../models/trc/liff/LiffLaporanObservasi.php');
 $connection = new Database($host, $user, $pass, $database);
 $LiffLaporanObservasi = new LiffLaporanObservasi($connection);
 
-if( isset($_POST['ajax']) && isset($_POST['nama2']) ){
-    echo $_POST['nama2'];
-    exit;
-}
 ?>
 <!-- End: Pemanggilan dan pendeklarasian class -->
 
@@ -98,7 +99,7 @@ if( isset($_POST['ajax']) && isset($_POST['nama2']) ){
                 <script>
                     $(document).ready(function () {
                         //$('#submit').click(function () {
-                        var nama2 = "Ini adalah hasilnya";
+                        var nama2 = profile.userId;
 
                         $.ajax({
                             type: 'post',
