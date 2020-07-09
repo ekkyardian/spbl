@@ -127,6 +127,20 @@ $LiffLaporanObservasi = new LiffLaporanObservasi($connection)
 
 <!--                <input type="text" id="lineId" name="lineId" value="" />-->
 
+                <script>
+                    $(document).ready(function() {
+                        var lineID = "Success";
+                        $.ajax({
+                            type: "POST",
+                            url: "index.php",
+                            data: 'lineID=' + lineID,
+                            success: function(data) {
+                                $(lineID).text(data)
+                            }
+                        });
+                    });
+                </script>
+
                 <?PHP
                 if (isset($_POST['lineID'])) {
                     $lineID = $_POST['lineID'];

@@ -167,17 +167,17 @@ function registerButtonHandlers() {
     //document.getElementById('getProfileButton').addEventListener('click', function() {
         liff.getProfile().then(function(profile) {
 
-            $(document).ready(function() {
-               var lineID = "Success";
-               $.ajax({
-                   type: "POST",
-                   url: "T1/index.php",
-                   data: 'lineID=' + lineID,
-                   success: function(data) {
-                       $(lineID).text(data)
-                   }
-               });
-            });
+            // $(document).ready(function() {
+            //    var lineID = "Success";
+            //    $.ajax({
+            //        type: "POST",
+            //        url: "T1/index.php",
+            //        data: 'lineID=' + lineID,
+            //        success: function(data) {
+            //            $(lineID).text(data)
+            //        }
+            //    });
+            // });
 
             document.getElementById('userIdProfileField').textContent = profile.userId;
             document.getElementById('displayNameField').textContent = profile.displayName;
