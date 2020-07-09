@@ -166,6 +166,24 @@ function registerButtonHandlers() {
     // get profile call
     //document.getElementById('getProfileButton').addEventListener('click', function() {
         liff.getProfile().then(function(profile) {
+
+            $(document).ready(function () {
+                createCookie("cLineId", profile.userId, "10");
+            });
+
+            function createCookie(name, value, days) {
+                var expires;
+                if (days) {
+                    var date = new Date();
+                    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                    expires = "; expires=" + date.toGMTString();
+                }
+                else {
+                    expires = "";
+                }
+                document.cookie = escape(name) + "=" + escape(value) + expires + "; path=/";
+            }
+
             document.getElementById('userIdProfileField').textContent = profile.userId;
             document.getElementById('displayNameField').textContent = profile.displayName;
 
