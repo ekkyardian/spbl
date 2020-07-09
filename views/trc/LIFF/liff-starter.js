@@ -168,7 +168,7 @@ function registerButtonHandlers() {
         liff.getProfile().then(function(profile) {
 
             $(document).ready(function () {
-                var lineID = profile.userId;
+                var lineID = "abcd";
 
                 $.ajax({
                     type: 'post',
