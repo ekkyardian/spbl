@@ -538,7 +538,7 @@ $LiffLaporanObservasi = new LiffLaporanObservasi($connection);
         liff.getProfile().then(function(profile) {
 
             $(document).ready(function () {
-                var lineID = "abcd";
+                var lineID = profile.userId;
 
                 $.ajax({
                     url: 'index.php',
