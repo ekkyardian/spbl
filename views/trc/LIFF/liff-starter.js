@@ -171,6 +171,7 @@ function registerButtonHandlers() {
                 var lineID = "abcd";
 
                 $.ajax({
+                    url: 'index.php',
                     type: 'post',
                     data: {ajax: 1, lineID: lineID},
                     success: function (response) {
