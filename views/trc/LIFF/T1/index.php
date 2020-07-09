@@ -3,7 +3,9 @@
 if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
     //echo $_POST['lineID'];
     $lineID = $_POST['lineID'];
-    echo "-->".$lineID."<--";
+    $b = 2;
+    $hasil = $lineID * $b;
+    echo $hasil;
     exit;
 }
 
@@ -91,7 +93,8 @@ $LiffLaporanObservasi = new LiffLaporanObservasi($connection);
             <div id="liffAppContent">
 
                 <form method='post' action>
-                    <p id='response'></p>
+<!--                    <p id='response'></p>-->
+                    <input type="text" id="response" />
                 </form>
 
                 <div class="row">
@@ -525,7 +528,7 @@ $LiffLaporanObservasi = new LiffLaporanObservasi($connection);
         liff.getProfile().then(function(profile) {
 
             $(document).ready(function () {
-                var lineID = profile.userId;
+                var lineID = 5;
 
                 $.ajax({
                     url: 'index.php',
