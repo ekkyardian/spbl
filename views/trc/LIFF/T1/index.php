@@ -140,7 +140,7 @@ $LiffLaporanObservasi = new LiffLaporanObservasi($connection);
                             type: "POST",
                             data: {lineID: lineID },
                             success: function(data) {
-                                $('#result').html(data);
+                                $('#result').text(data);
                             }
                         });
                     });
