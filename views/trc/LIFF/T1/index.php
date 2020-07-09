@@ -1,15 +1,15 @@
 <?php
 
 if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
-    echo $_POST['lineID'];
+    //echo $_POST['lineID'];
     $lineID = $_POST['lineID'];
-    echo " | Ini -------------------------------------------------------------------------------------------------------------> ".$lineID;
+    echo $lineID;
     exit;
 }
 
 require_once ('../../../../config/+koneksi.php');
 require_once ('../../../../models/database.php');
-require_once('../../../../models/trc/liff/LiffLaporanObservasi.php');
+require_once ('../../../../models/trc/liff/LiffLaporanObservasi.php');
 
 $connection = new Database($host, $user, $pass, $database);
 $LiffLaporanObservasi = new LiffLaporanObservasi($connection);
@@ -90,26 +90,6 @@ $LiffLaporanObservasi = new LiffLaporanObservasi($connection);
             <!-- Content -->
             <div id="liffAppContent">
 
-                <form method='post' action>
-                    <p id='response'></p>
-
-
-                </form>
-
-                <script src="../../../../assets/js/jquery-2.1.4.min.js"></script>
-                <script>
-                    // $(document).ready(function () {
-                    //     var nama2 = profile.userId;
-                    //
-                    //     $.ajax({
-                    //         type: 'post',
-                    //         data: {ajax: 1, nama2: nama2},
-                    //         success: function (response) {
-                    //             $('#response').text(response);
-                    //         }
-                    //     });
-                    // });
-                </script>
 
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-lg-12">
