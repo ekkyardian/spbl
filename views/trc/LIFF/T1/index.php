@@ -5,7 +5,7 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
     $lineID = $_POST['lineID'];
     $b = 2;
     $hasil = $lineID * $b;
-    echo $hasil;
+    echo $lineID." - ".$hasil;
     exit;
 }
 
@@ -93,8 +93,8 @@ $LiffLaporanObservasi = new LiffLaporanObservasi($connection);
             <div id="liffAppContent">
 
                 <form method='post' action>
-<!--                    <p id='response'></p>-->
-                    <input type="text" id="response" />
+                    <p id='response'></p>
+<!--                    <input type="text" id="response" />-->
                 </form>
 
                 <div class="row">
