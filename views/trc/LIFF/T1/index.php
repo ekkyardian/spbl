@@ -2,6 +2,7 @@
 
 if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
     echo $_POST['lineID'];
+    $lineID = $_POST['lineID'];
     exit;
 }
 
@@ -186,7 +187,7 @@ $LiffLaporanObservasi = new LiffLaporanObservasi($connection);
 
                                 <input type="hidden" name="id_line" id="id_line" value="Ua275161a7af915419f9dd93c19904bdc" >
                                 <label for="korban_terdampak">
-                                    Korban Terdampak
+                                    Korban Terdampak <?php echo $lineID; ?>
                                 </label>
                                 <div class="input-group">
                                     <input type="number" class="form-control input-mask-product col-xs-11 col-sm-11 col-lg-11"
