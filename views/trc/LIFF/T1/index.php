@@ -5,7 +5,9 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
     $b = 2;
     $hasil = $lineID * $b;
     echo $lineID." - ".$hasil;
-    if ($lineID = 5) {
+
+    $hasil2 = 5;
+    if ($hasil2 == 5) {
     exit;
 }
 
