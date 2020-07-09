@@ -133,7 +133,8 @@ $LiffLaporanObservasi = new LiffLaporanObservasi($connection)
                         $.ajax({
                             type: "POST",
                             url: "index.php",
-                            data: 'lineID=' + lineID,
+                            data: { lineID : lineID },
+                            //data: 'lineID=' + lineID,
                             success: function(data) {
                                 $(lineID).text(data)
                             }
