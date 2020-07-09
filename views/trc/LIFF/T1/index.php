@@ -94,6 +94,9 @@ $LiffLaporanObservasi = new LiffLaporanObservasi($connection);
 
                 <form method='post' action>
                     <p id='response'></p>
+                    <?php
+                    echo "(".$hasil.")";
+                    ?>
 <!--                    <input type="text" id="response" />-->
                 </form>
 
