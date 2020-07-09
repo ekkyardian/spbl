@@ -7,9 +7,10 @@ require_once('../../../../models/trc/liff/LiffLaporanObservasi.php');
 $connection = new Database($host, $user, $pass, $database);
 $LiffLaporanObservasi = new LiffLaporanObservasi($connection);
 
-//if (isset($_POST['lineID'])) {
-//    $lineID = $_POST['lineID'];
-//}
+if( isset($_POST['ajax']) && isset($_POST['nama2']) ){
+    echo $_POST['nama2'];
+    exit;
+}
 ?>
 <!-- End: Pemanggilan dan pendeklarasian class -->
 
@@ -85,73 +86,30 @@ $LiffLaporanObservasi = new LiffLaporanObservasi($connection);
 
             <!-- Content -->
             <div id="liffAppContent">
-                <!-- ACTION BUTTONS -->
-<!--                <div class="buttonGroup">-->
-<!--                    <div class="buttonRow">-->
-<!--                        <button id="openWindowButton">Open External Window</button> <!-- Tidak diperlukan -->
-<!--                    </div>-->
-<!--                    <div class="buttonRow">-->
-<!--                        <button id="scanQrCodeButton">Open QR Code Reader</button> <!-- Tidak diperlukan -->
-<!--                        <button id="sendMessageButton">Send Message</button> <!-- Tidak diperlukan -->
-<!--                    </div>-->
-<!--                    <div class="buttonRow">-->
-<!--                        <button id="getAccessToken">Get Access Token</button>-->
-<!--                        <button id="getProfileButton">Get Profile</button>-->
-<!--                    </div>-->
-<!--                    <div class="buttonRow">-->
-<!--                        <button id="shareTargetPicker">Open Share Target Picker</button>-->
-<!--                    </div>-->
-<!--                </div>-->
 
-<!--                <div id="shareTargetPickerMessage"></div>-->
+                <form method='post' action>
 
-                <!-- ACCESS TOKEN DATA -->
-<!--                <div id="accessTokenData" class="hidden textLeft">-->
-<!--                    <h2>Access Token</h2>-->
-<!--                    <a href="#" onclick="toggleAccessToken()">Close Access Token</a>-->
-<!--                    <table>-->
-<!--                        <tr>-->
-<!--                            <th>accessToken</th>-->
-<!--                            <td id="accessTokenField"></td>-->
-<!--                        </tr>-->
-<!--                    </table>-->
-<!--                </div>-->
-
-                <!-- SCAN QR RESULT | Tidak diperlukan -->
-<!--                <div id="scanQr" class="hidden textLeft">-->
-<!--                    <h2>QR Code reader</h2>-->
-<!--                    <a href="#" onclick="toggleQrCodeReader()">Close QR Code Reader Result</a>-->
-<!--                    <table>-->
-<!--                        <tr>-->
-<!--                            <th>scanCode Result</th>-->
-<!--                            <td id="scanQrField"></td>-->
-<!--                        </tr>-->
-<!--                    </table>-->
-<!--                </div>-->
-
-<!--                <input type="text" id="lineId" name="lineId" value="" />-->
+                    <input type='text' name='name' placeholder='Enter your name' id='name'>
+                    <input type='submit' value='submit' name='submit'><br>
+                    <div id='response'></div>
+                </form>
 
                 <script src="../../../../assets/js/jquery-2.1.4.min.js"></script>
-                <script type="text/javascript">
-                    $(document).ready(function() {
-                        var lineID = "Success";
+                <script>
+                    $(document).ready(function () {
+                        //$('#submit').click(function () {
+                        var nama2 = "Ini adalah hasilnya";
+
                         $.ajax({
-                            //url: "index.php",
-                            type: "POST",
-                            data: {lineID: lineID },
-                            success: function(data) {
-                                $('#result').text('lineID : ' + data);
+                            type: 'post',
+                            data: {ajax: 1, nama2: nama2},
+                            success: function (response) {
+                                $('#response').text(response);
                             }
                         });
+                        //});
                     });
                 </script>
-                <?php
-                if (isset($_POST['lineID'])) {
-                    $lineID = $_POST['lineID'];
-                }
-                echo "Line ID: ".$lineID;
-                ?>
-                <p id="result"></p>
 
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-lg-12">
