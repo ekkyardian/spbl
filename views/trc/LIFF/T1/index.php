@@ -125,11 +125,23 @@ $LiffLaporanObservasi = new LiffLaporanObservasi($connection)
 <!--                    </table>-->
 <!--                </div>-->
 
-                <input type="text" id="lineId" name="lineId" value="" />
+<!--                <input type="text" id="lineId" name="lineId" value="" />-->
 
+                <script>
+                    fcookie='mycookie';
+                    var monthname = new Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
+                    var myDate=new Date();//--->getting today's date
+                    var cmonth = myDate.getMonth();
+                    var cdate = myDate.getDate();
+                    var temp1 = monthname[cmonth];
+                    var tempo = escape(temp1 + " " + cdate);
+                    document.cookie=fcookie+"=" + tempo;//-->missing cookie name and concatenation
+                </script>
                 <?php
-                $getLineId = $_POST['lineId'];
-                echo "Id nya adalah: ".$getLineId;
+                if (isset($_COOKIE["mycookie"]))
+                    echo $_COOKIE["mycookie"];
+                else
+                    echo "Cookie Not Set";
                 ?>
 
                 <div class="row">

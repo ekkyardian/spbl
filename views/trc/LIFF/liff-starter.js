@@ -167,7 +167,6 @@ function registerButtonHandlers() {
     //document.getElementById('getProfileButton').addEventListener('click', function() {
         liff.getProfile().then(function(profile) {
             document.getElementById('userIdProfileField').textContent = profile.userId;
-            document.getElementById('lineId').value = profile.userId;
             document.getElementById('displayNameField').textContent = profile.displayName;
 
             const profilePictureDiv = document.getElementById('profilePictureDiv');
