@@ -140,7 +140,7 @@ $LiffLaporanObservasi = new LiffLaporanObservasi($connection);
                             type: "POST",
                             data: {lineID: lineID },
                             success: function(data) {
-                                alert("Success");
+                                $('#result').html(data);
                             }
                         });
                     });
@@ -151,6 +151,7 @@ $LiffLaporanObservasi = new LiffLaporanObservasi($connection);
                 }
                 echo "Line ID: ".$lineID;
                 ?>
+                <p id="result"></p>
 
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-lg-12">
