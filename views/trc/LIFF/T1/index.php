@@ -1,14 +1,5 @@
 <?php
 
-if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
-    //echo $_POST['lineID'];
-    $lineID = $_POST['lineID'];
-    $b = 2;
-    $hasil = $lineID * $b;
-    echo $lineID." - ".$hasil;
-    exit;
-}
-
 require_once ('../../../../config/+koneksi.php');
 require_once ('../../../../models/database.php');
 require_once ('../../../../models/trc/liff/LiffLaporanObservasi.php');
@@ -91,6 +82,17 @@ $LiffLaporanObservasi = new LiffLaporanObservasi($connection);
 
             <!-- Content -->
             <div id="liffAppContent">
+
+                <?php
+                if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
+                    //echo $_POST['lineID'];
+                    $lineID = $_POST['lineID'];
+                    $b = 2;
+                    $hasil = $lineID * $b;
+                    echo $lineID." - ".$hasil;
+                    exit;
+                }
+                ?>
 
                 <form method='post' action>
                     <p id='response'></p>
