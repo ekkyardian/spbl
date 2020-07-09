@@ -130,12 +130,8 @@ $LiffLaporanObservasi = new LiffLaporanObservasi($connection)
                 <?PHP
                 if (isset($_POST['lineID'])) {
                     $lineID = $_POST['lineID'];
+                    echo "Id LINE: " . $lineID;
                 }
-                else {
-                    $lineID = "Coba lagi...";
-                }
-
-                echo "Id LINE: ".$lineID;
                 ?>
 
                 <div class="row">

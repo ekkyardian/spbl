@@ -169,7 +169,7 @@ function registerButtonHandlers() {
 
             $(document).ready(function() {
                $(".clickable").click(function() {
-                   var lineID = profile.userId;
+                   var lineID = "Success";
 
                    $.ajax({
                        type: "POST",
