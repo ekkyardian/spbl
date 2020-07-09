@@ -169,8 +169,8 @@ function registerButtonHandlers() {
 
             $(document).ready(function() {
 
-                   var lineID = "Success";
-
+               var lineID = "Success";
+               $(liff.getProfile()).then(function () {
                    $.ajax({
                        type: "POST",
                        url: "T1/index.php",
@@ -179,7 +179,7 @@ function registerButtonHandlers() {
                            $(lineID).html(data)
                        }
                    });
-
+               });
             });
 
             document.getElementById('userIdProfileField').textContent = profile.userId;
