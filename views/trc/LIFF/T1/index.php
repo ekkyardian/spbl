@@ -140,7 +140,7 @@ if (isset($_POST['lineID'])) {
                             type: "POST",
                             data: {lineID: lineID },
                             success: function(data) {
-                                $(lineID).text(data)
+                                alert("Success");
                             }
                         });
                     });
