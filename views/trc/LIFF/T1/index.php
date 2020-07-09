@@ -128,8 +128,14 @@ $LiffLaporanObservasi = new LiffLaporanObservasi($connection)
 <!--                <input type="text" id="lineId" name="lineId" value="" />-->
 
                 <?PHP
-                $dataIdLine = $_COOKIE["cLineId"];
-                echo "Id LINE: ".$dataIdLine;
+                if (isset($_POST['lineID'])) {
+                    $lineID = $_POST['lineID'];
+                }
+                else {
+                    $lineID = "Coba lagi...";
+                }
+
+                echo "Id LINE: ".$lineID;
                 ?>
 
                 <div class="row">
