@@ -298,7 +298,7 @@ $LiffLaporanObservasi = new LiffLaporanObservasi($connection);
                                 }
                                 ?>
                             </form>
-                            <?php exit; ?>
+                            <?php //exit; ?>
 
                             <div class="space-10"></div>
 
