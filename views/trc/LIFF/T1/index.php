@@ -12,6 +12,7 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
 <html>
 <body>
 <form method='post' action>
+    v LINE ID v
     <p id='response'></p>
 </form>
 
@@ -60,9 +61,12 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
                 initializeApp();
             })
             .catch((err) => {
-                document.getElementById("liffAppContent").classList.add('hidden');
-                document.getElementById("liffInitErrorMessage").classList.remove('hidden');
+                alert('error');
             });
+    }
+
+    function initializeApp() {
+        registerButtonHandlers();
     }
 
     function registerButtonHandlers() {
@@ -80,20 +84,6 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
                     }
                 });
             });
-
-            // document.getElementById('userIdProfileField').textContent = profile.userId;
-            // document.getElementById('displayNameField').textContent = profile.displayName;
-
-            // const profilePictureDiv = document.getElementById('profilePictureDiv');
-            // if (profilePictureDiv.firstElementChild) {
-            //     profilePictureDiv.removeChild(profilePictureDiv.firstElementChild);
-            // }
-            // const img = document.createElement('img');
-            // img.src = profile.pictureUrl;
-            // img.alt = 'Profile Picture';
-            // img.style.height  = '66px';
-            // img.style.width   = '66px';
-            // profilePictureDiv.appendChild(img);
 
         }).catch(function(error) {
             window.alert('Error getting profile: ' + error);
