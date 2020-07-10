@@ -8,3 +8,14 @@
 
 echo "Form input X";
 ?>
+
+<html>
+<head>
+    <title>
+        Form Input
+    </title>
+</head>
+<body>
+Ini dari Tag HTML
+</body>
+</html>
