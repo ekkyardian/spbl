@@ -40,8 +40,7 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
                     initializeLiffOrDie(myLiffId);
                 })
                 .catch(function(error) {
-                    document.getElementById("liffAppContent").classList.add('hidden');
-                    document.getElementById("nodeLiffIdErrorMessage").classList.remove('hidden');
+                    alert("error");
                 });
         } else {
             myLiffId = defaultLiffId;
@@ -73,7 +72,7 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
         liff.getProfile().then(function(profile) {
 
             $(document).ready(function () {
-                var lineID = profile.userId;
+                var lineID = "ABC";
 
                 $.ajax({
                     url: 'index.php',
