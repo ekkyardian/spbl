@@ -6,28 +6,6 @@
  * Time: 16:09
  */
 
-if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
-    $lineID = $_POST['lineID'];
-    //echo $lineID;
-
-    $validasiLineID = "Ua275161a7af915419f9dd93c19904bdc";
-
-    if ($lineID == $validasiLineID) {
-       // include "input_laporan_t1.php";
-        echo "
-              <script>
-                  document.getElementById(\"liffAppContent\").classList.add('hidden');
-                  document.getElementById(\"tidakAdaPenugasan\").classList.remove('hidden');
-              </script>
-        ";
-    }
-    else {
-       // include "informasi.php";
-        echo "Informasi";
-    }
-    exit;
-}
-
 require_once ('../../../../config/+koneksi.php');
 require_once ('../../../../models/database.php');
 require_once ('../../../../models/trc/liff/LiffLaporanObservasi.php');
@@ -35,6 +13,33 @@ require_once ('../../../../models/trc/liff/LiffLaporanObservasi.php');
 $connection = new Database($host, $user, $pass, $database);
 $LiffLaporanObservasi = new LiffLaporanObservasi($connection);
 
+if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
+    $lineID = $_POST['lineID'];
+
+    // Mengambil ID USER berdasarkan ID LINE yang digunakan untuk login LIFF
+    $ambilIdUser = $LiffLaporanObservasi->cek_user($lineID);
+    $dataIdUser = $ambilIdUser->fetchObject();
+    $hasil_idUser = $dataIdUser->id_user;
+
+    // Mengecek apakah ada penugasan untuk User dengan ID LINE tersebut
+    $peristiwa = $LiffLaporanObservasi->cek_peristiwa($hasil_idUser);
+    $cekPeristiwa = $peristiwa->rowCount();
+
+    if ($cekPeristiwa > 0) {
+        $tampil_peristiwa = $peristiwa->fetchObject();
+        $hasil_peristiwa = $tampil_peristiwa->id_peristiwa;
+        $tampil_observasi = $LiffLaporanObservasi->tampil_observasi1($hasil_peristiwa)->fetchObject();
+    }
+    else {
+        echo "
+              <script>
+                  document.getElementById(\"liffAppContent\").classList.add('hidden');
+                  document.getElementById(\"tidakAdaPenugasan\").classList.remove('hidden');
+              </script>
+        ";
+    }
+    exit;
+}
 ?>
 <!-- End: Pemanggilan dan pendeklarasian class -->
 
@@ -184,14 +189,6 @@ $LiffLaporanObservasi = new LiffLaporanObservasi($connection);
                             ?>
 
                             <form action="" method="post" enctype="multipart/form-data">
-
-                                <?php
-                                $id_peristiwa = "001/PRS/2020";
-                                $tampil_observasi = $LiffLaporanObservasi->tampil_observasi1($id_peristiwa)->fetchObject();
-
-
-                                ?>
-
                                 <input type="hidden" name="id_line" id="id_line" value="Ua275161a7af915419f9dd93c19904bdc" >
                                 <label for="korban_terdampak">
                                     Korban Terdampak <?php echo $lineID; ?>

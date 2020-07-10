@@ -44,4 +44,22 @@ class LiffLaporanObservasi
         $query = $db->query($sql) or die ($db->error);
         return $query;
     }
+
+    // Tampil Data -> tb_peristiwa
+    public function cek_user ($id_line)
+    {
+        $db = $this->msqyl->conn;
+        $sql = "SELECT id_user FROM tb_user WHERE id_line = '$id_line'";
+        $query = $db->query($sql) or die ($db->error);
+        return $query;
+    }
+
+    // Tampil Data -> tb_peristiwa
+    public function  cek_peristiwa ($id_user)
+    {
+        $db = $this->msqyl->conn;
+        $sql = "SELECT * FROM tb_peristiwa WHERE id_user = '$id_user' AND status = 'Open'";
+        $query = $db->query($sql) or die ($db->error);
+        return $query;
+    }
 }
