@@ -6,6 +6,13 @@
  * Time: 16:09
  */
 
+require_once ('../../../../config/+koneksi.php');
+require_once ('../../../../models/database.php');
+require_once ('../../../../models/trc/liff/LiffLaporanObservasi.php');
+
+$connection = new Database($host, $user, $pass, $database);
+$LiffLaporanObservasi = new LiffLaporanObservasi($connection);
+
 if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
     $lineID = $_POST['lineID'];
 
