@@ -17,9 +17,9 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
         echo "
               <script>
                   document.getElementById(\"liffAppContent\").classList.add('hidden');
-                  document.getElementById(\"liffInitErrorMessage\").classList.remove('hidden');
+                  document.getElementById(\"tidakAdaPenugasan\").classList.remove('hidden');
               </script>
-              ";
+        ";
     }
     else {
        // include "informasi.php";
@@ -108,12 +108,12 @@ $LiffLaporanObservasi = new LiffLaporanObservasi($connection);
                 </div>
             </div>
 
+            <form method='post' action>
+                <p id='response'></p>
+            </form>
+
             <!-- Content -->
             <div id="liffAppContent">
-
-                <form method='post' action>
-                    <p id='response'></p>
-                </form>
 
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-lg-12">
@@ -334,6 +334,12 @@ $LiffLaporanObservasi = new LiffLaporanObservasi($connection);
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <!-- TIDAK MEMILIKI AKSES -->
+            <div id="tidakAdaPenugasan" class="hidden">
+                <p>Tidak ditemukan penugasan.</p>
+                <p>LIFF initialization can fail if a user clicks "Cancel" on the "Grant permission" screen, or if an error occurs in the process of <code>liff.init()</code>.</p>
             </div>
 
             <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
