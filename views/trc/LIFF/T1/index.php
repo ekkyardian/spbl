@@ -45,6 +45,8 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
               </script>
         ";
     }
+
+    exit;
 }
 ?>
 
@@ -288,7 +290,7 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
                                 }
                                 ?>
                             </form>
-                            <?php exit; ?>
+                            <?php //exit; ?>
 
                             <div class="space-10"></div>
 
