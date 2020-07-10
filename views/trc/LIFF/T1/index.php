@@ -9,6 +9,15 @@
 if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
     $lineID = $_POST['lineID'];
     echo $lineID;
+
+    $validasiLineID = "Ua275161a7af915419f9dd93c19904bdcABC";
+
+    if ($lineID == $validasiLineID) {
+        echo "<script>window.location='input_laporan_t1.php'</script>";
+    }
+    else {
+        echo "<script>window.location='informasi.php'</script>";
+    }
     exit;
 }
 
@@ -97,10 +106,6 @@ $LiffLaporanObservasi = new LiffLaporanObservasi($connection);
 
                 <form method='post' action>
                     <p id='response'></p>
-                    <?php
-                    echo "(".$hasil.")";
-                    ?>
-                    <!--                    <input type="text" id="response" />-->
                 </form>
 
                 <div class="row">
@@ -534,7 +539,7 @@ $LiffLaporanObservasi = new LiffLaporanObservasi($connection);
         liff.getProfile().then(function(profile) {
 
             $(document).ready(function () {
-                var lineID = 5;
+                var lineID = profile.userId;
 
                 $.ajax({
                     url: 'index.php',
