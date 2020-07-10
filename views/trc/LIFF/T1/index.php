@@ -6,13 +6,6 @@
  * Time: 16:09
  */
 
-require_once ('../../../../config/+koneksi.php');
-require_once ('../../../../models/database.php');
-require_once ('../../../../models/trc/liff/LiffLaporanObservasi.php');
-
-$connection = new Database($host, $user, $pass, $database);
-$LiffLaporanObservasi = new LiffLaporanObservasi($connection);
-
 if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
     $lineID = $_POST['lineID'];
 
@@ -48,6 +41,13 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
 
     exit;
 }
+
+require_once ('../../../../config/+koneksi.php');
+require_once ('../../../../models/database.php');
+require_once ('../../../../models/trc/liff/LiffLaporanObservasi.php');
+
+$connection = new Database($host, $user, $pass, $database);
+$LiffLaporanObservasi = new LiffLaporanObservasi($connection);
 ?>
 
 <!DOCTYPE html>
@@ -122,6 +122,7 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
 
             <form method='post' action>
                 <p id='response'></p>
+                Halo
             </form>
 
             <!-- Content -->
