@@ -8,7 +8,16 @@
 
 if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
     $lineID = $_POST['lineID'];
-    echo $lineID;
+    //echo $lineID;
+
+    $validasiLineID = "Ua275161a7af915419f9dd93c19904bdc";
+
+    if ($lineID == $validasiLineID) {
+        echo "<script>window.location='input_laporan_t1.php'</script>";
+    }
+    else {
+        echo "<script>window.location='informasi.php'</script>";
+    }
     exit;
 }
 
@@ -79,55 +88,10 @@ $LiffLaporanObservasi = new LiffLaporanObservasi($connection);
                     <div class="col-xs-12 col-sm-12 col-lg-12">
                         <div class="page-content">
 
-                            <!-- PROFILE INFO -->
-                            <div id="profileInfo" class="textLeft">
-                                <div class="widget-box">
-                                    <div class="widget-header">
-                                        <h4 class="smaller">LINE Profile</h4>
-                                    </div>
-                                    <div class="widget-body">
-                                        <div class="widget-main">
-                                            <table>
-                                                <tr>
-                                                    <td rowspan="6">
-                                                        <div id="profilePictureDiv">
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td rowspan="6">&nbsp;&nbsp;</td>
-                                                </tr>
-                                                <tr>
-                                                    <th>LINE Id:</th>
-                                                </tr>
-                                                <tr>
-                                                    <td id="userIdProfileField"></td>
-                                                </tr>
-                                                <tr>
-                                                    <th>Display Name:</th>
-                                                </tr>
-                                                <tr>
-                                                    <td id="displayNameField"></td>
-                                                </tr>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
                             <!-- LOGIN LOGOUT BUTTONS -->
                             <div class="buttonGroup">
                                 <button id="liffLoginButton">Log in</button>
                                 <button id="liffLogoutButton">Log out</button>
-                            </div>
-
-                            <div class="buttonGroup">
-                                <div class="buttonRow">
-                                    <button class="btn btn-danger" id="closeWindowButton">
-                                        <i class="ace-icon glyphicon glyphicon-remove bigger-120"></i>
-                                        Batal
-                                    </button>
-                                </div>
                             </div>
 
                             <div class="space-10"></div>
