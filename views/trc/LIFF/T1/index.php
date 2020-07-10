@@ -38,7 +38,6 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
               </script>
         ";
     }
-    exit;
 }
 ?>
 <!-- End: Pemanggilan dan pendeklarasian class -->
@@ -290,6 +289,7 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
                                 }
                                 ?>
                             </form>
+                            <?php exit; ?>
 
                             <div class="space-10"></div>
 
