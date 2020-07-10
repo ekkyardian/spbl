@@ -36,86 +36,6 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
         echo "Id LINE: ".$lineID;
         echo "<br />";
         echo "Id Peristiwa: ".$hasil_peristiwa;
-        echo "
-        
-        <form action=\"\" method=\"post\" enctype=\"multipart/form-data\">
-            <label for=\"korban_terdampak\">
-                Korban Terdampak
-            </label>
-            <div class=\"input-group\">
-                <input type=\"number\" class=\"form-control input-mask-product col-xs-11 col-sm-11 col-lg-11\"
-                       id=\"korban_terdampak\" name=\"korban_terdampak\" value=\"".$tampil_observasi->korban_terdampak."\" />
-                <span class=\"input-group-addon\">
-                    Orang
-                </span>
-            </div>
-
-            <label for=\"korban_mengungsi\">
-                Korban Mengungsi
-            </label>
-            <div class=\"input-group\">
-                <input type=\"number\" class=\"form-control input-mask-product col-xs-11 col-sm-11 col-lg-11\"
-                       id=\"korban_mengungsi\" name=\"korban_mengungsi\" value=\"".$tampil_observasi->korban_mengungsi."\" />
-                <span class=\"input-group-addon\">Orang</span>
-            </div>
-
-            <label for=\"korban_luka\">
-                Korban Luka
-            </label>
-            <div class=\"input-group\">
-                <input type=\"number\" class=\"form-control input-mask-product col-xs-11 col-sm-11 col-lg-11\"
-                       id=\"korban_luka\" name=\"korban_luka\" value=\"".$tampil_observasi->korban_luka."\" />
-                <span class=\"input-group-addon\">Orang</span>
-            </div>
-
-            <label for=\"korban_meninggal\">
-                Korban Meninggal
-            </label>
-            <div class=\"input-group\">
-                <input type=\"number\" class=\"form-control input-mask-product col-xs-11 col-sm-11 col-lg-11\"
-                       id=\"korban_meninggal\" name=\"korban_meninggal\"  value=\"".$tampil_observasi->korban_meninggal."\" />
-                <span class=\"input-group-addon\">Orang</span>
-            </div>
-
-            <label for=\"korban_hilang\">
-                Korban Hilang
-            </label>
-            <div class=\"input-group\">
-                <input type=\"number\" class=\"form-control input-mask-product col-xs-11 col-sm-11 col-lg-11\"
-                       id=\"korban_hilang\" name=\"korban_hilang\" value=\"".$tampil_observasi->korban_hilang."\" />
-                <span class=\"input-group-addon\">Orang</span>
-            </div>
-
-            <label for=\"pasca_bencana\">
-                Kondisi Pasca Bencana
-            </label>
-            <div class=\"input-group\">
-                <select class=\"form-control col-xs-12 col-sm-12 col-lg-12\" name=\"pasca_bencana\" id=\"pasca_bencana\">
-                    <option value=\"".$tampil_observasi->pasca_bencana."\">".$tampil_observasi->pasca_bencana."</option>
-                    <option value=\"Normal\">Normal</option>
-                    <option value=\"Waspada\">Waspada</option>
-                    <option value=\"Siaga\">Siaga</option>
-                    <option value=\"Awas\">Awas</option>
-                </select>
-            </div>
-
-            <div class=\"space-10\"></div>
-
-            <div class=\"buttonGroup\">
-                <div class=\"buttonRow\">
-                    <button class=\"btn btn-primary\" id=\"simpan\" name=\"simpan\">
-                        <i class=\"ace-icon glyphicon glyphicon-ok bigger-120\"></i>
-                        Kirim
-                    </button>
-                    <button class=\"btn btn-danger\" id=\"closeWindowButton\">
-                        <i class=\"ace-icon glyphicon glyphicon-remove bigger-120\"></i>
-                        Batal
-                    </button>
-                </div>
-            </div>
-        </form>
-        
-        ";
     }
     else {
         echo "
@@ -283,7 +203,99 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
                             ?>
 
                             <!-- HALAMAN INPUT LAPORAN OBSERVASI -->
+                            <form action="" method="post" enctype="multipart/form-data">
+                                <label for="korban_terdampak">
+                                    Korban Terdampak
+                                </label>
+                                <div class="input-group">
+                                    <input type="number" class="form-control input-mask-product col-xs-11 col-sm-11 col-lg-11"
+                                           id="korban_terdampak" name="korban_terdampak" value="<?php echo $tampil_observasi->korban_terdampak; ?>" />
+                                    <span class="input-group-addon">
+                                        Orang
+                                    </span>
+                                </div>
 
+                                <label for="korban_mengungsi">
+                                    Korban Mengungsi
+                                </label>
+                                <div class="input-group">
+                                    <input type="number" class="form-control input-mask-product col-xs-11 col-sm-11 col-lg-11"
+                                           id="korban_mengungsi" name="korban_mengungsi" value="<?php echo $tampil_observasi->korban_mengungsi; ?>" />
+                                    <span class="input-group-addon">Orang</span>
+                                </div>
+
+                                <label for="korban_luka">
+                                    Korban Luka
+                                </label>
+                                <div class="input-group">
+                                    <input type="number" class="form-control input-mask-product col-xs-11 col-sm-11 col-lg-11"
+                                           id="korban_luka" name="korban_luka" value="<?php echo $tampil_observasi->korban_luka; ?>" />
+                                    <span class="input-group-addon">Orang</span>
+                                </div>
+
+                                <label for="korban_meninggal">
+                                    Korban Meninggal
+                                </label>
+                                <div class="input-group">
+                                    <input type="number" class="form-control input-mask-product col-xs-11 col-sm-11 col-lg-11"
+                                           id="korban_meninggal" name="korban_meninggal"  value="<?php echo $tampil_observasi->korban_meninggal; ?>" />
+                                    <span class="input-group-addon">Orang</span>
+                                </div>
+
+                                <label for="korban_hilang">
+                                    Korban Hilang
+                                </label>
+                                <div class="input-group">
+                                    <input type="number" class="form-control input-mask-product col-xs-11 col-sm-11 col-lg-11"
+                                           id="korban_hilang" name="korban_hilang" value="<?php echo $tampil_observasi->korban_hilang; ?>" />
+                                    <span class="input-group-addon">Orang</span>
+                                </div>
+
+                                <label for="pasca_bencana">
+                                    Kondisi Pasca Bencana
+                                </label>
+                                <div class="input-group">
+                                    <select class="form-control col-xs-12 col-sm-12 col-lg-12" name="pasca_bencana" id="pasca_bencana">
+                                        <option value="<?php echo $tampil_observasi->pasca_bencana; ?>"><?php echo $tampil_observasi->pasca_bencana; ?></option>
+                                        <option value="Normal">Normal</option>
+                                        <option value="Waspada">Waspada</option>
+                                        <option value="Siaga">Siaga</option>
+                                        <option value="Awas">Awas</option>
+                                    </select>
+                                </div>
+
+                                <div class="space-10"></div>
+
+                                <div class="buttonGroup">
+                                    <div class="buttonRow">
+                                        <button class="btn btn-primary" id="simpan" name="simpan">
+                                            <i class="ace-icon glyphicon glyphicon-ok bigger-120"></i>
+                                            Kirim
+                                        </button>
+                                        <button class="btn btn-danger" id="closeWindowButton">
+                                            <i class="ace-icon glyphicon glyphicon-remove bigger-120"></i>
+                                            Batal
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Proses Simpan Data -->
+                                <?php
+                                if (isset($_POST['simpan'])) {
+                                    $id_peristiwa       = "001/PRS/2020";
+                                    $korban_terdampak   = $_POST['korban_terdampak'];
+                                    $korban_mengungsi   = $_POST['korban_mengungsi'];
+                                    $korban_luka        = $_POST['korban_luka'];
+                                    $korban_meninggal   = $_POST['korban_meninggal'];
+                                    $korban_hilang      = $_POST['korban_hilang'];
+                                    $pasca_bencana      = $_POST['pasca_bencana'];
+
+                                    $LiffLaporanObservasi->update_observasi1($id_peristiwa, $korban_terdampak,
+                                        $korban_mengungsi, $korban_luka, $korban_meninggal, $korban_hilang, $pasca_bencana);
+                                    echo "<script>window.location='index.php?action=success'</script>";
+                                }
+                                ?>
+                            </form>
                             <?php //exit; ?>
 
                             <div class="space-10"></div>
