@@ -13,7 +13,7 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
     $validasiLineID = "Ua275161a7af915419f9dd93c19904bdc";
 
     if ($lineID == $validasiLineID) {
-        header('location: input_laporan_t1.php');
+        header('location: https://google.com');
     }
     else {
         header('location: informasi.php');
