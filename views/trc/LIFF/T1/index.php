@@ -46,7 +46,7 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
         ";
     }
 
-    exit;
+    //exit;
 }
 
 require_once ('../../../../config/+koneksi.php');
@@ -298,7 +298,7 @@ $LiffLaporanObservasi = new LiffLaporanObservasi($connection);
                                 }
                                 ?>
                             </form>
-                            <?php //exit; ?>
+                            <?php exit; ?>
 
                             <div class="space-10"></div>
 
