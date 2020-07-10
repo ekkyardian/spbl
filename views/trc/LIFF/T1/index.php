@@ -10,7 +10,7 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
     $lineID = $_POST['lineID'];
     //echo $lineID;
 
-    $validasiLineID = "Ua275161a7af915419f9dd93c19904bdc";
+    $validasiLineID = "Ua275161a7af915419f9dd93c19904bdcABC";
 
     if ($lineID == $validasiLineID) {
         echo "<script>window.location='input_laporan_t1.php'</script>";
