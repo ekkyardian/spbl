@@ -29,6 +29,13 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
         $tampil_peristiwa = $peristiwa->fetchObject();
         $hasil_peristiwa = $tampil_peristiwa->id_peristiwa;
         $tampil_observasi = $LiffLaporanObservasi->tampil_observasi1($hasil_peristiwa)->fetchObject();
+
+        // Pengecekan
+        echo "Id User: ".$hasil_idUser;
+        echo "<br />";
+        echo "Id LINE: ".$lineID;
+        echo "<br />";
+        echo "Id Peristiwa: ".$hasil_peristiwa;
     }
     else {
         echo "
@@ -40,7 +47,6 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
     }
 }
 ?>
-<!-- End: Pemanggilan dan pendeklarasian class -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -118,7 +124,6 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
 
             <!-- Content -->
             <div id="liffAppContent">
-
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-lg-12">
                         <div class="page-content">
@@ -165,28 +170,30 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
                                 <button id="liffLogoutButton">Log out</button>
                             </div>
 
-                            <!--                            <div class="page-header">&nbsp;</div>-->
-
                             <div class="space-10"></div>
 
+                            <!-- NOTIFIKASI PROSES INPUT LAPORAN OBSERVASI -->
                             <?php
                             if(isset($_GET['action'])) {
                                 if($_GET['action']=='failed') {
                                     echo "<div class='alert alert-danger'>
-                        <button type='button' class='close' data-dismiss='alert'>
-                            <i class='ace-icon fa fa-times'></i>
-                        </button> Gagal mengirim laporan
-                        </div>";
+                                          <button type='button' class='close' data-dismiss='alert'>
+                                              <i class='ace-icon fa fa-times'></i>
+                                          </button> Gagal mengirim laporan
+                                          </div>
+                                    ";
                                 } elseif ($_GET['action']=='success') {
                                     echo "<div class='alert alert-success'>
-                        <button type='button' class='close' data-dismiss='alert'>
-                            <i class='ace-icon fa fa-times'></i>
-                        </button> <i class='ace-icon fa fa-check'></i> Laporan terkirim
-                        </div>";
+                                         <button type='button' class='close' data-dismiss='alert'>
+                                             <i class='ace-icon fa fa-times'></i>
+                                         </button> <i class='ace-icon fa fa-check'></i> Laporan terkirim
+                                          </div>
+                                    ";
                                 }
                             }
                             ?>
 
+                            <!-- HALAMAN INPUT LAPORAN OBSERVASI -->
                             <form action="" method="post" enctype="multipart/form-data">
                                 <input type="hidden" name="id_line" id="id_line" value="Ua275161a7af915419f9dd93c19904bdc" >
                                 <label for="korban_terdampak">
@@ -196,8 +203,8 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
                                     <input type="number" class="form-control input-mask-product col-xs-11 col-sm-11 col-lg-11"
                                            id="korban_terdampak" name="korban_terdampak" value="<?php echo $tampil_observasi->korban_terdampak; ?>" />
                                     <span class="input-group-addon">
-                                Orang
-                            </span>
+                                        Orang
+                                    </span>
                                 </div>
 
                                 <label for="korban_mengungsi">
@@ -206,9 +213,7 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
                                 <div class="input-group">
                                     <input type="number" class="form-control input-mask-product col-xs-11 col-sm-11 col-lg-11"
                                            id="korban_mengungsi" name="korban_mengungsi" value="<?php echo $tampil_observasi->korban_mengungsi; ?>" />
-                                    <span class="input-group-addon">
-                                Orang
-                            </span>
+                                    <span class="input-group-addon">Orang</span>
                                 </div>
 
                                 <label for="korban_luka">
@@ -217,9 +222,7 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
                                 <div class="input-group">
                                     <input type="number" class="form-control input-mask-product col-xs-11 col-sm-11 col-lg-11"
                                            id="korban_luka" name="korban_luka" value="<?php echo $tampil_observasi->korban_luka; ?>" />
-                                    <span class="input-group-addon">
-                                Orang
-                            </span>
+                                    <span class="input-group-addon">Orang</span>
                                 </div>
 
                                 <label for="korban_meninggal">
@@ -228,9 +231,7 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
                                 <div class="input-group">
                                     <input type="number" class="form-control input-mask-product col-xs-11 col-sm-11 col-lg-11"
                                            id="korban_meninggal" name="korban_meninggal"  value="<?php echo $tampil_observasi->korban_meninggal; ?>" />
-                                    <span class="input-group-addon">
-                                Orang
-                            </span>
+                                    <span class="input-group-addon">Orang</span>
                                 </div>
 
                                 <label for="korban_hilang">
@@ -239,9 +240,7 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
                                 <div class="input-group">
                                     <input type="number" class="form-control input-mask-product col-xs-11 col-sm-11 col-lg-11"
                                            id="korban_hilang" name="korban_hilang" value="<?php echo $tampil_observasi->korban_hilang; ?>" />
-                                    <span class="input-group-addon">
-                                Orang
-                            </span>
+                                    <span class="input-group-addon">Orang</span>
                                 </div>
 
                                 <label for="pasca_bencana">
