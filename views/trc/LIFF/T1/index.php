@@ -9,15 +9,6 @@
 if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
     $lineID = $_POST['lineID'];
     echo $lineID;
-
-//    $validasiLineID = "Ua275161a7af915419f9dd93c19904bdcABC";
-//
-//    if ($lineID == $validasiLineID) {
-//        echo "<script>window.location='input_laporan_t1.php'</script>";
-//    }
-//    else {
-//        echo "<script>window.location='informasi.php'</script>";
-//    }
     exit;
 }
 
@@ -72,27 +63,224 @@ $LiffLaporanObservasi = new LiffLaporanObservasi($connection);
 
 <body class="no-skin">
 
+<div id="navbar" class="navbar navbar-default ace-save-state">
+    <div class="navbar-container ace-save-state" id="navbar-container">
+        <div class="navbar-header pull-left">
+            <a href="?pages=beranda" class="navbar-brand">
+                <small>
+                    <i class="fa fa-pencil-square-o"></i>
+                    TRC | Observasi Lapangan
+                </small>
+            </a>
+        </div>
+    </div>
+</div>
+
 <!--| Start: Content Area |-->
 <div class="main-container ace-save-state" id="main-container">
     <div class="main-content">
         <div class="main-content-inner">
+
+            <!-- Header -->
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-lg-12">
+                    <div class="well">
+                        <h4 class="blue smaller lighter">Laporan Tahap Ke-1</h4>
+                        Masukkan/update data laporan hasil observasi tahap ke-1 sesuai kolom berikut. Pastikan data yang diinput
+                        valid dan sesuai dengan data yang tejadi di lokasi bencana.
+                    </div>
+                </div>
+            </div>
 
             <!-- Content -->
             <div id="liffAppContent">
 
                 <form method='post' action>
                     <p id='response'></p>
+                    <?php
+                    echo "(".$hasil.")";
+                    ?>
+                    <!--                    <input type="text" id="response" />-->
                 </form>
 
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-lg-12">
                         <div class="page-content">
 
+                            <!-- PROFILE INFO -->
+                            <div id="profileInfo" class="textLeft">
+                                <div class="widget-box">
+                                    <div class="widget-header">
+                                        <h4 class="smaller">LINE Profile</h4>
+                                    </div>
+                                    <div class="widget-body">
+                                        <div class="widget-main">
+                                            <table>
+                                                <tr>
+                                                    <td rowspan="6">
+                                                        <div id="profilePictureDiv">
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td rowspan="6">&nbsp;&nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>LINE Id:</th>
+                                                </tr>
+                                                <tr>
+                                                    <td id="userIdProfileField"></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Display Name:</th>
+                                                </tr>
+                                                <tr>
+                                                    <td id="displayNameField"></td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                             <!-- LOGIN LOGOUT BUTTONS -->
                             <div class="buttonGroup">
                                 <button id="liffLoginButton">Log in</button>
                                 <button id="liffLogoutButton">Log out</button>
                             </div>
+
+                            <!--                            <div class="page-header">&nbsp;</div>-->
+
+                            <div class="space-10"></div>
+
+                            <?php
+                            if(isset($_GET['action'])) {
+                                if($_GET['action']=='failed') {
+                                    echo "<div class='alert alert-danger'>
+                        <button type='button' class='close' data-dismiss='alert'>
+                            <i class='ace-icon fa fa-times'></i>
+                        </button> Gagal mengirim laporan
+                        </div>";
+                                } elseif ($_GET['action']=='success') {
+                                    echo "<div class='alert alert-success'>
+                        <button type='button' class='close' data-dismiss='alert'>
+                            <i class='ace-icon fa fa-times'></i>
+                        </button> <i class='ace-icon fa fa-check'></i> Laporan terkirim
+                        </div>";
+                                }
+                            }
+                            ?>
+
+                            <form action="" method="post" enctype="multipart/form-data">
+
+                                <?php
+                                $id_peristiwa = "001/PRS/2020";
+                                $tampil_observasi = $LiffLaporanObservasi->tampil_observasi1($id_peristiwa)->fetchObject();
+
+
+                                ?>
+
+                                <input type="hidden" name="id_line" id="id_line" value="Ua275161a7af915419f9dd93c19904bdc" >
+                                <label for="korban_terdampak">
+                                    Korban Terdampak <?php echo $lineID; ?>
+                                </label>
+                                <div class="input-group">
+                                    <input type="number" class="form-control input-mask-product col-xs-11 col-sm-11 col-lg-11"
+                                           id="korban_terdampak" name="korban_terdampak" value="<?php echo $tampil_observasi->korban_terdampak; ?>" />
+                                    <span class="input-group-addon">
+                                Orang
+                            </span>
+                                </div>
+
+                                <label for="korban_mengungsi">
+                                    Korban Mengungsi
+                                </label>
+                                <div class="input-group">
+                                    <input type="number" class="form-control input-mask-product col-xs-11 col-sm-11 col-lg-11"
+                                           id="korban_mengungsi" name="korban_mengungsi" value="<?php echo $tampil_observasi->korban_mengungsi; ?>" />
+                                    <span class="input-group-addon">
+                                Orang
+                            </span>
+                                </div>
+
+                                <label for="korban_luka">
+                                    Korban Luka
+                                </label>
+                                <div class="input-group">
+                                    <input type="number" class="form-control input-mask-product col-xs-11 col-sm-11 col-lg-11"
+                                           id="korban_luka" name="korban_luka" value="<?php echo $tampil_observasi->korban_luka; ?>" />
+                                    <span class="input-group-addon">
+                                Orang
+                            </span>
+                                </div>
+
+                                <label for="korban_meninggal">
+                                    Korban Meninggal
+                                </label>
+                                <div class="input-group">
+                                    <input type="number" class="form-control input-mask-product col-xs-11 col-sm-11 col-lg-11"
+                                           id="korban_meninggal" name="korban_meninggal"  value="<?php echo $tampil_observasi->korban_meninggal; ?>" />
+                                    <span class="input-group-addon">
+                                Orang
+                            </span>
+                                </div>
+
+                                <label for="korban_hilang">
+                                    Korban Hilang
+                                </label>
+                                <div class="input-group">
+                                    <input type="number" class="form-control input-mask-product col-xs-11 col-sm-11 col-lg-11"
+                                           id="korban_hilang" name="korban_hilang" value="<?php echo $tampil_observasi->korban_hilang; ?>" />
+                                    <span class="input-group-addon">
+                                Orang
+                            </span>
+                                </div>
+
+                                <label for="pasca_bencana">
+                                    Kondisi Pasca Bencana
+                                </label>
+                                <div class="input-group">
+                                    <select class="form-control col-xs-12 col-sm-12 col-lg-12" name="pasca_bencana" id="pasca_bencana">
+                                        <option value="<?php echo $tampil_observasi->pasca_bencana; ?>"><?php echo $tampil_observasi->pasca_bencana; ?></option>
+                                        <option value="Normal">Normal</option>
+                                        <option value="Waspada">Waspada</option>
+                                        <option value="Siaga">Siaga</option>
+                                        <option value="Awas">Awas</option>
+                                    </select>
+                                </div>
+
+                                <div class="space-10"></div>
+
+                                <div class="buttonGroup">
+                                    <div class="buttonRow">
+                                        <button class="btn btn-primary" id="simpan" name="simpan">
+                                            <i class="ace-icon glyphicon glyphicon-ok bigger-120"></i>
+                                            Kirim
+                                        </button>
+                                        <button class="btn btn-danger" id="closeWindowButton">
+                                            <i class="ace-icon glyphicon glyphicon-remove bigger-120"></i>
+                                            Batal
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Proses Simpan Data -->
+                                <?php
+                                if (isset($_POST['simpan'])) {
+                                    $id_peristiwa       = "001/PRS/2020";
+                                    $korban_terdampak   = $_POST['korban_terdampak'];
+                                    $korban_mengungsi   = $_POST['korban_mengungsi'];
+                                    $korban_luka        = $_POST['korban_luka'];
+                                    $korban_meninggal   = $_POST['korban_meninggal'];
+                                    $korban_hilang      = $_POST['korban_hilang'];
+                                    $pasca_bencana      = $_POST['pasca_bencana'];
+
+                                    $LiffLaporanObservasi->update_observasi1($id_peristiwa, $korban_terdampak,
+                                        $korban_mengungsi, $korban_luka, $korban_meninggal, $korban_hilang, $pasca_bencana);
+                                    echo "<script>window.location='index.php?action=success'</script>";
+                                }
+                                ?>
+                            </form>
 
                             <div class="space-10"></div>
 
@@ -346,7 +534,7 @@ $LiffLaporanObservasi = new LiffLaporanObservasi($connection);
         liff.getProfile().then(function(profile) {
 
             $(document).ready(function () {
-                var lineID = profile.userId;
+                var lineID = 5;
 
                 $.ajax({
                     url: 'index.php',
