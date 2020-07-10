@@ -8,17 +8,17 @@
 
 if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
     $lineID = $_POST['lineID'];
-    echo $lineID;
+    //echo $lineID;
 
     $validasiLineID = "Ua275161a7af915419f9dd93c19904bdc";
 
     if ($lineID == $validasiLineID) {
-        header('location: input_laporan_t1.php');
-//        include "input_laporan_t1.php";
+//        header('location: input_laporan_t1.php');
+        include "input_laporan_t1.php";
     }
     else {
-        header('location: informasi.php');
-//        include "informasi.php";
+//        header('location: informasi.php');
+    include "informasi.php";
     }
     exit;
 }
@@ -548,7 +548,7 @@ $LiffLaporanObservasi = new LiffLaporanObservasi($connection);
                     type: 'post',
                     data: {ajax: 1, lineID: lineID},
                     success: function (response) {
-                        $('#response').text(response);
+                        $('#response').html(response);
                     }
                 });
             });

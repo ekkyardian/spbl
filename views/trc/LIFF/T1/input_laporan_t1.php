@@ -17,5 +17,6 @@ echo "Form input X";
 </head>
 <body>
 Ini dari Tag HTML
+<input type="text" name="input" />
 </body>
 </html>
