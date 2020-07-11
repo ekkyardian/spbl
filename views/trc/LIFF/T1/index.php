@@ -369,7 +369,7 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
                                         <table>
                                             <tr>
                                                 <td rowspan="6">
-                                                    <div id="profilePictureDiv">
+                                                    <div id="profilePictureDiv2">
                                                     </div>
                                                 </td>
                                             </tr>
@@ -380,13 +380,13 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
                                                 <th>LINE Id:</th>
                                             </tr>
                                             <tr>
-                                                <td id="userIdProfileField"></td>
+                                                <td id="userIdProfileField2"></td>
                                             </tr>
                                             <tr>
                                                 <th>Display Name:</th>
                                             </tr>
                                             <tr>
-                                                <td id="displayNameField"></td>
+                                                <td id="displayNameField2"></td>
                                             </tr>
                                         </table>
                                     </div>
@@ -642,16 +642,26 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
             document.getElementById('userIdProfileField').textContent = profile.userId;
             document.getElementById('displayNameField').textContent = profile.displayName;
 
+            // LINE Profile 2 (Ketika tidak ditemukan penugasan)
+            document.getElementById('userIdProfileField2').textContent = profile.userId;
+            document.getElementById('displayNameField2').textContent = profile.displayName;
+
             const profilePictureDiv = document.getElementById('profilePictureDiv');
+            const profilePictureDiv2 = document.getElementById('profilePictureDiv2');
             if (profilePictureDiv.firstElementChild) {
                 profilePictureDiv.removeChild(profilePictureDiv.firstElementChild);
             }
+            if (profilePictureDiv2.firstElementChild) {
+                profilePictureDiv2.removeChild(profilePictureDiv2.firstElementChild);
+            }
+
             const img = document.createElement('img');
             img.src = profile.pictureUrl;
             img.alt = 'Profile Picture';
             img.style.height  = '66px';
             img.style.width   = '66px';
             profilePictureDiv.appendChild(img);
+            profilePictureDiv2.appendChild(img);
 
             //document.getElementById('statusMessageField').textContent = profile.statusMessage;
             //toggleProfileData();
