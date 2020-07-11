@@ -181,6 +181,10 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
                 </div>
             </div>
 
+            <form method='post' action>
+                <span id='response'></span>
+            </form>
+
             <!-- Content -->
             <div id="liffAppContent">
                 <div class="row">
