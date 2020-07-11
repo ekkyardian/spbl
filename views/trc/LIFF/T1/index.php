@@ -129,7 +129,7 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
             <a href="?pages=beranda" class="navbar-brand">
                 <small>
                     <i class="fa fa-pencil-square-o"></i>
-                    Observasi Lapangan | Tahap #1
+                    Observasi Lapangan | Tahap ke-1
                 </small>
             </a>
         </div>
@@ -180,10 +180,6 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
                     </div>
                 </div>
             </div>
-
-            <form method='post' action>
-                <p id='response'></p>
-            </form>
 
             <!-- Content -->
             <div id="liffAppContent">
@@ -348,8 +344,6 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
                                 }
                                 ?>
                             </form>
-
-                            <div class="space-10"></div>
 
                             <div id="statusMessage">
                                 <div id="isInClientMessage"></div>
