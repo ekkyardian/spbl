@@ -357,45 +357,6 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-lg-12">
                     <div class="page-content">
-
-                        <!-- PROFILE INFO -->
-                        <div id="profileInfo" class="textLeft">
-                            <div class="widget-box">
-                                <div class="widget-header">
-                                    <h4 class="smaller">LINE Profile</h4>
-                                </div>
-                                <div class="widget-body">
-                                    <div class="widget-main">
-                                        <table>
-                                            <tr>
-                                                <td rowspan="6">
-                                                    <div id="profilePictureDiv2">
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td rowspan="6">&nbsp;&nbsp;</td>
-                                            </tr>
-                                            <tr>
-                                                <th>LINE Id:</th>
-                                            </tr>
-                                            <tr>
-                                                <td id="userIdProfileField2"></td>
-                                            </tr>
-                                            <tr>
-                                                <th>Display Name:</th>
-                                            </tr>
-                                            <tr>
-                                                <td id="displayNameField2"></td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="space-10"></div>
-
                         <!-- TIDAK ADA PENUGASAN -->
                         <div id="tidakAdaPenugasan" class="hidden">
                             <div class='alert alert-danger'>
