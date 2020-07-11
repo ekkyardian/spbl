@@ -61,11 +61,11 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
                   document.getElementById('pasca_bencana').value = '$e_pascaBencana';
                   
                   // Menampilkan data peristiwa bencana
-                  document.getElementById('namaInisial').value = '$e_namaInisial';
-                  document.getElementById('jenisBencana').value = '$e_jenisBencana';
-                  document.getElementById('cakupanLokasi').value = '$e_cakupanLokasi';
-                  document.getElementById('tanggalPeristiwa').value = '$e_tanggalPeristiwa';
-                  document.getElementById('jamPeristiwa').value = '$e_jamPeristiwa';
+                  document.getElementById('namaInisial').textContent = '$e_namaInisial';
+                  document.getElementById('jenisBencana').textContent = '$e_jenisBencana';
+                  document.getElementById('cakupanLokasi').textContent = '$e_cakupanLokasi';
+                  document.getElementById('tanggalPeristiwa').textContent = '$e_tanggalPeristiwa';
+                  document.getElementById('jamPeristiwa').textContent = '$e_jamPeristiwa';
               </script>
         ";
     }
@@ -216,7 +216,7 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
                             <!-- DATA PERISTIWA BENCANA -->
                             <div class="widget-box">
                                 <div class="widget-header">
-                                    <h4 class="smaller">Peristiwa Bencana</h4>
+                                    <h4 class="smaller">Data Bencana:</h4>
                                 </div>
                                 <div class="widget-body">
                                     <div class="widget-main">
