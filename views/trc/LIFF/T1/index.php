@@ -148,6 +148,27 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
                     <div class="col-xs-12 col-sm-12 col-lg-12">
                         <div class="page-content">
 
+                            <!-- NOTIFIKASI PROSES INPUT LAPORAN OBSERVASI -->
+                            <?php
+                            if(isset($_GET['action'])) {
+                                if($_GET['action']=='failed') {
+                                    echo "<div class='alert alert-danger'>
+                                          <button type='button' class='close' data-dismiss='alert'>
+                                              <i class='ace-icon fa fa-times'></i>
+                                          </button> Gagal mengirim laporan
+                                          </div>
+                                    ";
+                                } elseif ($_GET['action']=='success') {
+                                    echo "<div class='alert alert-success'>
+                                         <button type='button' class='close' data-dismiss='alert'>
+                                             <i class='ace-icon fa fa-times'></i>
+                                         </button> <i class='ace-icon fa fa-check'></i> Laporan terkirim
+                                          </div>
+                                    ";
+                                }
+                            }
+                            ?>
+
                             <!-- PROFILE INFO -->
                             <div id="profileInfo" class="textLeft">
                                 <div class="widget-box">
@@ -191,27 +212,6 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
                             </div>
 
                             <div class="space-10"></div>
-
-                            <!-- NOTIFIKASI PROSES INPUT LAPORAN OBSERVASI -->
-                            <?php
-                            if(isset($_GET['action'])) {
-                                if($_GET['action']=='failed') {
-                                    echo "<div class='alert alert-danger'>
-                                          <button type='button' class='close' data-dismiss='alert'>
-                                              <i class='ace-icon fa fa-times'></i>
-                                          </button> Gagal mengirim laporan
-                                          </div>
-                                    ";
-                                } elseif ($_GET['action']=='success') {
-                                    echo "<div class='alert alert-success'>
-                                         <button type='button' class='close' data-dismiss='alert'>
-                                             <i class='ace-icon fa fa-times'></i>
-                                         </button> <i class='ace-icon fa fa-check'></i> Laporan terkirim
-                                          </div>
-                                    ";
-                                }
-                            }
-                            ?>
 
                             <!-- HALAMAN INPUT LAPORAN OBSERVASI -->
                             <form action="" method="post" enctype="multipart/form-data">
@@ -289,16 +289,13 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
                                         </button>
                                         <button class="btn btn-danger" id="closeWindowButton">
                                             <i class="ace-icon glyphicon glyphicon-remove bigger-120"></i>
-                                            Batal
+                                            Keluar
                                         </button>
                                     </div>
                                 </div>
 
                                 <!-- Proses Simpan Data -->
                                 <?php
-                                // $vIdLine = $_POST['txtLineId'];
-                                // $vIdUser = $_POST['txtIdUser'];
-                                // $vIdPeristiwa = $_POST['txtIdPeristiwa'];
 
                                 if (isset($_POST['simpan'])) {
                                     $id_peristiwa       = $_POST['txtIdPeristiwa'];
@@ -358,10 +355,14 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
                 </div>
             </div>
 
-            <!-- TIDAK MEMILIKI AKSES -->
-            <div id="tidakAdaPenugasan" class="hidden">
-                <p>Tidak ditemukan penugasan.</p>
-                <p>LIFF initialization can fail if a user clicks "Cancel" on the "Grant permission" screen, or if an error occurs in the process of <code>liff.init()</code>.</p>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-lg-12">
+                    <!-- TIDAK MEMILIKI AKSES -->
+                    <div id="tidakAdaPenugasan" class="hidden">
+                        <p>Tidak ditemukan penugasan.</p>
+                        <p>LIFF initialization can fail if a user clicks "Cancel" on the "Grant permission" screen, or if an error occurs in the process of <code>liff.init()</code>.</p>
+                    </div>
+                </div>
             </div>
 
             <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
