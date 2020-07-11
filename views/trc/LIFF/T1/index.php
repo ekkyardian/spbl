@@ -24,6 +24,7 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
     // Mengecek apakah ada penugasan untuk User dengan ID LINE tersebut
     $peristiwa = $LiffLaporanObservasi->cek_peristiwa($hasil_idUser);
     $cekPeristiwa = $peristiwa->rowCount();
+    $data_peristiwa = $peristiwa->fetchObject();
 
     if ($cekPeristiwa > 0) {
         $tampil_peristiwa = $peristiwa->fetchObject();
@@ -38,6 +39,13 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
         $e_korbanHilang     = $tampil_observasi->korban_hilang;
         $e_pascaBencana     = $tampil_observasi->pasca_bencana;
 
+        // Mengambil data peristiwa bencana dari database
+        $e_namaInisial      = $data_peristiwa->nama_inisial;
+        $e_jenisBencana     = $data_peristiwa->jenis_bencana;
+        $e_cakupanLokasi    = $data_peristiwa->cakupan_lokasi;
+        $e_tanggalPeristiwa = $data_peristiwa->tanggal_peristiwa;
+        $e_jamPeristiwa     = $data_peristiwa->jam_peristiwa;
+
         echo "
               <script>
                   // Untuk kebutuhan proses query
@@ -45,13 +53,20 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
                   document.getElementById('txtIdUser').value = '$hasil_idUser';
                   document.getElementById('txtIdPeristiwa').value = '$hasil_peristiwa';
                   
-                  // Menampilkan data (proses update laporan tahap 1)
+                  // Menampilkan data observasi lapangan tahap 1
                   document.getElementById('korban_terdampak').value = '$e_korbanTerdampak';
                   document.getElementById('korban_mengungsi').value = '$e_korbanMengungsi';
                   document.getElementById('korban_luka').value = '$e_korbanLuka';
                   document.getElementById('korban_meninggal').value = '$e_korbanMeninggal';
                   document.getElementById('korban_hilang').value = '$e_korbanHilang';
                   document.getElementById('pasca_bencana').value = '$e_pascaBencana';
+                  
+                  // Menampilkan data peristiwa bencana
+                  document.getElementById('namaInisial').value = '$e_namaInisial';
+                  document.getElementById('jenisBencana').value = '$e_jenisBencana';
+                  document.getElementById('cakupanLokasi').value = '$e_cakupanLokasi';
+                  document.getElementById('tanggalPeristiwa').value = '$e_tanggalPeristiwa';
+                  document.getElementById('jamPeristiwa').value = '$e_jamPeristiwa';
               </script>
         ";
     }
@@ -115,7 +130,7 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
             <a href="?pages=beranda" class="navbar-brand">
                 <small>
                     <i class="fa fa-pencil-square-o"></i>
-                    TRC | Observasi Lapangan
+                    Observasi Lapangan | Tahap #1
                 </small>
             </a>
         </div>
@@ -131,9 +146,39 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-lg-12">
                     <div class="well">
-                        <h4 class="blue smaller lighter">Laporan Tahap Ke-1</h4>
-                        Masukkan/update data laporan hasil observasi tahap ke-1 sesuai kolom berikut. Pastikan data yang diinput
-                        valid dan sesuai dengan data yang tejadi di lokasi bencana.
+                        <h4 class="blue smaller lighter">Anda login sebagai:</h4>
+                        <!-- PROFILE INFO -->
+                        <div id="profileInfo" class="textLeft">
+                            <table>
+                                <tr>
+                                    <td rowspan="6">
+                                        <div id="profilePictureDiv">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="6">&nbsp;&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <th>LINE Id:</th>
+                                </tr>
+                                <tr>
+                                    <td id="userIdProfileField"></td>
+                                </tr>
+                                <tr>
+                                    <th>Display Name:</th>
+                                </tr>
+                                <tr>
+                                    <td id="displayNameField"></td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <!-- LOGIN LOGOUT BUTTONS -->
+                        <div class="buttonGroup">
+                            <button id="liffLoginButton">Log in</button>
+                            <button id="liffLogoutButton">Log out</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -169,46 +214,40 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
                             }
                             ?>
 
-                            <!-- PROFILE INFO -->
-                            <div id="profileInfo" class="textLeft">
-                                <div class="widget-box">
-                                    <div class="widget-header">
-                                        <h4 class="smaller">LINE Profile</h4>
-                                    </div>
-                                    <div class="widget-body">
-                                        <div class="widget-main">
-                                            <table>
-                                                <tr>
-                                                    <td rowspan="6">
-                                                        <div id="profilePictureDiv">
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td rowspan="6">&nbsp;&nbsp;</td>
-                                                </tr>
-                                                <tr>
-                                                    <th>LINE Id:</th>
-                                                </tr>
-                                                <tr>
-                                                    <td id="userIdProfileField"></td>
-                                                </tr>
-                                                <tr>
-                                                    <th>Display Name:</th>
-                                                </tr>
-                                                <tr>
-                                                    <td id="displayNameField"></td>
-                                                </tr>
-                                            </table>
-                                        </div>
+                            <!-- DATA PERISTIWA BENCANA -->
+                            <div class="widget-box">
+                                <div class="widget-header">
+                                    <h4 class="smaller">Peristiwa Bencana</h4>
+                                </div>
+                                <div class="widget-body">
+                                    <div class="widget-main">
+                                        <table>
+                                            <tr>
+                                                <th valign="top">Nama Inisial</th>
+                                                <td valign="top">:</td>
+                                                <td id="namaInisial" valign="top"></td>
+                                            </tr>
+                                            <tr>
+                                                <th valign="top">Jenis Bencana</th>
+                                                <td valign="top">:</td>
+                                                <td id="jenisBencana" valign="top"></td>
+                                            </tr>
+                                            <tr>
+                                                <th valign="top">Cakupan Lokasi</th>
+                                                <td valign="top">:</td>
+                                                <td id="cakupanLokasi" valign="top"></td>
+                                            </tr>
+                                            <tr>
+                                                <th valign="top">Waktu Kejadian</th>
+                                                <td valign="top">:</td>
+                                                <td valign="top">
+                                                    <p id="tanggalPeristiwa">Tanggal: </p>
+                                                    <p id="jamPeristiwa">Waktu: </p>
+                                                </td>
+                                            </tr>
+                                        </table>
                                     </div>
                                 </div>
-                            </div>
-
-                            <!-- LOGIN LOGOUT BUTTONS -->
-                            <div class="buttonGroup">
-                                <button id="liffLoginButton">Log in</button>
-                                <button id="liffLogoutButton">Log out</button>
                             </div>
 
                             <div class="space-10"></div>
@@ -363,9 +402,9 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
                                 <p>
                                     <strong>Tidak menemukan penugasan.</strong>
                                 </p>
-                                <p>
+                                <p style="text-align: justify">
                                     Tidak ada penugasan yang terkait untuk akun yang Anda gunakan saat ini.
-                                    Pastikan Anda menggunakan akun yang benar (sesuai penugasan) saat mengakses sistem.
+                                    Pastikan Anda mengguna-kan akun yang benar (sesuai penugasan) saat mengakses sistem.
                                     Apabila hal ini merupakan kekeliruan, mohon hubungi Staf Admin untuk melakukan
                                     pengecekan.
                                 </p>
