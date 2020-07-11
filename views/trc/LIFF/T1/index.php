@@ -145,7 +145,6 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-lg-12">
                     <div class="well">
-                        <h4 class="blue smaller lighter">Akun LINE yang Anda gunakan:</h4>
                         <!-- PROFILE INFO -->
                         <div id="profileInfo" class="textLeft">
                             <table>
@@ -222,24 +221,24 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
                                     <div class="widget-main">
                                         <table>
                                             <tr>
-                                                <th valign="top">Nama Inisial</th>
-                                                <td valign="top">:</td>
-                                                <td id="namaInisial" valign="top"></td>
+                                                <th class="col-xs-4" valign="top">Nama Inisial</th>
+                                                <td class="col-xs-1" valign="top">:</td>
+                                                <td class="col-xs-7" id="namaInisial" valign="top"></td>
                                             </tr>
                                             <tr>
-                                                <th valign="top">Jenis Bencana</th>
-                                                <td valign="top">:</td>
-                                                <td id="jenisBencana" valign="top"></td>
+                                                <th class="col-xs-4" valign="top">Jenis Bencana</th>
+                                                <td class="col-xs-1" valign="top">:</td>
+                                                <td class="col-xs-7" id="jenisBencana" valign="top"></td>
                                             </tr>
                                             <tr>
-                                                <th valign="top">Cakupan Lokasi</th>
-                                                <td valign="top">:</td>
-                                                <td id="cakupanLokasi" valign="top"></td>
+                                                <th class="col-xs-4" valign="top">Cakupan Lokasi</th>
+                                                <td class="col-xs-1" valign="top">:</td>
+                                                <td class="col-xs-7" id="cakupanLokasi" valign="top"></td>
                                             </tr>
                                             <tr>
-                                                <th valign="top">Waktu Kejadian</th>
-                                                <td valign="top">:</td>
-                                                <td valign="top">
+                                                <th class="col-xs-4" valign="top">Waktu Kejadian</th>
+                                                <td class="col-xs-1" valign="top">:</td>
+                                                <td class="col-xs-7" valign="top">
                                                     <span id="tanggalPeristiwa"></span>,
                                                     <span id="jamPeristiwa"></span> WIB
                                                 </td>
