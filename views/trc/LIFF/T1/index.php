@@ -30,11 +30,27 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
         $hasil_peristiwa = $tampil_peristiwa->id_peristiwa;
         $tampil_observasi = $LiffLaporanObservasi->tampil_observasi1($hasil_peristiwa)->fetchObject();
 
+        $e_korbanTerdampak  = $tampil_observasi->korbanterdampak;
+        $e_korbanMengungsi  = $tampil_observasi->korban_mengungsi;
+        $e_korbanLuka       = $tampil_observasi->korban_luka;
+        $e_korbanMeninggal  = $tampil_observasi->korban_meninggal;
+        $e_korbanHilang     = $tampil_observasi->korban_hilang;
+        $e_pascaBencana     = $tampil_observasi->pasca_bencana;
+
         echo "
               <script>
-                document.getElementById('txtLineId').value = '$lineID';
-                document.getElementById('txtIdUser').value = '$hasil_idUser';
-                document.getElementById('txtIdPeristiwa').value = '$hasil_peristiwa';
+                  // Untuk kebutuhan proses query
+                  document.getElementById('txtLineId').value = '$lineID';
+                  document.getElementById('txtIdUser').value = '$hasil_idUser';
+                  document.getElementById('txtIdPeristiwa').value = '$hasil_peristiwa';
+                  
+                  // Menampilkan data (proses update laporan tahap 1)
+                  document.getElementById('korban_terdampak').value = '$e_korbanTerdampak';
+                  document.getElementById('korban_mengungsi').value = '$e_korbanMengungsi';
+                  document.getElementById('korban_luka').value = '$e_korbanLuka';
+                  document.getElementById('korban_meninggal').value = '$e_korbanMeninggal';
+                  document.getElementById('korban_hilang').value = '$e_korbanHilang';
+                  document.getElementById('pasca_bencana').value = '$e_pascaBencana';
               </script>
         ";
     }
@@ -219,7 +235,7 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
                                 </label>
                                 <div class="input-group">
                                     <input type="number" class="form-control input-mask-product col-xs-11 col-sm-11 col-lg-11"
-                                           id="korban_terdampak" name="korban_terdampak" value="<?php echo $tampil_observasi->korban_terdampak; ?>" />
+                                           id="korban_terdampak" name="korban_terdampak" value="" />
                                     <span class="input-group-addon">
                                         Orang
                                     </span>
@@ -230,7 +246,7 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
                                 </label>
                                 <div class="input-group">
                                     <input type="number" class="form-control input-mask-product col-xs-11 col-sm-11 col-lg-11"
-                                           id="korban_mengungsi" name="korban_mengungsi" value="<?php echo $tampil_observasi->korban_mengungsi; ?>" />
+                                           id="korban_mengungsi" name="korban_mengungsi" value="" />
                                     <span class="input-group-addon">Orang</span>
                                 </div>
 
@@ -239,7 +255,7 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
                                 </label>
                                 <div class="input-group">
                                     <input type="number" class="form-control input-mask-product col-xs-11 col-sm-11 col-lg-11"
-                                           id="korban_luka" name="korban_luka" value="<?php echo $tampil_observasi->korban_luka; ?>" />
+                                           id="korban_luka" name="korban_luka" value="" />
                                     <span class="input-group-addon">Orang</span>
                                 </div>
 
@@ -248,7 +264,7 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
                                 </label>
                                 <div class="input-group">
                                     <input type="number" class="form-control input-mask-product col-xs-11 col-sm-11 col-lg-11"
-                                           id="korban_meninggal" name="korban_meninggal"  value="<?php echo $tampil_observasi->korban_meninggal; ?>" />
+                                           id="korban_meninggal" name="korban_meninggal"  value="" />
                                     <span class="input-group-addon">Orang</span>
                                 </div>
 
@@ -257,7 +273,7 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
                                 </label>
                                 <div class="input-group">
                                     <input type="number" class="form-control input-mask-product col-xs-11 col-sm-11 col-lg-11"
-                                           id="korban_hilang" name="korban_hilang" value="<?php echo $tampil_observasi->korban_hilang; ?>" />
+                                           id="korban_hilang" name="korban_hilang" value="" />
                                     <span class="input-group-addon">Orang</span>
                                 </div>
 
@@ -266,7 +282,7 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
                                 </label>
                                 <div class="input-group">
                                     <select class="form-control col-xs-12 col-sm-12 col-lg-12" name="pasca_bencana" id="pasca_bencana">
-                                        <option value="<?php echo $tampil_observasi->pasca_bencana; ?>"><?php echo $tampil_observasi->pasca_bencana; ?></option>
+                                        <option value=""></option>
                                         <option value="Normal">Normal</option>
                                         <option value="Waspada">Waspada</option>
                                         <option value="Siaga">Siaga</option>
