@@ -36,6 +36,9 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
         echo "Id LINE: ".$lineID;
         echo "<br />";
         echo "Id Peristiwa: ".$hasil_peristiwa;
+        echo "
+              <script>document.getElementById('txtLineId').value = '$lineID';</script>
+        ";
     }
     else {
         echo "
@@ -46,7 +49,7 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
         ";
     }
 
-    //exit;
+    exit;
 }
 
 //require_once ('../../../../config/+koneksi.php');
@@ -133,6 +136,7 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
 
             <form method='post' action>
                 <p id='response'></p>
+                <input type="text" id="txtLineId" name="txtLineId" value="" />
             </form>
 
             <!-- Content -->
@@ -671,6 +675,3 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
 
 </body>
 </html>
-<?php
-exit;
-?>
