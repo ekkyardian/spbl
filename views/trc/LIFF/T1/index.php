@@ -289,14 +289,13 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
                                         </button>
                                         <button class="btn btn-danger" id="closeWindowButton">
                                             <i class="ace-icon glyphicon glyphicon-remove bigger-120"></i>
-                                            Keluar
+                                            Tutup
                                         </button>
                                     </div>
                                 </div>
 
                                 <!-- Proses Simpan Data -->
                                 <?php
-
                                 if (isset($_POST['simpan'])) {
                                     $id_peristiwa       = $_POST['txtIdPeristiwa'];
                                     $korban_terdampak   = $_POST['korban_terdampak'];
@@ -357,10 +356,66 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
 
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-lg-12">
-                    <!-- TIDAK MEMILIKI AKSES -->
-                    <div id="tidakAdaPenugasan" class="hidden">
-                        <p>Tidak ditemukan penugasan.</p>
-                        <p>LIFF initialization can fail if a user clicks "Cancel" on the "Grant permission" screen, or if an error occurs in the process of <code>liff.init()</code>.</p>
+                    <div class="page-content">
+
+                        <!-- PROFILE INFO -->
+                        <div id="profileInfo" class="textLeft">
+                            <div class="widget-box">
+                                <div class="widget-header">
+                                    <h4 class="smaller">LINE Profile</h4>
+                                </div>
+                                <div class="widget-body">
+                                    <div class="widget-main">
+                                        <table>
+                                            <tr>
+                                                <td rowspan="6">
+                                                    <div id="profilePictureDiv">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td rowspan="6">&nbsp;&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                                <th>LINE Id:</th>
+                                            </tr>
+                                            <tr>
+                                                <td id="userIdProfileField"></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Display Name:</th>
+                                            </tr>
+                                            <tr>
+                                                <td id="displayNameField"></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- LOGIN LOGOUT BUTTONS -->
+                        <div class="buttonGroup">
+                            <button id="liffLoginButton">Log in</button>
+                            <button id="liffLogoutButton">Log out</button>
+                        </div>
+
+                        <div class="space-10"></div>
+
+                        <!-- TIDAK ADA PENUGASAN -->
+                        <div id="tidakAdaPenugasan" class="hidden">
+                            <div class='alert alert-danger'>
+                                <p>
+                                    <strong>Tidak menemukan penugasan</strong>
+                                </p>
+                                <p>
+                                    Tidak ada penugasan yang terkait untuk akun yang Anda gunakan saat ini.
+                                    Pastikan Anda menggunakan akun yang benar (sesuai penugasan) saat mengakses sistem.
+                                    Apabila hal ini merupakan kekeliruan, mohon hubungi Staf Admin untuk melakukan
+                                    pengecekan.
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
