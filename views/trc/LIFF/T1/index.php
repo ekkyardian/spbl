@@ -349,6 +349,8 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
                                 ?>
                             </form>
 
+                            <div class="space-10"></div>
+
                             <div id="statusMessage">
                                 <div id="isInClientMessage"></div>
                                 <div id="apiReferenceMessage">
