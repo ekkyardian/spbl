@@ -30,7 +30,8 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
         $hasil_peristiwa = $tampil_peristiwa->id_peristiwa;
         $tampil_observasi = $LiffLaporanObservasi->tampil_observasi1($hasil_peristiwa)->fetchObject();
 
-        $e_korbanTerdampak  = $tampil_observasi->korbanterdampak;
+        // Mengambil data laporan tahap 1 dari database
+        $e_korbanTerdampak  = $tampil_observasi->korban_terdampak;
         $e_korbanMengungsi  = $tampil_observasi->korban_mengungsi;
         $e_korbanLuka       = $tampil_observasi->korban_luka;
         $e_korbanMeninggal  = $tampil_observasi->korban_meninggal;
@@ -139,22 +140,6 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
 
             <form method='post' action>
                 <p id='response'></p>
-                <input type="text" id="txtLineId" name="txtLineId" value="" />
-                <input type="text" id="txtIdUser" name="txtIdUser" value="" />
-                <input type="text" id="txtIdPeristiwa" name="txtIdPeristiwa" value="" />
-
-                <?php
-                $vIdLine = $_POST['txtLineId'];
-                $vIdUser = $_POST['txtIdUser'];
-                $vIdPeristiwa = $_POST['txtIdPeristiwa'];
-
-                // Pengecekan
-                echo "Id User: ".$vIdUser;
-                echo "<br />";
-                echo "Id LINE: ".$vIdLine;
-                echo "<br />";
-                echo "Id Peristiwa: ".$vIdPeristiwa;
-                ?>
             </form>
 
             <!-- Content -->
@@ -230,6 +215,11 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
 
                             <!-- HALAMAN INPUT LAPORAN OBSERVASI -->
                             <form action="" method="post" enctype="multipart/form-data">
+                                <!-- HIDDEN DATA -->
+                                <input type="hidden" id="txtLineId" name="txtLineId" value="" />
+                                <input type="hidden" id="txtIdUser" name="txtIdUser" value="" />
+                                <input type="hidden" id="txtIdPeristiwa" name="txtIdPeristiwa" value="" />
+
                                 <label for="korban_terdampak">
                                     Korban Terdampak
                                 </label>
@@ -282,7 +272,6 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
                                 </label>
                                 <div class="input-group">
                                     <select class="form-control col-xs-12 col-sm-12 col-lg-12" name="pasca_bencana" id="pasca_bencana">
-                                        <option value=""></option>
                                         <option value="Normal">Normal</option>
                                         <option value="Waspada">Waspada</option>
                                         <option value="Siaga">Siaga</option>
@@ -307,8 +296,12 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
 
                                 <!-- Proses Simpan Data -->
                                 <?php
+                                // $vIdLine = $_POST['txtLineId'];
+                                // $vIdUser = $_POST['txtIdUser'];
+                                // $vIdPeristiwa = $_POST['txtIdPeristiwa'];
+
                                 if (isset($_POST['simpan'])) {
-                                    $id_peristiwa       = "001/PRS/2020";
+                                    $id_peristiwa       = $_POST['txtIdPeristiwa'];
                                     $korban_terdampak   = $_POST['korban_terdampak'];
                                     $korban_mengungsi   = $_POST['korban_mengungsi'];
                                     $korban_luka        = $_POST['korban_luka'];
@@ -322,7 +315,6 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
                                 }
                                 ?>
                             </form>
-                            <?php //exit; ?>
 
                             <div class="space-10"></div>
 
