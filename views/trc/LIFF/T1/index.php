@@ -30,14 +30,12 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
         $hasil_peristiwa = $tampil_peristiwa->id_peristiwa;
         $tampil_observasi = $LiffLaporanObservasi->tampil_observasi1($hasil_peristiwa)->fetchObject();
 
-        // Pengecekan
-        echo "Id User: ".$hasil_idUser;
-        echo "<br />";
-        echo "Id LINE: ".$lineID;
-        echo "<br />";
-        echo "Id Peristiwa: ".$hasil_peristiwa;
         echo "
-              <script>document.getElementById('txtLineId').value = '$lineID';</script>
+              <script>
+                document.getElementById('txtLineId').value = '$lineID';
+                document.getElementById('txtIdUser').value = '$hasil_idUser';
+                document.getElementById('txtIdPeristiwa').value = '$hasil_peristiwa';
+              </script>
         ";
     }
     else {
@@ -51,13 +49,6 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
 
     exit;
 }
-
-//require_once ('../../../../config/+koneksi.php');
-//require_once ('../../../../models/database.php');
-//require_once ('../../../../models/trc/liff/LiffLaporanObservasi.php');
-//
-//$connection = new Database($host, $user, $pass, $database);
-//$LiffLaporanObservasi = new LiffLaporanObservasi($connection);
 ?>
 
 <!DOCTYPE html>
@@ -130,13 +121,24 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
                 </div>
             </div>
 
-            <?php
-            //exit;
-            ?>
-
             <form method='post' action>
                 <p id='response'></p>
                 <input type="text" id="txtLineId" name="txtLineId" value="" />
+                <input type="text" id="txtIdUser" name="txtIdUser" value="" />
+                <input type="text" id="txtIdPeristiwa" name="txtIdPeristiwa" value="" />
+
+                <?php
+                $vIdLine = $_POST['txtLineId'];
+                $vIdUser = $_POST['txtIdUser'];
+                $vIdPeristiwa = $_POST['txtIdPeristiwa'];
+
+                // Pengecekan
+                echo "Id User: ".$vIdUser;
+                echo "<br />";
+                echo "Id LINE: ".$vIdLine;
+                echo "<br />";
+                echo "Id Peristiwa: ".$vIdPeristiwa;
+                ?>
             </form>
 
             <!-- Content -->
