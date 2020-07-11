@@ -8,3 +8,9 @@
 
 echo "Halaman informasi penolakan";
 ?>
+
+<html>
+<body>
+Ini dari body HTML
+</body>
+</html>
