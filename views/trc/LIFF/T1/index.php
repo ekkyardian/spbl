@@ -24,12 +24,11 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
     // Mengecek apakah ada penugasan untuk User dengan ID LINE tersebut
     $peristiwa = $LiffLaporanObservasi->cek_peristiwa($hasil_idUser);
     $cekPeristiwa = $peristiwa->rowCount();
-    $data_peristiwa = $peristiwa->fetchObject();
 
     if ($cekPeristiwa > 0) {
-        $tampil_peristiwa = $peristiwa->fetchObject();
-        $hasil_peristiwa = $tampil_peristiwa->id_peristiwa;
-        $tampil_observasi = $LiffLaporanObservasi->tampil_observasi1($hasil_peristiwa)->fetchObject();
+        $tampil_peristiwa   = $peristiwa->fetchObject();
+        $hasil_peristiwa    = $tampil_peristiwa->id_peristiwa;
+        $tampil_observasi   = $LiffLaporanObservasi->tampil_observasi1($hasil_peristiwa)->fetchObject();
 
         // Mengambil data laporan tahap 1 dari database
         $e_korbanTerdampak  = $tampil_observasi->korban_terdampak;
@@ -40,11 +39,11 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
         $e_pascaBencana     = $tampil_observasi->pasca_bencana;
 
         // Mengambil data peristiwa bencana dari database
-        $e_namaInisial      = $data_peristiwa->nama_inisial;
-        $e_jenisBencana     = $data_peristiwa->jenis_bencana;
-        $e_cakupanLokasi    = $data_peristiwa->cakupan_lokasi;
-        $e_tanggalPeristiwa = $data_peristiwa->tanggal_peristiwa;
-        $e_jamPeristiwa     = $data_peristiwa->jam_peristiwa;
+        $e_namaInisial      = $tampil_peristiwa->nama_inisial;
+        $e_jenisBencana     = $tampil_peristiwa->jenis_bencana;
+        $e_cakupanLokasi    = $tampil_peristiwa->cakupan_lokasi;
+        $e_tanggalPeristiwa = $tampil_peristiwa->tanggal_peristiwa;
+        $e_jamPeristiwa     = $tampil_peristiwa->jam_peristiwa;
 
         echo "
               <script>
@@ -146,7 +145,7 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-lg-12">
                     <div class="well">
-                        <h4 class="blue smaller lighter">Anda login sebagai:</h4>
+                        <h4 class="blue smaller lighter">Akun LINE yang Anda gunakan:</h4>
                         <!-- PROFILE INFO -->
                         <div id="profileInfo" class="textLeft">
                             <table>
@@ -241,8 +240,8 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
                                                 <th valign="top">Waktu Kejadian</th>
                                                 <td valign="top">:</td>
                                                 <td valign="top">
-                                                    <p id="tanggalPeristiwa">Tanggal: </p>
-                                                    <p id="jamPeristiwa">Waktu: </p>
+                                                    <span id="tanggalPeristiwa"></span>,
+                                                    <span id="jamPeristiwa"></span> WIB
                                                 </td>
                                             </tr>
                                         </table>
