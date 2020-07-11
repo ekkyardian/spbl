@@ -16,7 +16,7 @@ $LiffLaporanObservasi = new LiffLaporanObservasi($connection);
 if (isset($_POST['ajax']) && isset($_POST['lineID']) ){
     $lineID = $_POST['lineID'];
 
-    if ($lineID = "Ua275161a7af915419f9dd93c19904bdc") {
+    if ($lineID == "Ua275161a7af915419f9dd93c19904bdc") {
         include "input_laporan_t1.php";
     }
     else {
