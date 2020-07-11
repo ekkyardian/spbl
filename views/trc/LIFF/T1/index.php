@@ -394,19 +394,13 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
                             </div>
                         </div>
 
-                        <!-- LOGIN LOGOUT BUTTONS -->
-                        <div class="buttonGroup">
-                            <button id="liffLoginButton">Log in</button>
-                            <button id="liffLogoutButton">Log out</button>
-                        </div>
-
                         <div class="space-10"></div>
 
                         <!-- TIDAK ADA PENUGASAN -->
                         <div id="tidakAdaPenugasan" class="hidden">
                             <div class='alert alert-danger'>
                                 <p>
-                                    <strong>Tidak menemukan penugasan</strong>
+                                    <strong>Tidak menemukan penugasan.</strong>
                                 </p>
                                 <p>
                                     Tidak ada penugasan yang terkait untuk akun yang Anda gunakan saat ini.
@@ -643,17 +637,17 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
             document.getElementById('displayNameField').textContent = profile.displayName;
 
             // LINE Profile 2 (Ketika tidak ditemukan penugasan)
-            document.getElementById('userIdProfileField2').textContent = profile.userId;
-            document.getElementById('displayNameField2').textContent = profile.displayName;
+            // document.getElementById('userIdProfileField2').textContent = profile.userId;
+            // document.getElementById('displayNameField2').textContent = profile.displayName;
 
             const profilePictureDiv = document.getElementById('profilePictureDiv');
-            const profilePictureDiv2 = document.getElementById('profilePictureDiv2');
+            // const profilePictureDiv2 = document.getElementById('profilePictureDiv2');
             if (profilePictureDiv.firstElementChild) {
                 profilePictureDiv.removeChild(profilePictureDiv.firstElementChild);
             }
-            if (profilePictureDiv2.firstElementChild) {
-                profilePictureDiv2.removeChild(profilePictureDiv2.firstElementChild);
-            }
+            // if (profilePictureDiv2.firstElementChild) {
+            //     profilePictureDiv2.removeChild(profilePictureDiv2.firstElementChild);
+            // }
 
             const img = document.createElement('img');
             img.src = profile.pictureUrl;
@@ -661,7 +655,7 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
             img.style.height  = '66px';
             img.style.width   = '66px';
             profilePictureDiv.appendChild(img);
-            profilePictureDiv2.appendChild(img);
+            // profilePictureDiv2.appendChild(img);
 
             //document.getElementById('statusMessageField').textContent = profile.statusMessage;
             //toggleProfileData();
