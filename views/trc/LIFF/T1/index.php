@@ -45,6 +45,8 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
               </script>
         ";
     }
+
+    exit;
 }
 
 //require_once ('../../../../config/+koneksi.php');
@@ -126,7 +128,7 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
             </div>
 
             <?php
-            exit;
+            //exit;
             ?>
 
             <form method='post' action>
