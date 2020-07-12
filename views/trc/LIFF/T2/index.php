@@ -270,11 +270,11 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
                                         <td colspan="3"><strong>Pengungsi Laki-laki:</strong></td>
                                     </tr>
                                     <tr>
-                                        <td class="col-xs-5" style="margin-bottom: 10px">
+                                        <td class="col-xs-5" style="margin-bottom: 10px;">
                                             <label for="pl_balita">Balita</label>
                                         </td>
-                                        <td class="col-xs-0" style="margin-bottom: 10px">:</td>
-                                        <td class="col-xs-7" align="center" style="margin-bottom: 10px">
+                                        <td class="col-xs-0" style="margin-bottom: 10px;">:</td>
+                                        <td class="col-xs-7" align="center" style="margin-bottom: 10px;">
                                             <div class="input-group">
                                                 <input type="number" class="form-control input-mask-product col-xs-12 col-sm-12 col-lg-12"
                                                        id="pl_balita" name="pl_balita" value="" />
@@ -283,11 +283,11 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td class="col-xs-5" style="margin-bottom: 10px">
+                                        <td class="col-xs-5" style="margin-bottom: 10px;">
                                             <label for="pl_anak_anak">Anak-anak</label>
                                         </td>
-                                        <td class="col-xs-0" style="margin-bottom: 10px">:</td>
-                                        <td class="col-xs-7" align="center" style="margin-bottom: 10px">
+                                        <td class="col-xs-0" style="margin-bottom: 10px;">:</td>
+                                        <td class="col-xs-7" align="center" style="margin-bottom: 10px;">
                                             <div class="input-group">
                                                 <input type="number" class="form-control input-mask-product col-xs-12 col-sm-12 col-lg-12"
                                                        id="pl_anak_anak" name="pl_anak_anak" value="" />
@@ -296,11 +296,11 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td class="col-xs-5" style="margin-bottom: 10px">
+                                        <td class="col-xs-5" style="margin-bottom: 10px;">
                                             <label for="pl_remaja">Remaja</label>
                                         </td>
-                                        <td class="col-xs-0" style="margin-bottom: 10px">:</td>
-                                        <td class="col-xs-7" align="center" style="margin-bottom: 10px">
+                                        <td class="col-xs-0" style="margin-bottom: 10px;">:</td>
+                                        <td class="col-xs-7" align="center" style="margin-bottom: 10px;">
                                             <div class="input-group">
                                                 <input type="number" class="form-control input-mask-product col-xs-12 col-sm-12 col-lg-12"
                                                        id="pl_remaja" name="pl_remaja" value="" />
@@ -309,11 +309,11 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td class="col-xs-5" style="margin-bottom: 10px">
+                                        <td class="col-xs-5" style="margin-bottom: 10px;">
                                             <label for="pl_dewasa">Dewasa</label>
                                         </td>
-                                        <td class="col-xs-0" style="margin-bottom: 10px">:</td>
-                                        <td class="col-xs-7" align="center" style="margin-bottom: 10px">
+                                        <td class="col-xs-0" style="margin-bottom: 10px;">:</td>
+                                        <td class="col-xs-7" align="center" style="margin-bottom: 10px;">
                                             <div class="input-group">
                                                 <input type="number" class="form-control input-mask-product col-xs-12 col-sm-12 col-lg-12"
                                                        id="pl_dewasa" name="pl_dewasa" value="" />
@@ -322,11 +322,11 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td class="col-xs-5" style="margin-bottom: 10px">
+                                        <td class="col-xs-5" style="margin-bottom: 10px;">
                                             <label for="pl_lansia">Lansia</label>
                                         </td>
-                                        <td class="col-xs-0" style="margin-bottom: 10px">:</td>
-                                        <td class="col-xs-7" align="center" style="margin-bottom: 10px">
+                                        <td class="col-xs-0" style="margin-bottom: 10px;">:</td>
+                                        <td class="col-xs-7" align="center" style="margin-bottom: 10px;">
                                             <div class="input-group">
                                                 <input type="number" class="form-control input-mask-product col-xs-12 col-sm-12 col-lg-12"
                                                        id="pl_lansia" name="pl_lansia" value="" />
@@ -341,11 +341,11 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
                                         <td colspan="3"><strong>Pengungsi Perempuan:</strong></td>
                                     </tr>
                                     <tr>
-                                        <td class="col-xs-5" style="margin-bottom: 10px">
+                                        <td class="col-xs-5" style="margin-bottom: 10px;">
                                             <label for="pp_balita">Balita</label>
                                         </td>
-                                        <td class="col-xs-0" style="margin-bottom: 10px">:</td>
-                                        <td class="col-xs-7" align="center" style="margin-bottom: 10px">
+                                        <td class="col-xs-0" style="margin-bottom: 10px;">:</td>
+                                        <td class="col-xs-7" align="center" style="margin-bottom: 10px;">
                                             <div class="input-group">
                                                 <input type="number" class="form-control input-mask-product col-xs-12 col-sm-12 col-lg-12"
                                                        id="pp_balita" name="pp_balita" value="" />
@@ -354,11 +354,11 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td class="col-xs-5" style="margin-bottom: 10px">
+                                        <td class="col-xs-5" style="margin-bottom: 10px;">
                                             <label for="pp_anak_anak">Anak-anak</label>
                                         </td>
-                                        <td class="col-xs-0" style="margin-bottom: 10px">:</td>
-                                        <td class="col-xs-7" align="center" style="margin-bottom: 10px">
+                                        <td class="col-xs-0" style="margin-bottom: 10px;">:</td>
+                                        <td class="col-xs-7" align="center" style="margin-bottom: 10px;">
                                             <div class="input-group">
                                                 <input type="number" class="form-control input-mask-product col-xs-12 col-sm-12 col-lg-12"
                                                        id="pp_anak_anak" name="pp_anak_anak" value="" />
@@ -367,11 +367,11 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td class="col-xs-5" style="margin-bottom: 10px">
+                                        <td class="col-xs-5" style="margin-bottom: 10px;">
                                             <label for="pp_remaja">Remaja</label>
                                         </td>
-                                        <td class="col-xs-0" style="margin-bottom: 10px">:</td>
-                                        <td class="col-xs-7" align="center" style="margin-bottom: 10px">
+                                        <td class="col-xs-0" style="margin-bottom: 10px;">:</td>
+                                        <td class="col-xs-7" align="center" style="margin-bottom: 10px;">
                                             <div class="input-group">
                                                 <input type="number" class="form-control input-mask-product col-xs-12 col-sm-12 col-lg-12"
                                                        id="pp_remaja" name="pp_remaja" value="" />
@@ -380,11 +380,11 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td class="col-xs-5" style="margin-bottom: 10px">
+                                        <td class="col-xs-5" style="margin-bottom: 10px;">
                                             <label for="pp_dewasa">Dewasa</label>
                                         </td>
-                                        <td class="col-xs-0" style="margin-bottom: 10px">:</td>
-                                        <td class="col-xs-7" align="center" style="margin-bottom: 10px">
+                                        <td class="col-xs-0" style="margin-bottom: 10px;">:</td>
+                                        <td class="col-xs-7" align="center" style="margin-bottom: 10px;">
                                             <div class="input-group">
                                                 <input type="number" class="form-control input-mask-product col-xs-12 col-sm-12 col-lg-12"
                                                        id="pp_dewasa" name="pp_dewasa" value="" />
@@ -393,11 +393,11 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td class="col-xs-5" style="margin-bottom: 10px">
+                                        <td class="col-xs-5" style="margin-bottom: 10px;">
                                             <label for="pp_lansia">Lansia</label>
                                         </td>
-                                        <td class="col-xs-0" style="margin-bottom: 10px">:</td>
-                                        <td class="col-xs-7" align="center" style="margin-bottom: 10px">
+                                        <td class="col-xs-0" style="margin-bottom: 10px;">:</td>
+                                        <td class="col-xs-7" align="center" style="margin-bottom: 10px;">
                                             <div class="input-group">
                                                 <input type="number" class="form-control input-mask-product col-xs-12 col-sm-12 col-lg-12"
                                                        id="pp_lansia" name="pp_lansia" value="" />
