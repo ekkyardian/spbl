@@ -263,9 +263,7 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
                                 <div class="input-group">
                                     <input type="number" class="form-control input-mask-product col-xs-11 col-sm-11 col-lg-11"
                                            id="korban_terdampak" name="korban_terdampak" value="" />
-                                    <span class="input-group-addon">
-                                        Orang
-                                    </span>
+                                    <span class="input-group-addon">Orang</span>
                                 </div>
 
                                 <label for="korban_mengungsi">
