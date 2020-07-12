@@ -265,7 +265,7 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
                                 <input type="hidden" id="txtIdUser" name="txtIdUser" value="" />
                                 <input type="hidden" id="txtIdPeristiwa" name="txtIdPeristiwa" value="" />
 
-                                <table style="border-spacing: 5px">
+                                <table cellspacing="3px">
                                     <tr>
                                         <td colspan="3"><strong>Pengungsi Laki-laki:</strong></td>
                                     </tr>
