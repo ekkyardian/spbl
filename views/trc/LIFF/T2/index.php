@@ -95,7 +95,7 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <meta charset="utf-8"/>
-    <title>SPBL</title>
+    <title>SPBL | BPBD Kota Bogor</title>
 
     <meta name="description" content=""/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
@@ -265,7 +265,7 @@ if( isset($_POST['ajax']) && isset($_POST['lineID']) ){
                                 <input type="hidden" id="txtIdUser" name="txtIdUser" value="" />
                                 <input type="hidden" id="txtIdPeristiwa" name="txtIdPeristiwa" value="" />
 
-                                <table border="1">
+                                <table>
                                     <tr>
                                         <td colspan="3"><strong>Pengungsi Laki-laki:</strong></td>
                                     </tr>
