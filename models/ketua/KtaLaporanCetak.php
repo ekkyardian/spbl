@@ -184,7 +184,7 @@ class KtaLaporanCetak
                 selimut_bayi='$selimut_bayi', pembalut='$pembalut', kantong_mayat='$kantong_mayat',
                 kain_kafan='$kain_kafan' WHERE id_peristiwa='$id_peristiwa'";
 
-        $db->query($sql);
+        $db->query($sql) or die ($db->error);
     }
     // End: Method Update (UPDATE) -------------------------------------------------------------------------------------
 }

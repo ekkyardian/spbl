@@ -277,14 +277,14 @@ $jml_pl_anak_anak   = $_POST['pl_anak_anak'];
 $jml_pl_remaja      = $_POST['pl_remaja'];
 $jml_pl_dewasa      = $_POST['pl_dewasa'];
 $jml_pl_lansia      = $_POST['pl_lansia'];
-$jml_pl             = $jml_pl_balita + $jml_pl_anak_anak + $jml_pl_remaja + $jml_pl_dewasa + $jml_pl_lansia;
+$jml_pl             = $_POST['jml_pl'];
 
 $jml_pp_balita      = $_POST['pp_balita'];
 $jml_pp_anak_anak   = $_POST['pp_anak_anak'];
 $jml_pp_remaja      = $_POST['pp_remaja'];
 $jml_pp_dewasa      = $_POST['pp_dewasa'];
 $jml_pp_lansia      = $_POST['pp_lansia'];
-$jml_pp             = $jml_pp_balita + $jml_pp_anak_anak + $jml_pp_remaja + $jml_pp_dewasa + $jml_pp_lansia;
+$jml_pp             = $_POST['jml_pp'];
 
 // Proses Perhitungan: Kebutuhan Bantuan Logistik dalam Bentuk Satuan
 $beras              = 0.4 * (($jml_pl + $jml_pp) - ($jml_pl_balita + $jml_pp_balita)); // liter/hari
@@ -338,7 +338,7 @@ $TrcHasilObservasi->update_observasi($id_peristiwa, $master_korban_terdampak, $m
     $master_korban_luka, $master_korban_meninggal, $master_korban_hilang, $master_pasca_bencana, $jml_pl, 
     $jml_pl_balita, $jml_pl_anak_anak, $jml_pl_remaja, $jml_pl_dewasa, $jml_pl_lansia, $jml_pp, $jml_pp_balita, 
     $jml_pp_anak_anak, $jml_pp_remaja, $jml_pp_dewasa, $jml_pp_lansia);
-// End: Simpan Hasil Obervasi Lapangan ---------------------------------------------------------------------------------
+// // End: Simpan Hasil Obervasi Lapangan ---------------------------------------------------------------------------------
 
 
 

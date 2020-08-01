@@ -439,7 +439,8 @@ if (@$_GET['act'] == '') {
                                                     </div>
                                                     <div class="profile-info-value">
                                                         <span>
-                                                            <input type="number" class="col-xs-11 col-sm-11" name="pl_balita" id="pl_balita" value="<?php echo $data->pl_balita; ?>" />
+                                                            <input type="hidden" id="jml_pl" name="jml_pl" />
+                                                            <input type="number" class="col-xs-11 col-sm-11" name="pl_balita" id="pl_balita">
                                                         </span>
                                                     </div>
                                                 </div>
@@ -449,7 +450,7 @@ if (@$_GET['act'] == '') {
                                                     </div>
                                                     <div class="profile-info-value">
                                                         <span>
-                                                            <input type="number" class="col-xs-11 col-sm-11" name="pl_anak_anak" id="pl_anak_anak" value="<?php echo $data->pl_anak_anak; ?>" />
+                                                            <input type="number" class="col-xs-11 col-sm-11" name="pl_anak_anak" id="pl_anak_anak">
                                                         </span>
                                                     </div>
                                                 </div>
@@ -459,7 +460,7 @@ if (@$_GET['act'] == '') {
                                                     </div>
                                                     <div class="profile-info-value">
                                                         <span>
-                                                            <input type="number" class="col-xs-11 col-sm-11" name="pl_remaja" id="pl_remaja" value="<?php echo $data->pl_remaja; ?>" />
+                                                            <input type="number" class="col-xs-11 col-sm-11" name="pl_remaja" id="pl_remaja">
                                                         </span>
                                                     </div>
                                                 </div>
@@ -469,7 +470,7 @@ if (@$_GET['act'] == '') {
                                                     </div>
                                                     <div class="profile-info-value">
                                                         <span>
-                                                            <input type="number" class="col-xs-11 col-sm-11" name="pl_dewasa" id="pl_dewasa" value="<?php echo $data->pl_dewasa; ?>" />
+                                                            <input type="number" class="col-xs-11 col-sm-11" name="pl_dewasa" id="pl_dewasa">
                                                         </span>
                                                     </div>
                                                 </div>
@@ -479,7 +480,7 @@ if (@$_GET['act'] == '') {
                                                     </div>
                                                     <div class="profile-info-value">
                                                         <span>
-                                                            <input type="number" class="col-xs-11 col-sm-11" name="pl_lansia" id="pl_lansia" value="<?php echo $data->pl_lansia; ?>" />
+                                                            <input type="number" class="col-xs-11 col-sm-11" name="pl_lansia" id="pl_lansia">
                                                         </span>
                                                     </div>
                                                 </div>
@@ -502,7 +503,8 @@ if (@$_GET['act'] == '') {
                                                     </div>
                                                     <div class="profile-info-value">
                                                         <span>
-                                                            <input type="number" class="col-xs-11 col-sm-11" name="pp_balita" id="pp_balita" value="<?php echo $data->pp_balita; ?>" />
+                                                            <input type="hidden" id="jml_pp" name="jml_pp" />
+                                                            <input type="number" class="col-xs-11 col-sm-11" name="pp_balita" id="pp_balita">
                                                         </span>
                                                     </div>
                                                 </div>
@@ -512,7 +514,7 @@ if (@$_GET['act'] == '') {
                                                     </div>
                                                     <div class="profile-info-value">
                                                         <span>
-                                                            <input type="number" class="col-xs-11 col-sm-11" name="pp_anak_anak" id="pp_anak_anak" value="<?php echo $data->pp_anak_anak; ?>" />
+                                                            <input type="number" class="col-xs-11 col-sm-11" name="pp_anak_anak" id="pp_anak_anak">
                                                         </span>
                                                     </div>
                                                 </div>
@@ -522,7 +524,7 @@ if (@$_GET['act'] == '') {
                                                     </div>
                                                     <div class="profile-info-value">
                                                         <span>
-                                                            <input type="number" class="col-xs-11 col-sm-11" name="pp_remaja" id="pp_remaja" value="<?php echo $data->pp_remaja; ?>" />
+                                                            <input type="number" class="col-xs-11 col-sm-11" name="pp_remaja" id="pp_remaja">
                                                         </span>
                                                     </div>
                                                 </div>
@@ -532,7 +534,7 @@ if (@$_GET['act'] == '') {
                                                     </div>
                                                     <div class="profile-info-value">
                                                         <span>
-                                                            <input type="number" class="col-xs-11 col-sm-11" name="pp_dewasa" id="pp_dewasa" value="<?php echo $data->pp_dewasa; ?>" />
+                                                            <input type="number" class="col-xs-11 col-sm-11" name="pp_dewasa" id="pp_dewasa">
                                                         </span>
                                                     </div>
                                                 </div>
@@ -542,7 +544,7 @@ if (@$_GET['act'] == '') {
                                                     </div>
                                                     <div class="profile-info-value">
                                                         <span>
-                                                            <input type="number" class="col-xs-11 col-sm-11" name="pp_lansia" id="pp_lansia" value="<?php echo $data->pp_lansia; ?>" />
+                                                            <input type="number" class="col-xs-11 col-sm-11" name="pp_lansia" id="pp_lansia">
                                                         </span>
                                                     </div>
                                                 </div>
@@ -597,12 +599,14 @@ if (@$_GET['act'] == '') {
                 var j_pl_remaja = $(this).data('pl_remaja');
                 var j_pl_dewasa = $(this).data('pl_dewasa');
                 var j_pl_lansia = $(this).data('pl_lansia');
+                var j_jml_pl = j_pl_balita + j_pl_anak_anak + j_pl_remaja + j_pl_dewasa + j_pl_lansia;
 
                 var j_pp_balita = $(this).data('pp_balita');
                 var j_pp_anak_anak = $(this).data('pp_anak_anak');
                 var j_pp_remaja = $(this).data('pp_remaja');
                 var j_pp_dewasa = $(this).data('pp_dewasa');
                 var j_pp_lansia = $(this).data('pp_lansia');
+                var j_jml_pp = j_pp_balita + j_pp_anak_anak + j_pp_remaja + j_pp_dewasa + j_pp_lansia;
                 var j_laporan_tahap2 = $(this).data('laporan_tahap2');
 
                 $("#modal_update #id_peristiwa").val(j_id_peristiwa);
@@ -629,12 +633,14 @@ if (@$_GET['act'] == '') {
                 $("#update #pl_remaja").val(j_pl_remaja);
                 $("#update #pl_dewasa").val(j_pl_dewasa);
                 $("#update #pl_lansia").val(j_pl_lansia);
+                $("#update #jml_pl").val(j_jml_pl);
 
                 $("#update #pp_balita").val(j_pp_balita);
                 $("#update #pp_anak_anak").val(j_pp_anak_anak);
                 $("#update #pp_remaja").val(j_pp_remaja);
                 $("#update #pp_dewasa").val(j_pp_dewasa);
                 $("#update #pp_lansia").val(j_pp_lansia);
+                $("#update #jml_pp").val(j_jml_pp);
                 $("#update #laporan_tahap2").val(j_laporan_tahap2);
 
                 // Key untuk pemberian izin edit
