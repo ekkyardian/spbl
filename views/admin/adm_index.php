@@ -20,7 +20,7 @@ if ($_SESSION['hak_akses']!='admin') {
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <meta charset="utf-8"/>
-    <title>SPBL</title>
+    <title>SPBL | BPBD Kota Bogor</title>
 
     <meta name="description" content=""/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
@@ -81,7 +81,7 @@ while ($data = $tampil_user->fetchObject()) {
             <a href="?pages=beranda" class="navbar-brand">
                 <small>
                     <i class="fa fa-cogs"></i>
-                    SPBL
+                    SPBL (Admin)
                 </small>
             </a>
         </div>
@@ -196,6 +196,24 @@ while ($data = $tampil_user->fetchObject()) {
             </li>
 
             <li class="">
+                <a href="?pages=hasil_observasi">
+                    <i class="menu-icon fa fa-check-square-o"></i>
+                    <span class="menu-text">Hasil Observasi</span>
+                </a>
+
+                <b class="arrow"></b>
+            </li>
+
+            <li class="">
+                <a href="?pages=laporan_analisis">
+                    <i class="menu-icon fa fa-book"></i>
+                    <span class="menu-text">Laporan Analisis</span>
+                </a>
+
+                <b class="arrow"></b>
+            </li>
+
+            <li class="">
                 <a href="#" class="dropdown-toggle">
                     <i class="menu-icon fa fa-users"></i>
                     <span class="menu-text">Kelola Akun</span>
@@ -254,6 +272,10 @@ while ($data = $tampil_user->fetchObject()) {
                         include "adm_beranda.php";
                     } else if (@$_GET['pages'] == 'peristiwa_bencana') {
                         include "adm_peristiwa_bencana.php";
+                    } else if (@$_GET['pages'] == 'hasil_observasi') {
+                        include "adm_hasil_observasi.php";
+                    } else if (@$_GET['pages'] == 'laporan_analisis') {
+                        include "adm_laporan_analisis.php";
                     } else if (@$_GET['pages'] == 'kelola_akun') {
                         include "adm_kelola_akun.php";
                     } else if (@$_GET['pages'] == 'profile') {

@@ -68,12 +68,11 @@ if (@$_GET['act'] == '') {
             <thead>
             <tr>
                 <th>No</th>
-
-                <th>Nama Inisial</th>
+                <th class="col-lg-3 col-md-3">Nama Inisial</th>
                 <th>Jenis bencana</th>
-                <th class="hidden-480">Cakupan Lokasi</th>
+                <th class="col-lg-5 col-md-5">Cakupan Lokasi</th>
                 <th>Waktu Peristiwa</th>
-                <th></th>
+                <th class="col-lg-1 col-md-1"></th>
                 <th style="visibility: hidden" class="no-border no-margin no-padding no-radius"></th>
             </tr>
             </thead>
@@ -103,9 +102,9 @@ if (@$_GET['act'] == '') {
                 </td>
                 <td><?php echo $data->jenis_bencana; ?></td>
                 <td class="hidden-480"><?php echo $data->cakupan_lokasi; ?></td>
-                <td>
-                    <?php echo $data->tanggal_peristiwa; ?>&nbsp;
-                    <?php echo $data->jam_peristiwa; ?>
+                <td align="center">
+                    <?php echo $data->tanggal_peristiwa; ?>, <br />
+                    <?php echo $data->jam_peristiwa; ?> WIB
                 </td>
                 <td>
                     <div class="hidden-sm hidden-xs action-buttons">
@@ -200,8 +199,8 @@ if (@$_GET['act'] == '') {
                                 <form action="" id="form-penanggungjawab" method="post" enctype="multipart/form-data">
                                     <?php
                                     $id_usr = $data->id_user;
-                                    $tampil_usr = $AdmPeristiwaBencana->tampil_user(null);
-                                    while ($data_usr = $tampil_usr->fetchObject()) {
+                                    $tampil_usr = $AdmPeristiwaBencana->tampil_user($id_usr);
+                                    $data_usr = $tampil_usr->fetchObject()
                                     ?>
                                     <div class="modal-body" id="mb-penanggungjawab">
                                         <div class="row">
@@ -229,7 +228,6 @@ if (@$_GET['act'] == '') {
                                             </div>
                                         </div>
                                     </div>
-                                    <?php } ?>
                                 </form>
                             </div>
                         </div>
@@ -275,15 +273,13 @@ if (@$_GET['act'] == '') {
                             <td>
                                 <select class="form-control" id="jenis_bencana" name="jenis_bencana">
                                     <option value="">Jenis Bencana...</option>
+                                    <option value="Angin Kencang">Angin Kencang</option>
                                     <option value="Banjir">Banjir</option>
-                                    <option value="Tanah Longsor">Tanah Longsor</option>
-                                    <option value="Kebakaran">Kebakaran</option>
                                     <option value="Gempa Bumi">Gempa Bumi</option>
-                                    <option value="Tsunami">Tsunami</option>
+                                    <option value="Kebakaran">Kebakaran</option>
                                     <option value="Kekeringan">Kekeringan</option>
-                                    <option value="Gunung Meletus">Gunung Meletus</option>
-                                    <option value="Angin Topan/Beliung">Angin Topan/Beliung</option>
-                                    <option value="Wabah Penyakit">Wabah Penyakit</option>
+                                    <option value="Tanah Longsor">Tanah Longsor</option>
+                                    <option value="Lainnya">Lainnya</option>
                                 </select>
                             </td>
                         </tr>
@@ -397,15 +393,13 @@ if (@$_GET['act'] == '') {
                             <td class="col-xs-1 col-sm-1">:</td>
                             <td>
                                 <select class="form-control" id="jenis_bencana" name="jenis_bencana">
+                                    <option value="Angin Kencang">Angin Kencang</option>
                                     <option value="Banjir">Banjir</option>
-                                    <option value="Tanah Longsor">Tanah Longsor</option>
-                                    <option value="Kebakaran">Kebakaran</option>
                                     <option value="Gempa Bumi">Gempa Bumi</option>
-                                    <option value="Tsunami">Tsunami</option>
+                                    <option value="Kebakaran">Kebakaran</option>
                                     <option value="Kekeringan">Kekeringan</option>
-                                    <option value="Gunung Meletus">Gunung Meletus</option>
-                                    <option value="Angin Topan/Beliung">Angin Topan/Beliung</option>
-                                    <option value="abah Penyakit">Wabah Penyakit</option>
+                                    <option value="Tanah Longsor">Tanah Longsor</option>
+                                    <option value="Lainnya">Lainnya</option>
                                 </select>
                             </td>
                         </tr>

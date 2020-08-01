@@ -26,7 +26,7 @@ CREATE TABLE tb_alternatif (
 
 -- CREATE TABLE tb_analisis_prioritas --
 CREATE TABLE tb_analisis_prioritas (
-	id_analisis VARCHAR (12) PRIMARY KEY,
+	id_analisis SERIAL PRIMARY KEY,
 	id_peristiwa VARCHAR (12) NOT NULL,
 	paket_pangan DECIMAL,
 	paket_sandang DECIMAL,
@@ -44,7 +44,7 @@ CREATE TABLE tb_bobot (
 
 -- CREATE TABLE tb_kebutuhan_logistik --
 CREATE TABLE tb_kebutuhan_logistik (
-	id_kebutuhan VARCHAR (12) PRIMARY KEY,
+	id_kebutuhan SERIAL PRIMARY KEY,
 	id_peristiwa VARCHAR (12),
 	beras INTEGER,
 	telur INTEGER,

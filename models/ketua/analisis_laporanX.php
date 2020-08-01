@@ -6,20 +6,42 @@
  * Time: 21:52
  */
 
-session_start();
 
 // Start: Pemanggilan dan Pendeklarasian Class -------------------------------------------------------------------------
 require_once ("../../config/+koneksi.php");
 require_once ("../database.php");
+include "../../models/trc/TrcHasilObservasi.php";
 require_once ("KtaLaporanCetak.php");
-require_once ("../../models/trc/TrcHasilObservasi.php");
 
 $connection     = new Database($host, $user, $pass, $database);
 $analisis       = new KtaLaporanCetak($connection);
 
-$id_peristiwa               = $_POST['id_peristiwa'];
-$id_laporan_tahap1          = $_POST['laporan_tahap1'];
-$id_laporan_tahap2          = $_POST['laporan_tahap2'];
+$id_peristiwa       = $_POST['id_peristiwa'];
+
+$trc_korban_terdampak   = $_POST['korban_terdampak'];
+$trc_korban_mengungsi   = $_POST['korban_mengungsi'];
+$trc_korban_luka        = $_POST['korban_luka'];
+$trc_korban_hilang      = $_POST['korban_hilang'];
+$trc_korban_meninggal   = $_POST['korban_meninggal'];
+$trc_pasca_bencana        = $_POST['pasca_bencana'];
+
+$trc_pl_balita          = $_POST['pl_balita'];
+$trc_pl_anak_anak       = $_POST['pl_anak_anak'];
+$trc_pl_remaja          = $_POST['pl_remaja'];
+$trc_pl_dewasa          = $_POST['pl_dewasa'];
+$trc_pl_lansia          = $_POST['pl_lansia'];
+
+$trc_pp_balita          = $_POST['pp_balita'];
+$trc_pp_anak_anak       = $_POST['pp_anak_anak'];
+$trc_pp_remaja          = $_POST['pp_remaja'];
+$trc_pp_dewasa          = $_POST['pp_dewasa'];
+$trc_pp_lansia          = $_POST['pp_lansia'];
+
+$trc_pl                 = $trc_pl_balita + $trc_pl_anak_anak + $trc_pl_remaja + $trc_pl_dewasa + $trc_pl_lansia;
+$trc_pp                 = $trc_pp_balita + $trc_pp_anak_anak + $trc_pp_remaja + $trc_pp_dewasa + $trc_pp_lansia;
+
+// Deklarasi class: tb_observasi_lapangan
+$TrcHasilObservasi = new TrcHasilObservasi($connection);
 
 // Pengambilan dan pengecekan data pada tabel: tb_observasi_lapangan
 $observasi_lapangan         = $analisis->tampil_observasi_lapangan($id_peristiwa);
@@ -31,14 +53,6 @@ $analisis_prioritas         = $analisis->tampil_analisis_prioritas($id_peristiwa
 $cek_analisis_prioritas     = $analisis_prioritas->rowCount(); // <<-------------------------------------Tidak Digunakan
 $ambil_analisis_prioritas   = $analisis->tampil_analisis_prioritas($id_peristiwa)->fetchObject();
 
-// Pengambilan Nilai Laporan Tahap 1: laporan_tahap1 --> tb_observasi_lapangan
-$laporan_tahap1             = $analisis->tampil_laporan_tahap1($id_laporan_tahap1);
-$cek_laporan_tahap1         = $laporan_tahap1->rowCount();
-
-// Pengambilan Nilai Laporan Tahap 2: laporan_tahap2 --> tb_observasi_lapangan
-$laporan_tahap2             = $analisis->tampil_laporan_tahap2($id_laporan_tahap2);
-$cek_laporan_tahap2         = $laporan_tahap2->rowCount();
-
 // Pengecekan dan Pengecekan Data pada Tabel: tb_kebutuhan_logistik
 $kebutuhan_logistik         = $analisis->tampil_kebutuhan_logistik($id_peristiwa);
 $cek_kebutuhan_logistik     = $kebutuhan_logistik->rowCount(); // <<-------------------------------------Tidak Digunakan
@@ -47,26 +61,35 @@ $ambil_kebutuhan_logistik   = $analisis->tampil_kebutuhan_logistik($id_peristiwa
 
 
 
+// Start: Update Hasil Obervasi Lapangan -------------------------------------------------------------------------------
+$TrcHasilObservasi->update_observasi($id_peristiwa, $trc_korban_terdampak, $trc_korban_mengungsi, $trc_korban_luka,
+    $trc_korban_meninggal, $trc_korban_hilang, $trc_pasca_bencana, $trc_pl, $trc_pl_balita, $trc_pl_anak_anak,
+    $trc_pl_remaja, $trc_pl_dewasa, $trc_pl_lansia, $trc_pp, $trc_pp_balita, $trc_pp_anak_anak, $trc_pp_remaja,
+    $trc_pp_dewasa, $trc_pp_lansia);
+// End: Simpan Hasil Obervasi Lapangan ---------------------------------------------------------------------------------
+
+
+
 // Start: Analisis Logistik Prioritas Menggunakan Metode SMART ---------------------------------------------------------
 //--- Tahap 1: Menentukan Kriteria dan Pembobotan ---//
-$master_korban_terdampak    = $_POST['korban_terdampak'];
-$master_korban_mengungsi    = $_POST['korban_mengungsi'];
-$master_korban_luka         = $_POST['korban_luka'];
-$master_korban_hilang       = $_POST['korban_hilang'];
-$master_korban_meninggal    = $_POST['korban_meninggal'];
-$master_pasca_bencana       = $_POST['pasca_bencana'];
+$master_korban_terdampak    = $ambil_observasi->korban_terdampak;
+$master_korban_mengungsi    = $ambil_observasi->korban_mengungsi;
+$master_korban_luka         = $ambil_observasi->korban_luka;
+$master_korban_hilang       = $ambil_observasi->korban_hilang;
+$master_korban_meninggal    = $ambil_observasi->korban_meninggal;
+$master_pasca_bencana       = $ambil_observasi->pasca_bencana;
 
 // Menentukan kelas nilai: Korban Terdampak
 if ($master_korban_terdampak > 0 AND $master_korban_terdampak <= 20) {
     $kelas_korban_terdampak = 25;
 }
-elseif ($master_korban_terdampak > 20 AND $master_korban_terdampak <= 30) {
+else if ($master_korban_terdampak > 20 AND $master_korban_terdampak <= 30) {
     $kelas_korban_terdampak = 50;
 }
-elseif ($master_korban_terdampak > 30 AND $master_korban_terdampak <= 50) {
+else if ($master_korban_terdampak > 30 AND $master_korban_terdampak <= 50) {
     $kelas_korban_terdampak = 75;
 }
-elseif ($master_korban_terdampak > 50) {
+else if ($master_korban_terdampak > 50) {
     $kelas_korban_terdampak = 100;
 }
 else {
@@ -77,13 +100,13 @@ else {
 if ($master_korban_mengungsi > 0 AND $master_korban_mengungsi <= 10) {
     $kelas_korban_mengungsi = 25;
 }
-elseif ($master_korban_mengungsi > 10 AND $master_korban_mengungsi <= 20) {
+else if ($master_korban_mengungsi > 10 AND $master_korban_mengungsi <= 20) {
     $kelas_korban_mengungsi = 50;
 }
-elseif ($master_korban_mengungsi > 20 AND $master_korban_mengungsi <= 30) {
+else if ($master_korban_mengungsi > 20 AND $master_korban_mengungsi <= 30) {
     $kelas_korban_mengungsi = 75;
 }
-elseif ($master_korban_mengungsi > 30) {
+else if ($master_korban_mengungsi > 30) {
     $kelas_korban_mengungsi = 100;
 }
 else {
@@ -91,16 +114,16 @@ else {
 }
 
 // Menentukan kelas nilai: Korban Luka
-if ($master_korban_luka > 0 AND $master_korban_luka <= 5) {
+if ($master_korban_luka > 0 AND $master_korban_luka <= 3) {
     $kelas_korban_luka = 25;
 }
-elseif ($master_korban_luka > 5 AND $master_korban_luka <= 10) {
+else if ($master_korban_luka > 3 AND $master_korban_luka <= 5) {
     $kelas_korban_luka = 50;
 }
-elseif ($master_korban_luka > 10 AND $master_korban_luka <= 15) {
+else if ($master_korban_luka > 5 AND $master_korban_luka <= 9) {
     $kelas_korban_luka = 75;
 }
-elseif ($master_korban_luka > 15) {
+else if ($master_korban_luka > 9) {
     $kelas_korban_luka = 100;
 }
 else {
@@ -109,16 +132,16 @@ else {
 
 // Menentukan kelas nilai: Korban Meninggal dan Hilang
 $master_korban_meninggal_hilang = $master_korban_meninggal + $master_korban_hilang;
-if ($master_korban_meninggal_hilang > 0 AND $master_korban_meninggal_hilang <= 2) {
+if ($master_korban_meninggal_hilang = 1) {
     $kelas_korban_meninggal_hilang = 25;
 }
-elseif ($master_korban_meninggal_hilang > 2 AND $master_korban_meninggal_hilang <= 5) {
+else if ($master_korban_meninggal_hilang = 2) {
     $kelas_korban_meninggal_hilang = 50;
 }
-elseif ($master_korban_meninggal_hilang > 6 AND $master_korban_meninggal_hilang <= 10) {
+else if ($master_korban_meninggal_hilang = 3) {
     $kelas_korban_meninggal_hilang = 75;
 }
-elseif ($master_korban_meninggal_hilang > 10) {
+else if ($master_korban_meninggal_hilang > 3) {
     $kelas_korban_meninggal_hilang = 100;
 }
 else {
@@ -129,13 +152,13 @@ else {
 if ($master_pasca_bencana == "Normal") {
     $kelas_pasca_bencana = 0;
 }
-elseif ($master_pasca_bencana == "Waspada") {
+else if ($master_pasca_bencana == "Waspada") {
     $kelas_pasca_bencana = 30;
 }
-elseif ($master_pasca_bencana == "Siaga") {
+else if ($master_pasca_bencana == "Siaga") {
     $kelas_pasca_bencana = 70;
 }
-elseif ($master_pasca_bencana == "Awas") {
+else if ($master_pasca_bencana == "Awas") {
     $kelas_pasca_bencana = 100;
 }
 else {
@@ -251,15 +274,15 @@ if ($nilai_paket_pangan > $nilai_paket_sandang AND $nilai_paket_pangan > $nilai_
     $nilai_paket_pangan > $nilai_paket_lainnya) {
     $paket_prioritas = "Paket Pangan";
 }
-elseif ($nilai_paket_sandang > $nilai_paket_pangan AND $nilai_paket_sandang > $nilai_paket_kematian AND
+else if ($nilai_paket_sandang > $nilai_paket_pangan AND $nilai_paket_sandang > $nilai_paket_kematian AND
     $nilai_paket_sandang > $nilai_paket_lainnya) {
     $paket_prioritas = "Paket Sandang";
 }
-elseif ($nilai_paket_kematian > $nilai_paket_pangan AND $nilai_paket_kematian > $nilai_paket_sandang AND
+else if ($nilai_paket_kematian > $nilai_paket_pangan AND $nilai_paket_kematian > $nilai_paket_sandang AND
     $nilai_paket_kematian > $nilai_paket_lainnya) {
     $paket_prioritas = "Paket Kematian";
 }
-elseif ($nilai_paket_lainnya > $nilai_paket_pangan AND $nilai_paket_lainnya > $nilai_paket_sandang AND
+else if ($nilai_paket_lainnya > $nilai_paket_pangan AND $nilai_paket_lainnya > $nilai_paket_sandang AND
     $nilai_paket_lainnya > $nilai_paket_kematian) {
     $paket_prioritas = "Paket Lainnya";
 }
@@ -270,21 +293,39 @@ else {
 
 
 
+// Start: Analisis Kebutuhan Bantuan Logistik dalam Bentuk Paket -------------------------------------------------------
+// Deklarasi Variabel yang Dibutuhkan untuk Perhitungan
+$jml_pria_dewasa                = $ambil_observasi->pl_dewasa;
+$jml_pria_lansia                = $ambil_observasi->pl_lansia;
+
+$jml_kepala_keluarga            = $jml_pria_dewasa + $jml_pria_lansia; // Untuk Paket Sandang dan Pangan
+$jml_korban_meninggal_hilang    = $master_korban_hilang + $master_korban_meninggal; // Untuk Paket Kematian
+$jml_korban_luka                = $ambil_observasi->korban_luka; // Untuk Paket Lainnya
+
+// Hasil Perhitungan: Jumlah Kebutuhan Bantuan logistik dalam Bentuk Paket
+$kebutuhan_paket_pangan         = $jml_kepala_keluarga;
+$kebutuhan_paket_sandang        = $jml_kepala_keluarga;
+$kebutuhan_paket_kematian       = $jml_korban_meninggal_hilang;
+$kebutuhan_paket_lainnya        = ceil($jml_korban_luka / 10);
+// End: Analisis Kebutuhan Bantuan Logistik dalam Bentuk Paket ---------------------------------------------------------
+
+
+
 // Start: Analisis Kebutuhan Bantuan Logistik dalam Bentuk Satuan ------------------------------------------------------
 // Deklarasi Variabel yang Dibutuhkan untuk Perhitungan
-$jml_pl_balita      = $_POST['pl_balita'];
-$jml_pl_anak_anak   = $_POST['pl_anak_anak'];
-$jml_pl_remaja      = $_POST['pl_remaja'];
-$jml_pl_dewasa      = $_POST['pl_dewasa'];
-$jml_pl_lansia      = $_POST['pl_lansia'];
-$jml_pl             = $jml_pl_balita + $jml_pl_anak_anak + $jml_pl_remaja + $jml_pl_dewasa + $jml_pl_lansia;
+$jml_pl             = $ambil_observasi->pengungsi_laki_laki;
+$jml_pl_balita      = $ambil_observasi->pl_balita;
+$jml_pl_anak_anak   = $ambil_observasi->pl_anak_anak;
+$jml_pl_remaja      = $ambil_observasi->pl_remaja;
+$jml_pl_dewasa      = $ambil_observasi->pl_dewasa;
+$jml_pl_lansia      = $ambil_observasi->pl_lansia;
 
-$jml_pp_balita      = $_POST['pp_balita'];
-$jml_pp_anak_anak   = $_POST['pp_anak_anak'];
-$jml_pp_remaja      = $_POST['pp_remaja'];
-$jml_pp_dewasa      = $_POST['pp_dewasa'];
-$jml_pp_lansia      = $_POST['pp_lansia'];
-$jml_pp             = $jml_pp_balita + $jml_pp_anak_anak + $jml_pp_remaja + $jml_pp_dewasa + $jml_pp_lansia;
+$jml_pp             = $ambil_observasi->pengungsi_perempuan;
+$jml_pp_balita      = $ambil_observasi->pp_balita;
+$jml_pp_anak_anak   = $ambil_observasi->pp_anak_anak;
+$jml_pp_remaja      = $ambil_observasi->pp_remaja;
+$jml_pp_dewasa      = $ambil_observasi->pp_dewasa;
+$jml_pp_lansia      = $ambil_observasi->pp_lansia;
 
 // Proses Perhitungan: Kebutuhan Bantuan Logistik dalam Bentuk Satuan
 $beras              = 0.4 * (($jml_pl + $jml_pp) - ($jml_pl_balita + $jml_pp_balita)); // liter/hari
@@ -305,138 +346,35 @@ $sleeping_bag       = 1 * ($jml_pl_lansia + $jml_pp_lansia); // buah
 $matras             = 1 * ($jml_pl + $jml_pp); // buah
 $sabun_mandi        = 3 * ($jml_pl + $jml_pp); // batang/bulan
 $sabun_cuci         = 1 * ($jml_pl + $jml_pp); // bungkus/bulan
-$paket_kesehatan    = ceil($master_korban_luka / 10); // paket/10 korban
+$paket_kesehatan    = ceil($jml_korban_luka / 10); // paket/10 korban
 
 $popok_bayi         = 12 * ($jml_pl_balita + $jml_pp_balita); // pcs/hari
 $susu_bayi          = 990 * ($jml_pl_balita + $jml_pp_balita); // gram/hari
 $selimut_bayi       = 1 * ($jml_pl_balita + $jml_pp_balita); // buah
 $pembalut           = (4 * $jml_pp_remaja) * 0.5; // pcs/hari
-$kantong_mayat      = 1 * $master_korban_meninggal_hilang; // buah/korban meninggal atau hilang
-$kain_kapan         = 1 * $master_korban_meninggal_hilang; // buah/korban meninggal atau hilang
+$kantong_mayat      = 1 * $jml_korban_meninggal_hilang; // buah/korban meninggal atau hilang
+$kain_kapan         = 1 * $jml_korban_meninggal_hilang; // buah/korban meninggal atau hilang
 // End: Analisis Kebutuhan Bantuan Logistik dalam Bentuk Satuan --------------------------------------------------------
-
-
-
-// Start: Analisis Kebutuhan Bantuan Logistik dalam Bentuk Paket -------------------------------------------------------
-// Deklarasi Variabel yang Dibutuhkan untuk Perhitungan
-$jml_kepala_keluarga            = $jml_pl_dewasa; // Untuk Paket Sandang dan Pangan
-$jml_korban_meninggal_hilang    = $master_korban_hilang + $master_korban_meninggal; // Untuk Paket Kematian
-$jml_korban_luka                = $master_korban_luka; // Untuk Paket Lainnya
-
-// Hasil Perhitungan: Jumlah Kebutuhan Bantuan logistik dalam Bentuk Paket
-$kebutuhan_paket_pangan         = $jml_kepala_keluarga;
-$kebutuhan_paket_sandang        = $jml_kepala_keluarga;
-$kebutuhan_paket_kematian       = $jml_korban_meninggal_hilang;
-$kebutuhan_paket_lainnya        = ceil($jml_korban_luka / 10);
-// End: Analisis Kebutuhan Bantuan Logistik dalam Bentuk Paket ---------------------------------------------------------
-
-
-
-// Start: Update Hasil Obervasi Lapangan -------------------------------------------------------------------------------
-$TrcHasilObservasi = new TrcHasilObservasi($connection);
-$TrcHasilObservasi->update_observasi($id_peristiwa, $master_korban_terdampak, $master_korban_mengungsi,
-    $master_korban_luka, $master_korban_meninggal, $master_korban_hilang, $master_pasca_bencana, $jml_pl, 
-    $jml_pl_balita, $jml_pl_anak_anak, $jml_pl_remaja, $jml_pl_dewasa, $jml_pl_lansia, $jml_pp, $jml_pp_balita, 
-    $jml_pp_anak_anak, $jml_pp_remaja, $jml_pp_dewasa, $jml_pp_lansia);
-// End: Simpan Hasil Obervasi Lapangan ---------------------------------------------------------------------------------
 
 
 
 // Start: Flowchart/Alur Kerja Sistem dalam Menyusun Laporan -----------------------------------------------------------
 
-// Menentukan peristiwa yang menjadi objek perhitungan
 // (((--- LAPORAN TAHAP 1 ---)))
-// Cek ketersediaan data dan validitas Laporan Tahap #1 (laporan_tahap1 --> tb_observasi_lapangan):
-// Jika variabel perhitungan laporan Tahap #1 TIDAK TERSEDIA (laporan_tahap1 --> tb_observasi_lapangan)
-if ($id_laporan_tahap1 == 0) {
-
-    // Tampilkan pesan bahwa variabel perhitungan untuk Laporan Tahap #1 TIDAK TERSEDIA/NULL
-    $keterangan = "Tidak dapat melakukan analisis prioritas. Laporan tahap 1 belum dilaporkan.";
-}
-
-// Jika variabel perhitungan laporan Tahap #1 TERSEDIA & BELUM PERNAH dilakukan perhitungan sebelumnya
-// (laporan_tahap1 --> tb_observasi_lapangan)
-elseif ($id_laporan_tahap1 == 1) {
-
-    // Lakukan perhitungan untuk Laporan Tahap #1 dan Lakukan INSERT (tb_analisis_prioritas)
-    // WARNING! Alur ini seharusnya tidak akan pernah terpilih (Karena Trigger)
-    $analisis->simpan_analisis_prioritas($id_peristiwa, $nilai_paket_pangan,
-        $nilai_paket_sandang, $nilai_paket_kematian, $nilai_paket_lainnya);
-}
-
-// Jika variabel perhitungan laporan Tahap #1 TERSEDIA & SUDAH PERNAH dilakukan perhitungan sebelumnya, akan tetapi
-// data yang digunakan pada perhitungan sebelumnya mengalami perubahan data (laporan_tahap1 --> tb_observasi_lapangan)
-elseif ($id_laporan_tahap1 == 2) {
-
     // Lakukan perhitungan untuk Laporan Tahap #1 dan Lakukan UPDATE (tb_analisis_prioritas)
     $analisis->update_analisis_prioritas($id_peristiwa, $nilai_paket_pangan, $nilai_paket_sandang,
         $nilai_paket_kematian, $nilai_paket_lainnya);
-}
-
-// Jika hasil perhitungan Laporan Tahap #1 tersedia dan data tersebut valid (laporan_tahap1 --> tb_observasi_lapangan)
-elseif ($id_laporan_tahap1 == 3) {
-
-    // Ambil data perhitungan dari database (tb_analisis_prioritas)
-    // WARNING! Alur ini juga seharusnya tidak akan pernah terpilih (Karena Trigger)
-    $keterangan = "Hasil perhitungan analisis prioritas up to date.";
-}
-
-// Jika dihadapkan pada kondisi selain kondisi yang sudah disebutkan di atas (just in case)
-else {
-
-    // Tampilkan pesan error pada setiap variabel perhitungan
-    $keterangan = "Terjadi kesalahan ketika melakukan perhitungan analisis prioritas.";
-}
 
 
 // (((--- LAPORAN TAHAP 2 ---)))
-// Cek ketersediaan data dan validitas Laporan Tahap #1 (laporan_tahap1 --> tb_observasi_lapangan):
-// Jika variabel perhitungan laporan Tahap #1 TIDAK TERSEDIA (laporan_tahap1 --> tb_observasi_lapangan)
-if ($id_laporan_tahap2 == 0) {
-
-    // Tampilkan pesan bahwa variabel perhitungan untuk Laporan Tahap #1 TIDAK TERSEDIA
-    $keterangan = "Tidak dapat melakukan analisis kebutuhan logistik. Laporan tahap 2 belum dilaporkan.";
-}
-
-// Jika variabel perhitungan laporan Tahap #2 TERSEDIA & BELUM PERNAH dilakukan perhitungan sebelumnya
-// (laporan_tahap1 --> tb_observasi_lapangan)
-elseif ($id_laporan_tahap2 == 1) {
-
-    // Lakukan perhitungan untuk Laporan Tahap #2 dan Lakukan INSERT (tb_analisis_prioritas)
-    // WARNING! Alur ini seharusnya tidak akan pernah terpilih (Karena Trigger)
-    $analisis->simpan_kebutuhan_logistik($id_peristiwa, $beras, $telur, $mie_instan, $air_mineral,
+// Lakukan perhitungan untuk Laporan Tahap #2 dan Lakukan UPDATE (tb_analisis_prioritas)
+    $analisis->update_kebutuhan_logistik($id_peristiwa, $beras, $telur, $mie_instan, $air_mineral,
         $pakaian_balita, $pakaian_anak_l, $pakaian_anak_p, $pakaian_remaja_l, $pakaian_remaja_p,
-        $pakaian_dewasa_l, $pakaian_dewasa_p, $selimut, $sleeping_bag, $matras, $sabun_mandi,
-        $sabun_cuci, $paket_kesehatan, $popok_bayi, $susu_bayi, $selimut_bayi, $pembalut,
-        $kantong_mayat, $kain_kapan);
-}
+        $pakaian_dewasa_l, $pakaian_dewasa_p, $selimut, $sleeping_bag, $matras, $sabun_mandi, $sabun_cuci,
+        $paket_kesehatan, $popok_bayi, $susu_bayi, $selimut_bayi, $pembalut, $kantong_mayat, $kain_kapan);
 
-// Jika variabel perhitungan laporan Tahap #2 TERSEDIA & SUDAH PERNAH dilakukan perhitungan sebelumnya, akan tetapi
-// data yang digunakan pada perhitungan sebelumnya mengalami perubahan data (laporan_tahap1 --> tb_observasi_lapangan)
-elseif ($id_laporan_tahap2 == 2) {
-
-    // Lakukan perhitungan untuk Laporan Tahap #2 dan Lakukan UPDATE (tb_analisis_prioritas)
-    $analisis->update_kebutuhan_log($id_peristiwa, $beras, $telur, $mie_instan, $air_mineral, $pakaian_balita,
-        $pakaian_anak_l, $pakaian_anak_p, $pakaian_remaja_l, $pakaian_remaja_p, $pakaian_dewasa_l, $pakaian_dewasa_p,
-        $selimut, $sleeping_bag, $matras, $sabun_mandi, $sabun_cuci, $paket_kesehatan, $popok_bayi, $susu_bayi,
-        $selimut_bayi, $pembalut, $kantong_mayat, $kain_kapan);
-}
-
-// Jika hasil perhitungan Laporan Tahap #2 tersedia dan data tersebut valid (laporan_tahap1 --> tb_observasi_lapangan)
-elseif ($id_laporan_tahap2 == 3) {
-
-    // Ambil data perhitungan dari database (tb_analisis_prioritas)
-    // WARNING! Alur ini juga seharusnya tidak akan pernah terpilih (Karena Trigger)
-    $keterangan = "Hasil perhitungan kebutuhan logistik up to date.";
-}
-
-// Jika dihadapkan pada kondisi selain kondisi yang sudah disebutkan di atas (just in case)
-else {
-
-    // Tampilkan pesan error pada setiap variabel perhitungan
-    $keterangan = "Terjadi kesalahan ketika melakukan perhitungan logistik prioritas.";
-}
-// End: Flowchart/Alur Kerja Sistem dalam Menyusun Laporan -------------------------------------------------------------
 
 echo "<script>window.location.reload('location:../../views/trc/?pages=hasil_observasi');</script>";
+
+// End: Flowchart/Alur Kerja Sistem dalam Menyusun Laporan -------------------------------------------------------------
 ?>

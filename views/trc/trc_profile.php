@@ -215,7 +215,7 @@
                                     <td class="col-xs-3 col-sm-3">Hak Akses</td>
                                     <td class="col-xs-1 col-sm-1">:</td>
                                     <td>
-                                        <input type="text" id="id_line" name="id_line" value="" />
+                                        <input type="hidden" id="id_line" name="id_line" value="" />
                                         <input type="hidden" id="hak_akses" name="hak_akses" />
                                         <select class="form-control" id="hak_akses_fake" name="hak_akses_fake" disabled>
                                             <option value="">Pilih...</option>

@@ -23,7 +23,7 @@ if ($_SESSION['hak_akses']!='ketua') {
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <meta charset="utf-8"/>
-    <title>SPBL</title>
+    <title>SPBL | BPBD Kota Bogor</title>
 
     <meta name="description" content=""/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
@@ -87,7 +87,7 @@ if ($_SESSION['hak_akses']!='ketua') {
             <a href="?pages=beranda" class="navbar-brand">
                 <small>
                     <i class="fa fa-cogs"></i>
-                    SPBL
+                    SPBL (Ketua)
                 </small>
             </a>
         </div>

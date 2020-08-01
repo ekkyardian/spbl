@@ -34,20 +34,20 @@ class AdmPeristiwaBencana
     public function tampil_polos()
     {
         $db = $this->mysqli->conn;
-        $sql = "SELECT * FROM tb_peristiwa ORDER BY tanggal_peristiwa ASC";
+        $sql = "SELECT * FROM tb_peristiwa ORDER BY tanggal_peristiwa DESC";
         $query = $db->query($sql) or die ($db->error);
 
         return $query;
     }
 
     // Start: Read Data -> tb_user
-    public function tampil_user($id_user=null)
+    public function tampil_user($id_user = null)
     {
         $db = $this->mysqli->conn;
         $sql = "SELECT * FROM tb_user WHERE hak_akses='trc'";
 
         if ($id_user != null) {
-            $sql ." AND id_user='$id_user''";
+            $sql .=" AND id_user='$id_user'";
         }
 
         $query = $db->query($sql) or die ($db->error);

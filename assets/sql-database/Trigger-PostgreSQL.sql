@@ -6,9 +6,25 @@ CREATE FUNCTION function_tambahPeristiwa()
 $BODY$
 BEGIN
 	INSERT INTO tb_observasi_lapangan
-		(id_peristiwa, korban_terdampak, korban_mengungsi, korban_luka, korban_meninggal, korban_hilang, pasca_bencana, pengungsi_laki_laki, pl_balita, pl_anak_anak, pl_remaja, pl_dewasa, pl_lansia, pengungsi_perempuan, pp_balita, pp_anak_anak, pp_remaja, pp_dewasa, pp_lansia, laporan_tahap1, laporan_tahap2)
+		(id_peristiwa, korban_terdampak, korban_mengungsi, korban_luka, korban_meninggal, korban_hilang, pasca_bencana,
+		pengungsi_laki_laki, pl_balita, pl_anak_anak, pl_remaja, pl_dewasa, pl_lansia, pengungsi_perempuan, pp_balita,
+		pp_anak_anak, pp_remaja, pp_dewasa, pp_lansia, laporan_tahap1, laporan_tahap2)
 	VALUES
 		(NEW.id_peristiwa, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0');
+
+	INSERT INTO tb_analisis_prioritas
+	  (id_peristiwa, paket_pangan, paket_sandang, paket_kematian, paket_lainnya)
+	VALUES
+	  (NEW.id_peristiwa, '0', '0', '0', '0');
+
+	INSERT INTO tb_kebutuhan_logistik
+    (id_peristiwa, beras, telur, mie_instan, air_minum, pakaian_balita, pakaian_anak_l, pakaian_anak_p, pakaian_remaja_l,
+    pakaian_remaja_p, pakaian_dewasa_l, pakaian_dewasa_p, selimut, sleeping_bag, matras, sabun_mandi, sabun_cuci,
+    paket_kesehatan, popok_bayi, susu_bayi, selimut_bayi, pembalut, kantong_mayat, kain_kafan)
+	VALUES
+	  (NEW.id_peristiwa, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0',
+	  '0', '0', '0', '0');
+
 	RETURN NEW;
 END;
 $BODY$

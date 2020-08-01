@@ -56,11 +56,11 @@ $KtaLaporanCetak = new KtaLaporanCetak($connection);
                 <tr>
 
                     <th>No</th>
-                    <th>Nama Inisial</th>
+                    <th class="col-lg-3 col-md-3">Nama Inisial</th>
                     <th>Jenis bencana</th>
-                    <th class="hidden-480">Cakupan Lokasi</th>
+                    <th class="col-lg-5 col-md-5">Cakupan Lokasi</th>
                     <th>Waktu Peristiwa</th>
-                    <th></th>
+                    <th class="col-lg-1 col-md-1"></th>
                     <th style="visibility: hidden" class="no-border no-margin no-padding no-radius"></th>
                 </tr>
                 </thead>
@@ -75,15 +75,15 @@ $KtaLaporanCetak = new KtaLaporanCetak($connection);
                     <tr>
 
 
-                        <td><?php echo $no++; ?></td>
+                        <td align="center"><?php echo $no++; ?></td>
                         <td><?php echo $data->nama_inisial; ?></td>
-                        <td class="hidden-480"><?php echo $data->jenis_bencana; ?></td>
+                        <td><?php echo $data->jenis_bencana; ?></td>
                         <td><?php echo $data->cakupan_lokasi; ?></td>
-                        <td class="hidden-480">
-                            <?php echo $data->tanggal_peristiwa; ?>&nbsp;
-                            <?php echo $data->jam_peristiwa; ?>
+                        <td align="center">
+                            <?php echo $data->tanggal_peristiwa; ?>, <br />
+                            <?php echo $data->jam_peristiwa; ?> WIB
                         </td>
-                        <td>
+                        <td align="center">
                             <div class="hidden-sm hidden-xs action-buttons">
                                 <div class="col-sm-6 no-padding">
                                     <form action="../../models/ketua/analisis_laporan.php" method="post" id="analisis_laporan">
