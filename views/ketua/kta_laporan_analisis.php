@@ -10,6 +10,18 @@ include "../../models/ketua/KtaLaporanCetak.php";
 
 $KtaLaporanCetak = new KtaLaporanCetak($connection);
 
+if (isset($_POST['cetak'])) {
+    $source = "kta_laporan_cetak.php";
+    $link   = "peristiwa=".$_POST['id_peristiwa'];
+
+    echo "<script>window.open('".$source."?".$link."', '_blank');</script>";
+}
+elseif (isset($_POST['pdf'])) {
+    $source = "kta_laporan_pdf.php";
+    $link   = "peristiwa=".$_POST['id_peristiwa'];
+
+    echo "<script>window.open('".$source."?".$link."', '_blank');</script>";
+}
 ?>
 
 <div class="breadcrumbs ace-save-state" id="breadcrumbs">
@@ -73,40 +85,34 @@ $KtaLaporanCetak = new KtaLaporanCetak($connection);
                 while ($data = $tampil_peristiwa->fetchObject()) {
                     ?>
                     <tr>
-
-
                         <td align="center"><?php echo $no++; ?></td>
                         <td><?php echo $data->nama_inisial; ?></td>
                         <td><?php echo $data->jenis_bencana; ?></td>
                         <td><?php echo $data->cakupan_lokasi; ?></td>
                         <td align="center">
-                            <?php echo $data->tanggal_peristiwa; ?>, <br />
+                            <?php echo $data->tanggal_peristiwa; ?>,<br />
                             <?php echo $data->jam_peristiwa; ?> WIB
                         </td>
                         <td align="center">
                             <div class="hidden-sm hidden-xs action-buttons">
-                                <div class="col-sm-6 no-padding">
-                                    <form action="../../models/ketua/analisis_laporan.php" method="post" id="analisis_laporan">
+                                <form method="POST" id="analisis_laporan">
+                                    <div class="col-sm-6 no-padding">
                                         <input type="hidden" name="id_peristiwa" id="id_peristiwa" value="<?php echo $data->id_peristiwa; ?>" />
                                         <input type="hidden" name="laporan_tahap1" id="laporan_tahap1" value="<?php echo $data->laporan_tahap1; ?>" />
                                         <input type="hidden" name="laporan_tahap2" id="laporan_tahap2" value="<?php echo $data->laporan_tahap2; ?>" />
-                                        <input type="hidden" name="tujuan" id="tujuan" value="cetak" />
-                                        <a class="blue" href="javascript:{}" onclick="document.getElementById('analisis_laporan').submit();">
-                                            <i class="ace-icon glyphicon glyphicon-print bigger-130"></i>
-                                        </a>
-                                    </form>
-                                </div>
-                                <div class="col-sm-6 no-padding">
-                                    <form action="../../models/ketua/analisis_laporan.php" method="post" id="analisis_laporan2">
+                                        <button type="submit" name="cetak" id="cetak" class="blue" style="background-color: transparent; border: 0px;">
+                                        <i class="ace-icon glyphicon glyphicon-print bigger-130"></i>
+                                        </button>
+                                    </div>
+                                    <div class="col-sm-6 no-padding">
                                         <input type="hidden" name="id_peristiwa" id="id_peristiwa" value="<?php echo $data->id_peristiwa; ?>" />
                                         <input type="hidden" name="laporan_tahap1" id="laporan_tahap1" value="<?php echo $data->laporan_tahap1; ?>" />
                                         <input type="hidden" name="laporan_tahap2" id="laporan_tahap2" value="<?php echo $data->laporan_tahap2; ?>" />
-                                        <input type="hidden" name="tujuan" id="tujuan" value="pdf" />
-                                        <a class="red" href="javascript:{}" onclick="document.getElementById('analisis_laporan2').submit();">
-                                            <i class="fa fa-file-pdf-o bigger-130"></i>
-                                        </a>
-                                    </form>
-                                </div>
+                                        <button type="submit" name="pdf" id="pdf" class="red" style="background-color: transparent; border: 0px;">
+                                        <i class="fa fa-file-pdf-o bigger-130"></i>
+                                        </button>
+                                    </div>
+                                </form>
                             </div>
 
                             <div class="hidden-md hidden-lg">

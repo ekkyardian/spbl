@@ -87,7 +87,7 @@ if ($_SESSION['hak_akses']!='ketua') {
             <a href="?pages=beranda" class="navbar-brand">
                 <small>
                     <i class="fa fa-cogs"></i>
-                    SPBL (Ketua)
+                    SPBL (Ketua Pelaksana)
                 </small>
             </a>
         </div>

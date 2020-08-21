@@ -196,9 +196,9 @@ while ($data = $tampil_user->fetchObject()) {
             </li>
 
             <li class="">
-                <a href="?pages=hasil_observasi">
+                <a href="?pages=observasi_lapangan">
                     <i class="menu-icon fa fa-check-square-o"></i>
-                    <span class="menu-text">Hasil Observasi</span>
+                    <span class="menu-text">Observasi Lapangan</span>
                 </a>
 
                 <b class="arrow"></b>
@@ -272,8 +272,8 @@ while ($data = $tampil_user->fetchObject()) {
                         include "adm_beranda.php";
                     } else if (@$_GET['pages'] == 'peristiwa_bencana') {
                         include "adm_peristiwa_bencana.php";
-                    } else if (@$_GET['pages'] == 'hasil_observasi') {
-                        include "adm_hasil_observasi.php";
+                    } else if (@$_GET['pages'] == 'observasi_lapangan') {
+                        include "adm_observasi_lapangan.php";
                     } else if (@$_GET['pages'] == 'laporan_analisis') {
                         include "adm_laporan_analisis.php";
                     } else if (@$_GET['pages'] == 'kelola_akun') {

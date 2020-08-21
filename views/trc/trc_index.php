@@ -188,9 +188,9 @@ while ($data = $tampil_user->fetchObject()) {
             </li>
 
             <li class="">
-                <a href="?pages=hasil_observasi">
+                <a href="?pages=observasi_lapangan">
                     <i class="menu-icon fa fa-check-square-o"></i>
-                    <span class="menu-text">Hasil Observasi</span>
+                    <span class="menu-text">Observasi Lapangan</span>
                 </a>
 
                 <b class="arrow"></b>
@@ -222,8 +222,8 @@ while ($data = $tampil_user->fetchObject()) {
                     <?php
                     if (@$_GET['pages'] == 'beranda' || @$_GET['pages'] == '') {
                         include "trc_beranda.php";
-                    } else if (@$_GET['pages'] == 'hasil_observasi') {
-                        include "trc_hasil_observasi.php";
+                    } else if (@$_GET['pages'] == 'observasi_lapangan') {
+                        include "trc_observasi_lapangan.php";
                     } else if (@$_GET['pages'] == 'profile') {
                         include "trc_profile.php";
                     } else if (@$_GET['pages'] == 'logout') {

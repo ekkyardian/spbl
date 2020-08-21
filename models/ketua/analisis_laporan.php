@@ -300,7 +300,7 @@ $pakaian_remaja_p   = 1 * $jml_pp_remaja; // setel/hari
 $pakaian_dewasa_l   = 1 * ($jml_pl_dewasa + $jml_pl_lansia); // setel/hari
 $pakaian_dewasa_p   = 1 * ($jml_pp_dewasa + $jml_pp_lansia); // setel/hari
 
-$selimut            = 1 * (($jml_pl + $jml_pp) - ($jml_pl_balita + $jml_pp_balita)); // buah
+$selimut            = 1 * (($jml_pl + $jml_pp) - ($jml_pl_balita + $jml_pp_balita + $jml_pl_lansia + $jml_pp_lansia)); // buah
 $sleeping_bag       = 1 * ($jml_pl_lansia + $jml_pp_lansia); // buah
 $matras             = 1 * ($jml_pl + $jml_pp); // buah
 $sabun_mandi        = 3 * ($jml_pl + $jml_pp); // batang/bulan
@@ -324,8 +324,8 @@ $jml_korban_meninggal_hilang    = $master_korban_hilang + $master_korban_meningg
 $jml_korban_luka                = $master_korban_luka; // Untuk Paket Lainnya
 
 // Hasil Perhitungan: Jumlah Kebutuhan Bantuan logistik dalam Bentuk Paket
-$kebutuhan_paket_pangan         = $jml_kepala_keluarga;
-$kebutuhan_paket_sandang        = $jml_kepala_keluarga;
+$kebutuhan_paket_pangan         = ceil(($jml_pl + $jml_pp) / 5);
+$kebutuhan_paket_sandang        = ceil(($jml_pl + $jml_pp) / 5);
 $kebutuhan_paket_kematian       = $jml_korban_meninggal_hilang;
 $kebutuhan_paket_lainnya        = ceil($jml_korban_luka / 10);
 // End: Analisis Kebutuhan Bantuan Logistik dalam Bentuk Paket ---------------------------------------------------------

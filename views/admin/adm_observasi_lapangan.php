@@ -51,6 +51,17 @@ if (@$_GET['act'] == '') {
         Hasil pencarian untuk form input hasil observasi lapangan
     </div>
 
+    <div class='alert alert-info' style="margin-bottom: 0; text-align: justify;">
+        <!-- <button type='button' class='close' data-dismiss='alert'>
+            <i class='ace-icon fa fa-times'></i>
+        </button> -->
+        <strong>Informasi!</strong> Anda dapat menambah dan menghapus form isian observasi lapangan melalui menu
+        <strong><a href="?pages=peristiwa_bencana">Peristiwa Bencana</a></strong>. Ketika Anda menambah peristiwa bencana baru, maka sistem secara otomatis
+        akan membuat form isian observasi lapangan sesuai dengan peristiwa bencana yang ditambahkan. Begitu juga pada
+        saat Anda menghapus peristiwa bencana, sistem akan menghapus form isian observasi bencana beserta dengan data
+        laporannya (jika ada).
+    </div>
+
     <!--| Start: Tabel Peristiwa Bencana + Hasil Observasi Lapangan |-->
     <div class="row">
         <div class="col-sm-12">
