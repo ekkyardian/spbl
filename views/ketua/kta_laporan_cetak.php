@@ -267,22 +267,66 @@ $dewasa_lansia_p    = $pp_dewasa + $pp_lansia;
                                 <tr>
                                     <td>Paket Pangan</td>
                                     <td>:</td>
-                                    <td><?php echo $paket_pangan; ?></td>
+                                    <td>
+                                        <?php if ($paket_prioritas == "Paket Pangan") {
+                                            echo "<strong><u>";
+                                        }
+
+                                        echo $paket_pangan;
+
+                                        if ($paket_prioritas == "Paket Pangan") {
+                                            echo "</strong></u>";
+                                        }
+                                        ?>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>Paket Sandang</td>
                                     <td>:</td>
-                                    <td><?php echo $paket_sandang; ?></td>
+                                    <td>
+                                        <?php if ($paket_prioritas == "Paket Sandang") {
+                                            echo "<strong><u>";
+                                        }
+
+                                        echo $paket_sandang;
+
+                                        if ($paket_prioritas == "Paket Sandang") {
+                                            echo "</strong></u>";
+                                        }
+                                        ?>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>Paket Kematian</td>
                                     <td>:</td>
-                                    <td><?php echo $paket_kematian; ?></td>
+                                    <td>
+                                        <?php if ($paket_prioritas == "Paket Kematian") {
+                                            echo "<strong><u>";
+                                        }
+
+                                        echo $paket_kematian;
+
+                                        if ($paket_prioritas == "Paket Kematian") {
+                                            echo "</strong></u>";
+                                        }
+                                        ?>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>Paket Lainnya</td>
                                     <td>:</td>
-                                    <td><?php echo $paket_lainnya; ?></td>
+                                    <td>
+                                        <?php if ($paket_prioritas == "Paket Lainnya") {
+                                            echo "<strong><u>";
+                                        }
+
+                                        echo $paket_lainnya;
+
+                                        if ($paket_prioritas == "Paket Lainnya") {
+                                            echo "</strong></u>";
+                                        }
+                                        ?>
+                                    </td>
                                 </tr>
                             </table>
                             <!--| End: Logistik Prioritas |-->
