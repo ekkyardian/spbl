@@ -2,17 +2,17 @@
 CREATE TABLE tb_akun_line (
 	id_line VARCHAR (100) PRIMARY KEY,
 	display_name VARCHAR (100) NOT NULL,
-	url_foto VARCHAR (200)
+	url_foto VARCHAR (150)
 );
 
 -- CREATE TABLE tb_user --
 CREATE TABLE tb_user (
 	id_user VARCHAR (7) PRIMARY KEY,
 	id_line VARCHAR (100),
-	nama_lengkap VARCHAR (100),
-	jenis_kelamin VARCHAR (1),
-	jabatan VARCHAR (100),
-	username VARCHAR (20) NOT NULL,
+	nama_lengkap VARCHAR (100) NOT NULL,
+	jenis_kelamin VARCHAR (1) NOT NULL,
+	jabatan VARCHAR (100) NOT NULL,
+	username VARCHAR (30) NOT NULL,
 	password VARCHAR (50) NOT NULL,
 	hak_akses VARCHAR (5) NOT NULL,
 	foto_akun VARCHAR (20)
@@ -28,10 +28,10 @@ CREATE TABLE tb_alternatif (
 CREATE TABLE tb_analisis_prioritas (
 	id_analisis SERIAL PRIMARY KEY,
 	id_peristiwa VARCHAR (12) NOT NULL,
-	paket_pangan DECIMAL,
-	paket_sandang DECIMAL,
-	paket_kematian DECIMAL,
-	paket_lainnya DECIMAL
+	paket_pangan NUMERIC,
+	paket_sandang NUMERIC,
+	paket_kematian NUMERIC,
+	paket_lainnya NUMERIC
 );
 
 -- CREATE TABLE tb_bobot --
@@ -108,7 +108,7 @@ CREATE TABLE tb_peristiwa (
 	id_peristiwa VARCHAR (12) PRIMARY KEY,
 	id_user VARCHAR (7) NOT NULL,
 	jenis_bencana VARCHAR (50) NOT NULL,
-	nama_inisial VARCHAR (50) NOT NULL,
+	nama_inisial VARCHAR (100) NOT NULL,
 	cakupan_lokasi TEXT,
 	tanggal_peristiwa DATE,
 	jam_peristiwa VARCHAR (5),
@@ -118,7 +118,7 @@ CREATE TABLE tb_peristiwa (
 -- CREATE TABLE tb_sub_kriteria --
 CREATE TABLE tb_sub_kriteria (
 	id_sub_kriteria VARCHAR (7) PRIMARY KEY,
-	id_kriteria VARCHAR (12) NOT NULL,
+	id_kriteria VARCHAR (7) NOT NULL,
 	deskripsi VARCHAR (20) NOT NULL,
 	utility INTEGER NOT NULL
 );
