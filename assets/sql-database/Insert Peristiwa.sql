@@ -12,7 +12,7 @@ VALUES
     ('009/PRS/2019', 'USR-001', 'Kebakaran', 'Kebakaran di Kelurahan Kedung Jaya, Tanah Sareal', 'Jl. Komplek Pertokoan 24 Jl. K.H. Sholeh Iskandar No. 2 H RT 01/RW 05 Kel. Kedung Jaya, Kec. Tanah Sareal, Kota ', '2019/10/28', '03:00', 'Closed'),
     ('010/PRS/2019', 'USR-001', 'Angin Kencang', 'Angin Kencang di Kelurahan Cilendek, Bogor Barat', 'Jl. Cemplang Baru RT 01 RW 10 Kel. Cilendek, Kec. Bogor Barat, Kota Bogor', '2019/11/13', '15:30', 'Closed'),
     ('011/PRS/2019', 'USR-001', 'Angin Kencang', 'Angin Kencang di Kelurahan Harjasari, Bogor Selatan', 'RT 02/RW 05 Kel. Harjasari, Kec. Bogor Selatan, Kota Bogor', '2019/12/08', '15:10', 'Closed'),
-    ('012/PRS/2019', 'USR-001', 'Tanah Longsong', 'Tanah Longsor di Kelurahan Balungbang Jaya, Bogor Barat', 'Kp. Babakan lio RT 03/RW 11, Kel. Balungbang Jaya, Kec. Bogor Barat', '2019/12/14', '17:00', 'Closed'),
+    ('012/PRS/2019', 'USR-001', 'Tanah Longsor', 'Tanah Longsor di Kelurahan Balungbang Jaya, Bogor Barat', 'Kp. Babakan lio RT 03/RW 11, Kel. Balungbang Jaya, Kec. Bogor Barat', '2019/12/14', '17:00', 'Closed'),
     ('013/PRS/2019', 'USR-004', 'Banjir', 'Banjir di Kelurahan Kayumanis, Tanah Sareal', 'Jl. Pool Bina Marga RT 01/RW 01 Kel. Kayumanis, Kec. Tanah Sareal, Kota Bogor', '2019/12/14', '18:00', 'Closed'),
     ('014/PRS/2019', 'USR-001', 'Lainnya', 'Pohon Tumbang di Kelurahan Bondongan, Bogor Selatan', 'Kp. Warung Bandrek, Rt. 04 / Rw. 15, Kelurahan Bondongan, Kecamatan Bogor Selatan, Kota Bogor', '2019/12/17', '20:31', 'Closed'),
     ('015/PRS/2019', 'USR-001', 'Tanah Longsor', 'Tanah Longsor di Kelurahan Cimahpar, Bogor Utara', 'Kp. Blok Paku RT 02/RW 10 Kel. Cimahpar, Kec. Bogor Utara, Kota Bogor', '2019/12/20', '17:00', 'Open');
