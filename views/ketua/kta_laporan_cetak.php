@@ -45,6 +45,24 @@ else if ($paket_lainnya > $paket_pangan AND $paket_lainnya > $paket_sandang AND
 $paket_lainnya > $paket_kematian) {
     $paket_prioritas = "Paket Lainnya";
 }
+else if ($paket_pangan == $paket_sandang) {
+    $paket_prioritas = "Paket Pangan & Sandang";
+}
+else if ($paket_pangan == $paket_kematian) {
+    $paket_prioritas = "Paket Pangan & Kematian";
+}
+else if ($paket_pangan == $paket_lainnya) {
+    $paket_prioritas = "Paket Pangan & Lainnya";
+}
+else if ($paket_sandang == $paket_kematian) {
+    $paket_prioritas = "Paket Sandang & Lainnya";
+}
+else if ($paket_sandang == $paket_lainnya) {
+    $paket_prioritas = "Paket Sandang & Lainnya";
+}
+else if ($paket_kematian == $paket_lainnya) {
+    $paket_prioritas = "Paket Kematian & Lainnya";
+}
 else {
     $paket_prioritas = "Tidak Ditemukan";
 }
@@ -73,8 +91,8 @@ $pp_dewasa           = $observasi_lapangan->pp_dewasa;
 $pp_lansia           = $observasi_lapangan->pp_lansia;
 
 // Analisis Kebutuhan Logistik: Paket ----------------------------------------------------------------------------------
-$kebutuhan_paket_pangan     = $pl_dewasa + $pl_lansia;
-$kebutuhan_paket_sandang    = $pl_dewasa + $pl_lansia;
+$kebutuhan_paket_pangan     = ceil($korban_terdampak / 5);
+$kebutuhan_paket_sandang    = ceil($korban_terdampak / 5);
 $kebutuhan_paket_kematian   = $korban_meninggal + $korban_hilang;
 $kebutuhan_paket_lainnya    = ceil($korban_luka / 10);
 
@@ -349,7 +367,7 @@ $dewasa_lansia_p    = $pp_dewasa + $pp_lansia;
                             <!--| Start: Hasil Observasi Lapangan Tahap #1 |-->
                             <table width="100%" class="deskripsi-table">
                                 <tr>
-                                    <th colspan="3">Hasil Observasi Lapangan Tahap #1</th>
+                                    <th colspan="3">#1 Hasil Observasi: Umum</th>
                                 </tr>
                                 <tr>
                                     <td width="250px">Jumlah Korban Terdampak</td>
@@ -393,10 +411,10 @@ $dewasa_lansia_p    = $pp_dewasa + $pp_lansia;
                             <!--| Start: Hasil Observasi Lapangan Tahap #2 |-->
                             <table width="100%" class="deskripsi-table">
                                 <tr>
-                                    <th colspan="3">Hasil Observasi Lapangan Tahap #2</th>
+                                    <th colspan="3">#2 Hasil Observasi: Korban Mengungsi</th>
                                 </tr>
                                 <tr>
-                                    <td colspan="3"><strong>A. Korban Bencana: Laki-laki</strong></td>
+                                    <td colspan="3"><strong>A. Korban Mengungsi: Laki-laki</strong></td>
                                 </tr>
                                 <tr>
                                     <td>Balita</td>
@@ -432,7 +450,7 @@ $dewasa_lansia_p    = $pp_dewasa + $pp_lansia;
                                     <td colspan="3">&nbsp;</td>
                                 </tr>
                                 <tr>
-                                    <td colspan="3"><strong>B. Korban Bencana: Perempuan</strong></td>
+                                    <td colspan="3"><strong>B. Korban Mengungsi: Perempuan</strong></td>
                                 </tr>
                                 <tr>
                                     <td>Balita</td>

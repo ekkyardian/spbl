@@ -23,7 +23,7 @@ WHERE
     id_peristiwa='001/PRS/2019';
 
 UPDATE tb_observasi_lapangan SET
-    korban_terdampak='47', korban_mengungsi='15', korban_luka='13', korban_meninggal='0', korban_hilang='0', pasca_bencana='Normal', pengungsi_laki_laki='10', pl_balita='0', pl_anak_anak='3', pl_remaja='4', pl_dewasa='2', pl_lansia='1', pengungsi_perempuan='10', pp_balita='1', pp_anak_anak='1', pp_remaja='6', pp_dewasa='2', pp_lansia='0'
+    korban_terdampak='47', korban_mengungsi='15', korban_luka='13', korban_meninggal='0', korban_hilang='0', pasca_bencana='Normal', pengungsi_laki_laki='7', pl_balita='0', pl_anak_anak='2', pl_remaja='2', pl_dewasa='2', pl_lansia='1', pengungsi_perempuan='8', pp_balita='1', pp_anak_anak='1', pp_remaja='4', pp_dewasa='2', pp_lansia='0'
 WHERE
     id_peristiwa='002/PRS/2019';
 

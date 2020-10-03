@@ -277,14 +277,14 @@ $jml_pl_anak_anak   = $_POST['pl_anak_anak'];
 $jml_pl_remaja      = $_POST['pl_remaja'];
 $jml_pl_dewasa      = $_POST['pl_dewasa'];
 $jml_pl_lansia      = $_POST['pl_lansia'];
-$jml_pl             = $_POST['jml_pl'];
+$jml_pl             = $jml_pl_balita + $jml_pl_anak_anak + $jml_pl_remaja + $jml_pl_dewasa + $jml_pl_lansia;
 
 $jml_pp_balita      = $_POST['pp_balita'];
 $jml_pp_anak_anak   = $_POST['pp_anak_anak'];
 $jml_pp_remaja      = $_POST['pp_remaja'];
 $jml_pp_dewasa      = $_POST['pp_dewasa'];
 $jml_pp_lansia      = $_POST['pp_lansia'];
-$jml_pp             = $_POST['jml_pp'];
+$jml_pp             = $jml_pp_balita + $jml_pp_anak_anak + $jml_pp_remaja + $jml_pp_dewasa + $jml_pp_lansia;
 
 // Proses Perhitungan: Kebutuhan Bantuan Logistik dalam Bentuk Satuan
 $beras              = 0.4 * (($jml_pl + $jml_pp) - ($jml_pl_balita + $jml_pp_balita)); // liter/hari
@@ -319,13 +319,13 @@ $kain_kapan         = 1 * $master_korban_meninggal_hilang; // buah/korban mening
 
 // Start: Analisis Kebutuhan Bantuan Logistik dalam Bentuk Paket -------------------------------------------------------
 // Deklarasi Variabel yang Dibutuhkan untuk Perhitungan
-$jml_kepala_keluarga            = $jml_pl_dewasa; // Untuk Paket Sandang dan Pangan
+$jml_kepala_keluarga            = $master_korban_terdampak; // Untuk Paket Sandang dan Pangan
 $jml_korban_meninggal_hilang    = $master_korban_hilang + $master_korban_meninggal; // Untuk Paket Kematian
 $jml_korban_luka                = $master_korban_luka; // Untuk Paket Lainnya
 
 // Hasil Perhitungan: Jumlah Kebutuhan Bantuan logistik dalam Bentuk Paket
-$kebutuhan_paket_pangan         = ceil(($jml_pl + $jml_pp) / 5);
-$kebutuhan_paket_sandang        = ceil(($jml_pl + $jml_pp) / 5);
+$kebutuhan_paket_pangan         = ceil($jml_kepala_keluarga / 5);
+$kebutuhan_paket_sandang        = ceil($jml_kepala_keluarga / 5);
 $kebutuhan_paket_kematian       = $jml_korban_meninggal_hilang;
 $kebutuhan_paket_lainnya        = ceil($jml_korban_luka / 10);
 // End: Analisis Kebutuhan Bantuan Logistik dalam Bentuk Paket ---------------------------------------------------------
