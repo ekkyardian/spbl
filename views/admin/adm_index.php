@@ -24,6 +24,7 @@ if ($_SESSION['hak_akses']!='admin') {
 
     <meta name="description" content=""/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+    <link rel="shortcut icon" href="../../assets/images/favicon.ico" type="image/x-icon">
 
     <!-- File php -->
 

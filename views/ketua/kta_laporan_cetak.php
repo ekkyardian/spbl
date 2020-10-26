@@ -478,7 +478,7 @@ $dewasa_lansia_p    = $pp_dewasa + $pp_lansia;
                                     <td><?php echo $pp_lansia; ?> orang</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>Total Sub A</strong></td>
+                                    <td><strong>Total Sub B</strong></td>
                                     <td><strong>:</strong></td>
                                     <td><strong><?php echo $pp; ?> orang</strong></td>
                                 </tr>
