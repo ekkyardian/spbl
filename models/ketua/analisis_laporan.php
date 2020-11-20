@@ -109,16 +109,16 @@ else {
 
 // Menentukan kelas nilai: Korban Meninggal dan Hilang
 $master_korban_meninggal_hilang = $master_korban_meninggal + $master_korban_hilang;
-if ($master_korban_meninggal_hilang > 0 AND $master_korban_meninggal_hilang <= 2) {
+if ($master_korban_meninggal_hilang == 1) {
     $kelas_korban_meninggal_hilang = 25;
 }
-elseif ($master_korban_meninggal_hilang > 2 AND $master_korban_meninggal_hilang <= 5) {
+elseif ($master_korban_meninggal_hilang == 2) {
     $kelas_korban_meninggal_hilang = 50;
 }
-elseif ($master_korban_meninggal_hilang > 6 AND $master_korban_meninggal_hilang <= 10) {
+elseif ($master_korban_meninggal_hilang == 3) {
     $kelas_korban_meninggal_hilang = 75;
 }
-elseif ($master_korban_meninggal_hilang > 10) {
+elseif ($master_korban_meninggal_hilang > 3) {
     $kelas_korban_meninggal_hilang = 100;
 }
 else {
