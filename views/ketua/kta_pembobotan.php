@@ -262,7 +262,7 @@ $id_bobot_45   = $KtaPembobotan->tampil_bobot($alternatif_4, $kriteria_5)->fetch
                     </tr>
                     <tr>
                         <td><li>> 3</li></td>
-                        <td class="center"></td>
+                        <td class="center">100</td>
                     </tr>
                 </ul>
                 <!--| End: Pangan -> Jml. Korban Meninggal dan Hilang |-->
@@ -586,7 +586,7 @@ $id_bobot_45   = $KtaPembobotan->tampil_bobot($alternatif_4, $kriteria_5)->fetch
                         </tr>
                         <tr>
                             <td><li>> 3</li></td>
-                            <td class="center"></td>
+                            <td class="center">100</td>
                         </tr>
                     </ul>
                     <!--| End: Sandang -> Jml. Korban Meninggal dan Hilang |-->
@@ -909,7 +909,7 @@ $id_bobot_45   = $KtaPembobotan->tampil_bobot($alternatif_4, $kriteria_5)->fetch
                         </tr>
                         <tr>
                             <td><li>> 3</li></td>
-                            <td class="center"></td>
+                            <td class="center">100</td>
                         </tr>
                     </ul>
                     <!--| End: Kematian -> Jml. Korban Meninggal dan Hilang |-->
@@ -1233,7 +1233,7 @@ $id_bobot_45   = $KtaPembobotan->tampil_bobot($alternatif_4, $kriteria_5)->fetch
                         </tr>
                         <tr>
                             <td><li>> 3</li></td>
-                            <td class="center"></td>
+                            <td class="center">100</td>
                         </tr>
                     </ul>
                     <!--| End: Lainnya -> Jml. Korban Meninggal dan Hilang |-->
