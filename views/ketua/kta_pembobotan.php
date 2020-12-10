@@ -249,19 +249,19 @@ $id_bobot_45   = $KtaPembobotan->tampil_bobot($alternatif_4, $kriteria_5)->fetch
                         <td class="center">0</td>
                     </tr>
                     <tr>
-                        <td><li>1 s.d. 2</li></td>
+                        <td><li>1</li></td>
                         <td class="center">25</td>
                     </tr>
                     <tr>
-                        <td><li>3 s.d. 5</li></td>
+                        <td><li>2</li></td>
                         <td class="center">50</td>
                     </tr>
                     <tr>
-                        <td><li>6 s.d. 10</li></td>
+                        <td><li>3</li></td>
                         <td class="center">75</td>
                     </tr>
                     <tr>
-                        <td><li>> 10</li></td>
+                        <td><li>> 3</li></td>
                         <td class="center"></td>
                     </tr>
                 </ul>
@@ -573,19 +573,19 @@ $id_bobot_45   = $KtaPembobotan->tampil_bobot($alternatif_4, $kriteria_5)->fetch
                             <td class="center">0</td>
                         </tr>
                         <tr>
-                            <td><li>1 s.d. 2</li></td>
+                            <td><li>1</li></td>
                             <td class="center">25</td>
                         </tr>
                         <tr>
-                            <td><li>3 s.d. 5</li></td>
+                            <td><li>2</li></td>
                             <td class="center">50</td>
                         </tr>
                         <tr>
-                            <td><li>6 s.d. 10</li></td>
+                            <td><li>3</li></td>
                             <td class="center">75</td>
                         </tr>
                         <tr>
-                            <td><li>> 10</li></td>
+                            <td><li>> 3</li></td>
                             <td class="center"></td>
                         </tr>
                     </ul>
@@ -896,19 +896,19 @@ $id_bobot_45   = $KtaPembobotan->tampil_bobot($alternatif_4, $kriteria_5)->fetch
                             <td class="center">0</td>
                         </tr>
                         <tr>
-                            <td><li>1 s.d. 2</li></td>
+                            <td><li>1</li></td>
                             <td class="center">25</td>
                         </tr>
                         <tr>
-                            <td><li>3 s.d. 5</li></td>
+                            <td><li>2</li></td>
                             <td class="center">50</td>
                         </tr>
                         <tr>
-                            <td><li>6 s.d. 10</li></td>
+                            <td><li>3</li></td>
                             <td class="center">75</td>
                         </tr>
                         <tr>
-                            <td><li>> 10</li></td>
+                            <td><li>> 3</li></td>
                             <td class="center"></td>
                         </tr>
                     </ul>
@@ -1220,19 +1220,19 @@ $id_bobot_45   = $KtaPembobotan->tampil_bobot($alternatif_4, $kriteria_5)->fetch
                             <td class="center">0</td>
                         </tr>
                         <tr>
-                            <td><li>1 s.d. 2</li></td>
+                            <td><li>1</li></td>
                             <td class="center">25</td>
                         </tr>
                         <tr>
-                            <td><li>3 s.d. 5</li></td>
+                            <td><li>2</li></td>
                             <td class="center">50</td>
                         </tr>
                         <tr>
-                            <td><li>6 s.d. 10</li></td>
+                            <td><li>3</li></td>
                             <td class="center">75</td>
                         </tr>
                         <tr>
-                            <td><li>> 10</li></td>
+                            <td><li>> 3</li></td>
                             <td class="center"></td>
                         </tr>
                     </ul>
